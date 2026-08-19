@@ -1,0 +1,33 @@
+{
+  "metadata": { "total": 2, "page": 0, "per_page": 100 },
+  "results": [
+    {
+      "id": 100654,
+      "school.name": "Alabama A & M University",
+      "school.state": "AL",
+      "latest.cost.tuition.out_of_state": 18634,
+      "latest.admissions.admission_rate.overall": 0.5795,
+      "latest.earnings.10_yrs_after_entry.median": 38983,
+      "latest.completion.completion_rate_4yr_150nt": 0.2996,
+      "latest.academics.program_percentage.computer": 0.0557,
+      "latest.academics.program_percentage.engineering": 0.1164,
+      "latest.academics.program_percentage.engineering_technology": 0.0361,
+      "latest.academics.program_percentage.business_marketing": 0.1689,
+      "latest.academics.program_percentage.legal": 0
+    },
+    {
+      "id": 100663,
+      "school.name": "University of Alabama at Birmingham",
+      "school.state": "AL",
+      "latest.cost.tuition.out_of_state": 22562,
+      "latest.admissions.admission_rate.overall": null,
+      "latest.earnings.10_yrs_after_entry.median": 49380,
+      "latest.completion.completion_rate_4yr_150nt": 0.6408,
+      "latest.academics.program_percentage.computer": 0.0089,
+      "latest.academics.program_percentage.engineering": 0,
+      "latest.academics.program_percentage.engineering_technology": 0,
+      "latest.academics.program_percentage.business_marketing": 0.0312,
+      "latest.academics.program_percentage.legal": 0.041
+    }
+  ]
+}
