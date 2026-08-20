@@ -141,10 +141,13 @@ because the free tier gets a real — just less intelligent — result instead o
 - `rankCandidates(candidates, profile, context)` — premium matching only; `candidates` is a list already filtered by `services/matchingService.js` from Postgres, and `context.fitsBySchoolId` carries the deterministic Reach/Target/Safety read from `ai-engine/admissionFitEngine.js` so the model explains rather than contradicts it. The AI engine has no DB access and cannot query for more candidates than it's given.
 
 `ai-engine/admissionFitEngine.js` is deliberately *not* one of these three — it's plain
-deterministic heuristics (GPA/test-score/extracurricular scoring against a school's QS-rank
-selectivity band), not an AI provider call. It's what the free tier's matching runs entirely
-on (no `rankCandidates`/provider call at all for a basic-tier user), and what premium's
-`rankCandidates` call is given as grounding context.
+deterministic heuristics (GPA/test-score/extracurricular scoring against a school's
+selectivity), not an AI provider call. It's what the free tier's matching runs entirely on (no
+`rankCandidates`/provider call at all for a basic-tier user), and what premium's
+`rankCandidates` call is given as grounding context. A school's selectivity threshold prefers
+its own reported incoming-class sat_avg/hs_gpa_avg (US News — see DATA_SOURCES.md) when
+available, since that's a direct comparison rather than an estimate; it falls back to a
+QS-rank-derived band, then an admission_rate-derived band, in that order.
 
 All three call an `AIProvider` interface (`invoke(prompt, options)`), not a concrete SDK. `BedrockProvider` implements it for production (Bedrock/Claude call marked TODO). `MockProvider` implements it for tests/dev, returning fixture JSON. Which provider is instantiated is decided once, in `config/`, from an env var — no route or service ever imports Bedrock's SDK directly.
 

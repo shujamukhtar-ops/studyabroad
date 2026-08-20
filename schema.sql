@@ -84,7 +84,7 @@ CREATE INDEX idx_essay_examples_embedding ON essay_examples USING hnsw (embeddin
 
 CREATE TABLE schools (
     id                  UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    source              TEXT NOT NULL CHECK (source IN ('college_scorecard', 'hesa_discover_uni', 'manual_curated', 'qs_rankings')),
+    source              TEXT NOT NULL CHECK (source IN ('college_scorecard', 'hesa_discover_uni', 'manual_curated', 'qs_rankings', 'usnews_rankings')),
     external_id         TEXT,               -- source's own id, e.g. Scorecard's `id` field
     name                TEXT NOT NULL,
     country             TEXT NOT NULL,
@@ -94,6 +94,8 @@ CREATE TABLE schools (
     median_earnings     NUMERIC,
     completion_rate     NUMERIC,
     world_rank          INTEGER,            -- QS World University Rankings position, when sourced from qs_rankings
+    sat_avg             NUMERIC,            -- incoming-class average SAT (US News), used for a precise per-school selectivity threshold
+    hs_gpa_avg          NUMERIC,            -- incoming-class average HS GPA (US News), same purpose as sat_avg
     raw_source_data     JSONB,              -- full source payload, for audit/debug
     last_synced_at      TIMESTAMPTZ,
     created_at          TIMESTAMPTZ NOT NULL DEFAULT now(),

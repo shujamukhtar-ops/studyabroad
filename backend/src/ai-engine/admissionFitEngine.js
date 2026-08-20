@@ -108,6 +108,24 @@ export function computeHolisticIndex(holisticProfile) {
   return Math.min(100, ecPoints + pubPoints + workPoints);
 }
 
+// The most precise selectivity signal available: this specific school's own reported
+// incoming-class average SAT and/or HS GPA (US News — see data-ingestion/sources/
+// usnews-rankings.js), normalized on exactly the same 0-100 scale computeAcademicIndex()
+// normalizes a student's own GPA/SAT onto. Where the rank/admission-rate bands below are an
+// estimate of "roughly how selective is a school in this tier," this is a direct comparison —
+// exactly the "3.5 GPA isn't automatically a good fit for MIT, but 3.99+1600 is" distinction
+// this engine exists to make. It's still institution-wide undergraduate-admits data applied
+// as a general selectivity signal regardless of the student's own degree level, the same
+// simplification world_rank/admission_rate already carry below.
+function selectivityFromSchoolAverages(school) {
+  const satNorm = typeof school.sat_avg === 'number' ? clamp01((school.sat_avg - SAT_MIN) / (SAT_MAX - SAT_MIN)) * 100 : null;
+  const gpaNorm = typeof school.hs_gpa_avg === 'number' ? clamp01(school.hs_gpa_avg / 4.0) * 100 : null;
+  if (satNorm === null && gpaNorm === null) return null;
+  if (satNorm === null) return gpaNorm;
+  if (gpaNorm === null) return satNorm;
+  return satNorm * 0.5 + gpaNorm * 0.5;
+}
+
 // A school's selectivity, standing in for admission_rate when — as for most QS-sourced rows
 // (see data-ingestion/sources/qs-rankings.js) — that isn't available. Bands are calibrated
 // against publicly reported Common Data Set middle-50% SAT/GPA ranges: schools in QS's global
@@ -116,6 +134,8 @@ export function computeHolisticIndex(holisticProfile) {
 // an academic index most applicants don't have — see computeFit(). Rank bands widen further
 // down the list since selectivity drops off faster than rank position does.
 function schoolThreshold(school) {
+  const fromAverages = selectivityFromSchoolAverages(school);
+  if (fromAverages !== null) return fromAverages;
   if (typeof school.world_rank === 'number') {
     if (school.world_rank <= 20) return 90;
     if (school.world_rank <= 50) return 80;

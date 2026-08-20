@@ -32,18 +32,24 @@ export async function findCandidateSchools({ targetCountries, intendedMajor, bud
          admission_rate DESC NULLS LAST
      )
      SELECT id, source, external_id, name, country, major_tags, avg_tuition, admission_rate,
-            median_earnings, completion_rate, world_rank, raw_source_data, last_synced_at, created_at
+            median_earnings, completion_rate, world_rank, sat_avg, hs_gpa_avg, raw_source_data,
+            last_synced_at, created_at
      FROM deduped
      ORDER BY
-       -- Untagged schools are kept as candidates (see the major_tags clause above — "no
-       -- data" isn't treated as "no match"), but they must not outrank schools that are
-       -- actually confirmed to offer the requested major.
-       CASE WHEN $2::text IS NOT NULL AND $2::text = ANY(major_tags) THEN 0 ELSE 1 END,
-       -- world_rank (QS World University Rankings, when the row came from that source) is
-       -- the strongest per-country quality signal we have and applies to far more rows than
-       -- admission_rate does, so it takes priority; admission_rate remains the tiebreaker
-       -- for schools QS doesn't rank.
+       -- world_rank (QS World University Rankings, when the row came from that source) goes
+       -- first, ahead of major-tag match. QS doesn't tag schools by major at all (see
+       -- qs-rankings.js), so putting major-tag-match first would rank every QS-only elite
+       -- school (MIT, Princeton, ...) as "unmatched" and, since well over 50 US schools carry
+       -- most common major tags via college-scorecard.js's 2%-of-degrees rule, push them past
+       -- the LIMIT entirely — a student searching by major would never see a top school at
+       -- all. world_rank ASC NULLS LAST already sends the untagged majority of schools (no
+       -- world_rank) to the back on its own, so this doesn't need major-tag-match as a
+       -- primary key to keep those from outranking a confirmed-major school.
        world_rank ASC NULLS LAST,
+       -- Among schools tied on world_rank (almost always both null), a school confirmed to
+       -- offer the requested major still outranks one with no major data at all.
+       CASE WHEN $2::text IS NOT NULL AND $2::text = ANY(major_tags) THEN 0 ELSE 1 END,
+       -- admission_rate remains the next tiebreaker for schools QS doesn't rank.
        admission_rate DESC NULLS LAST
      LIMIT 50`,
     [targetCountries ?? [], intendedMajor ?? null, ceiling]
@@ -56,10 +62,10 @@ export async function findCandidateSchools({ targetCountries, intendedMajor, bud
 // college_scorecard rows. A manual_curated row shares no conflict target with it, so an
 // automated sync can structurally never clobber hand-entered data, even on external_id reuse.
 export async function upsertSchoolFromSource(record) {
-  const { source, externalId, name, country, majorTags, avgTuition, admissionRate, medianEarnings, completionRate, worldRank, rawSourceData } = record;
+  const { source, externalId, name, country, majorTags, avgTuition, admissionRate, medianEarnings, completionRate, worldRank, satAvg, hsGpaAvg, rawSourceData } = record;
   const { rows } = await query(
-    `INSERT INTO schools (source, external_id, name, country, major_tags, avg_tuition, admission_rate, median_earnings, completion_rate, world_rank, raw_source_data, last_synced_at)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, now())
+    `INSERT INTO schools (source, external_id, name, country, major_tags, avg_tuition, admission_rate, median_earnings, completion_rate, world_rank, sat_avg, hs_gpa_avg, raw_source_data, last_synced_at)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, now())
      ON CONFLICT (source, external_id) DO UPDATE SET
        name = EXCLUDED.name,
        country = EXCLUDED.country,
@@ -69,10 +75,37 @@ export async function upsertSchoolFromSource(record) {
        median_earnings = EXCLUDED.median_earnings,
        completion_rate = EXCLUDED.completion_rate,
        world_rank = EXCLUDED.world_rank,
+       sat_avg = EXCLUDED.sat_avg,
+       hs_gpa_avg = EXCLUDED.hs_gpa_avg,
        raw_source_data = EXCLUDED.raw_source_data,
        last_synced_at = now()
      RETURNING *`,
-    [source, externalId, name, country, majorTags ?? [], avgTuition, admissionRate, medianEarnings, completionRate, worldRank ?? null, rawSourceData ?? {}]
+    [source, externalId, name, country, majorTags ?? [], avgTuition, admissionRate, medianEarnings, completionRate, worldRank ?? null, satAvg ?? null, hsGpaAvg ?? null, rawSourceData ?? {}]
   );
   return rows[0];
+}
+
+// US News covers ~1,665 US schools, most of which already exist in `schools` from
+// college_scorecard/manual_curated/qs_rankings (under source values this row's own
+// (source, external_id) upsert can't touch — see upsertSchoolFromSource's comment). Rather
+// than insert a *second* row for a school we already have — which would need
+// findCandidateSchools' dedup step to reconcile two rows' data instead of just picking a
+// winner — this updates sat_avg/hs_gpa_avg directly on whichever existing row(s) match by
+// name, so the school that ends up as the actual candidate (per the existing dedup priority)
+// already carries the new data. Matches ignore a trailing parenthetical abbreviation (e.g.
+// qs_rankings' "Massachusetts Institute of Technology (MIT)" vs US News' "Massachusetts
+// Institute of Technology") since that's the one systematic naming difference observed
+// between these two sources' names for the same school. Returns how many rows were updated,
+// so the seed script knows whether to fall back to inserting a brand-new usnews_rankings row
+// for a school that wasn't already in the table at all.
+export async function enrichSchoolAcademicStats({ country, name, satAvg, hsGpaAvg }) {
+  const { rows } = await query(
+    `UPDATE schools
+     SET sat_avg = $3, hs_gpa_avg = $4
+     WHERE country = $1
+       AND (lower(name) = lower($2) OR lower(regexp_replace(name, '\\s*\\([^)]*\\)\\s*$', '')) = lower($2))
+     RETURNING id`,
+    [country, name, satAvg ?? null, hsGpaAvg ?? null]
+  );
+  return rows.length;
 }

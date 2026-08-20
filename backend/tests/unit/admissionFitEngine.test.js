@@ -147,6 +147,30 @@ describe('computeFit', () => {
     expect(highRate.category).toBe('Safety');
   });
 
+  it('prefers a school’s own reported sat_avg/hs_gpa_avg over its world_rank band', () => {
+    // A 3.5-GPA-equivalent academic index (87.5) clears the QS top-20 world_rank band (90 is
+    // the threshold, so this alone would already read close to Reach territory), but should
+    // read as more clearly a Reach once the school's own reported averages (near a 4.0/1550
+    // student body) are available — the concrete "3.5 GPA at MIT" example this engine exists
+    // to model correctly, now checked against the school's real numbers instead of a rank band.
+    const withoutAverages = computeFit({ academicIndex: 87.5, holisticIndex: null }, { world_rank: 5 });
+    const withAverages = computeFit(
+      { academicIndex: 87.5, holisticIndex: null },
+      { world_rank: 5, sat_avg: 1550, hs_gpa_avg: 3.95 }
+    );
+    expect(withAverages.threshold).toBeGreaterThan(withoutAverages.threshold);
+  });
+
+  it('calls a school a Safety once a student’s academic index clears its own reported averages', () => {
+    const fit = computeFit({ academicIndex: 95, holisticIndex: null }, { world_rank: 300, sat_avg: 1200, hs_gpa_avg: 3.4 });
+    expect(fit.category).toBe('Safety');
+  });
+
+  it('falls back to the world_rank band when a school has no reported averages at all', () => {
+    const fit = computeFit({ academicIndex: 60, holisticIndex: null }, { world_rank: 5, sat_avg: null, hs_gpa_avg: null });
+    expect(fit.category).toBe('Reach');
+  });
+
   it('blends in the holistic index only when it is provided', () => {
     const academicOnly = computeFit({ academicIndex: 70, holisticIndex: null }, { world_rank: 30 });
     const withHolistic = computeFit({ academicIndex: 70, holisticIndex: 100 }, { world_rank: 30 });

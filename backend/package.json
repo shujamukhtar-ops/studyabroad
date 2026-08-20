@@ -11,6 +11,7 @@
     "migrate:down": "node-pg-migrate down",
     "sync:schools": "node src/data-ingestion/jobs/sync-schools.js",
     "seed:qs": "node src/data-ingestion/seed/seed-qs-rankings.js",
+    "seed:usnews": "node src/data-ingestion/seed/seed-usnews-rankings.js",
     "seed:scholarships": "node src/data-ingestion/seed/seed-scholarships-worldwide.js",
     "ingest:essays": "node src/data-ingestion/jobs/ingest-real-essays.js",
     "seed": "node src/data-ingestion/seed/run-all.js",
