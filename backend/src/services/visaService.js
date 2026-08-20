@@ -1,4 +1,5 @@
 import { findVisaRequirement } from '../repositories/visaRepository.js';
+import { normalizeCountryInput } from '../constants/countries.js';
 import { AppError } from '../middleware/errorHandler.js';
 
 // Generic checklist shown to basic-tier users. Deliberately non-specific — the actual
@@ -18,7 +19,13 @@ export function getStaticVisaChecklist(destination) {
 }
 
 export async function getCuratedVisaChecklist(destination) {
-  const requirement = await findVisaRequirement(destination);
+  // VisaPage.jsx's destination field is free text, not the fixed COUNTRY_VALUES dropdown
+  // profile/matching use — "United Kingdom", "UK", and "U.K." all need to resolve to the same
+  // visa_requirements row, which findVisaRequirement matches on an exact string. Falls back to
+  // the raw input unchanged when nothing recognized matches, so a genuinely unsupported
+  // destination still reaches the same VISA_DATA_UNAVAILABLE path below as before.
+  const canonicalDestination = normalizeCountryInput(destination) ?? destination;
+  const requirement = await findVisaRequirement(canonicalDestination);
   if (!requirement) {
     // Never fall back to AI-generated visa content — see ARCHITECTURE.md §7 and
     // DATA_SOURCES.md. Absence of curated data means the feature is unavailable, not
