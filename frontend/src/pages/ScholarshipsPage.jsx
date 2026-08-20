@@ -39,9 +39,23 @@ function ScholarshipCard({ scholarship }) {
         <span>Deadline <span className="stat-value">{formatDeadline(scholarship.deadline)}</span></span>
       </div>
       {scholarship.eligibility_note && <p className="meta-line">Eligibility: {scholarship.eligibility_note}</p>}
-      {scholarship.source_url && (
+      {scholarship.source_url ? (
         <a href={scholarship.source_url} target="_blank" rel="noreferrer noopener" className="link-button">
           Official page ↗
+        </a>
+      ) : (
+        // No verified official URL for this scholarship (mostly the scraped_archive import —
+        // see DATA_SOURCES.md, the raw dataset's own url field is 'N/A' for every row). Rather
+        // than guess a page and risk sending a user to the wrong or expired one, link to a
+        // live search for the exact title so they can find and verify the current source
+        // themselves — this doesn't assert any specific page as the official one.
+        <a
+          href={`https://www.google.com/search?q=${encodeURIComponent(`"${scholarship.name}" scholarship`)}`}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="link-button"
+        >
+          Search for this scholarship ↗
         </a>
       )}
     </article>
