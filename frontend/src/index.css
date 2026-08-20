@@ -261,6 +261,8 @@ textarea { resize: vertical; }
 .error { color: var(--danger); background: var(--danger-wash); border: 1px solid rgba(163, 41, 31, 0.25); }
 .success { color: var(--accent-dark); background: var(--accent-wash); border: 1px solid rgba(30, 77, 58, 0.25); }
 .hint { color: var(--ink-soft); background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); }
+.hint-line { margin: 0; max-width: none; }
+.hint-line + .hint-line { margin-top: 0.4rem; }
 
 /* ============================== Data cards (schools / scholarships / feedback) ============================== */
 .card-grid {
@@ -296,6 +298,23 @@ textarea { resize: vertical; }
   color: var(--ink-faint);
   white-space: nowrap;
 }
+
+/* Reach/Target/Safety read from ai-engine/admissionFitEngine.js — traffic-light convention
+   (reach = ambitious/red, target = sweet-spot/amber, safety = comfortable/green) matches how
+   college-list-building tools already present this, so it reads at a glance. */
+.fit-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.fit-badge.reach { color: var(--danger); background: var(--danger-wash); }
+.fit-badge.target { color: var(--gold); background: var(--gold-wash); }
+.fit-badge.safety { color: var(--accent-dark); background: var(--accent-wash); }
 
 .stat-row {
   display: flex;
@@ -472,6 +491,50 @@ textarea { resize: vertical; }
   text-decoration: line-through;
   text-decoration-color: var(--border-strong);
 }
+/* Selection-list variant (e.g. ProfilePage's target countries) — checking a box here means
+   "selected", not "done", so it should never strike through like the visa to-do checklist. */
+.checklist.select-list li.is-checked .checklist-label {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ============================== Test score cards (profile) ============================== */
+.test-score-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-top: var(--space-2);
+}
+/* Flex `gap` above already spaces these from their siblings — zero out their own
+   margins so spacing between rows (head / section grid / total) stays uniform
+   instead of stacking gap + margin. */
+.test-score-card .data-card-head { margin-bottom: 0; }
+.test-score-card .meta-line { margin-top: 0; }
+.test-score-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+/* Reserve two lines of height for every section label, even a short one-word label
+   like "Math" — otherwise a neighboring long label like "Evidence-Based Reading &
+   Writing" wraps to a second line and pushes only its own input down, breaking the
+   row's horizontal alignment. */
+.test-score-sections label > span {
+  min-height: 2.1rem;
+}
+.test-score-add-row {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-end;
+  margin-top: var(--space-2);
+}
+.test-score-add-row label { flex: 1; }
 
 /* ============================== SOP score badge ============================== */
 .score-badge {

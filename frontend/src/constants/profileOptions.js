@@ -1,18 +1,27 @@
-// The canonical major-tag vocabulary used across manual_curated seed data, the College
-// Scorecard major-tag derivation (see data-ingestion/sources/college-scorecard.js), and
-// scholarship eligibility tags. A profile's intended_major must be one of these — not
-// freeform text — or it can never match a school/scholarship's major_tags array (a real
-// bug in the original freeform-text version: "Computer Science" never equals the tag
-// "computer_science" in a Postgres array containment check).
-//
-// Grouped by `category` so the frontend can render a grouped dropdown (<optgroup>) instead of
-// one long flat list — this was expanded from an initial 5-entry list to cover the breadth of
-// programs students actually apply to; the original five ('computer_science', 'engineering',
-// 'business', 'economics', 'law') keep their exact original values so existing seed data
-// (data-ingestion/seed/seed-schools-manual.js) and College Scorecard's major-tag derivation
-// still match unchanged.
+// Mirrors backend/src/constants/{countries,majors,testTypes}.js — there's no shared import
+// path between frontend and backend in this project (see ProfilePage's original MAJOR_OPTIONS
+// comment), so these option lists and section-scale definitions are hand-duplicated here.
+// Keep them in sync: a value the backend doesn't recognize gets rejected by profileSchema
+// (backend/src/routes/schemas.js) with a 400, and a section min/max mismatch here would just
+// mean the browser lets the student type a score the server then bounces.
+
+export const COUNTRIES = [
+  { value: 'US', label: 'United States' },
+  { value: 'UK', label: 'United Kingdom' },
+  { value: 'Canada', label: 'Canada' },
+  { value: 'Australia', label: 'Australia' },
+  { value: 'Netherlands', label: 'Netherlands' },
+  { value: 'Switzerland', label: 'Switzerland' },
+  { value: 'Germany', label: 'Germany' },
+];
+
+export const DEGREE_LEVELS = [
+  { value: 'undergraduate', label: 'Undergraduate' },
+  { value: 'graduate', label: "Graduate / Master's" },
+  { value: 'phd', label: 'PhD' },
+];
+
 export const MAJOR_TAGS = [
-  // Computing & Technology
   { value: 'computer_science', label: 'Computer Science', category: 'Computing & Technology' },
   { value: 'software_engineering', label: 'Software Engineering', category: 'Computing & Technology' },
   { value: 'data_science', label: 'Data Science', category: 'Computing & Technology' },
@@ -20,7 +29,6 @@ export const MAJOR_TAGS = [
   { value: 'information_technology', label: 'Information Technology', category: 'Computing & Technology' },
   { value: 'cybersecurity', label: 'Cybersecurity', category: 'Computing & Technology' },
 
-  // Engineering
   { value: 'engineering', label: 'Engineering (General)', category: 'Engineering' },
   { value: 'mechanical_engineering', label: 'Mechanical Engineering', category: 'Engineering' },
   { value: 'electrical_engineering', label: 'Electrical Engineering', category: 'Engineering' },
@@ -32,7 +40,6 @@ export const MAJOR_TAGS = [
   { value: 'environmental_engineering', label: 'Environmental Engineering', category: 'Engineering' },
   { value: 'materials_science', label: 'Materials Science & Engineering', category: 'Engineering' },
 
-  // Business & Management
   { value: 'business', label: 'Business (General)', category: 'Business & Management' },
   { value: 'finance', label: 'Finance', category: 'Business & Management' },
   { value: 'accounting', label: 'Accounting', category: 'Business & Management' },
@@ -43,7 +50,6 @@ export const MAJOR_TAGS = [
   { value: 'supply_chain_management', label: 'Supply Chain Management', category: 'Business & Management' },
   { value: 'international_business', label: 'International Business', category: 'Business & Management' },
 
-  // Economics & Social Sciences
   { value: 'economics', label: 'Economics', category: 'Economics & Social Sciences' },
   { value: 'political_science', label: 'Political Science', category: 'Economics & Social Sciences' },
   { value: 'international_relations', label: 'International Relations', category: 'Economics & Social Sciences' },
@@ -54,10 +60,8 @@ export const MAJOR_TAGS = [
   { value: 'criminology', label: 'Criminology', category: 'Economics & Social Sciences' },
   { value: 'geography', label: 'Geography', category: 'Economics & Social Sciences' },
 
-  // Law
   { value: 'law', label: 'Law', category: 'Law' },
 
-  // Natural Sciences
   { value: 'biology', label: 'Biology', category: 'Natural Sciences' },
   { value: 'chemistry', label: 'Chemistry', category: 'Natural Sciences' },
   { value: 'physics', label: 'Physics', category: 'Natural Sciences' },
@@ -66,12 +70,10 @@ export const MAJOR_TAGS = [
   { value: 'astronomy', label: 'Astronomy / Astrophysics', category: 'Natural Sciences' },
   { value: 'marine_science', label: 'Marine Science', category: 'Natural Sciences' },
 
-  // Mathematics & Statistics
   { value: 'mathematics', label: 'Mathematics', category: 'Mathematics & Statistics' },
   { value: 'statistics', label: 'Statistics', category: 'Mathematics & Statistics' },
   { value: 'actuarial_science', label: 'Actuarial Science', category: 'Mathematics & Statistics' },
 
-  // Health & Medicine
   { value: 'medicine', label: 'Medicine', category: 'Health & Medicine' },
   { value: 'nursing', label: 'Nursing', category: 'Health & Medicine' },
   { value: 'public_health', label: 'Public Health', category: 'Health & Medicine' },
@@ -82,7 +84,6 @@ export const MAJOR_TAGS = [
   { value: 'nutrition', label: 'Nutrition & Dietetics', category: 'Health & Medicine' },
   { value: 'health_administration', label: 'Health Administration', category: 'Health & Medicine' },
 
-  // Humanities
   { value: 'english_literature', label: 'English / Literature', category: 'Humanities' },
   { value: 'history', label: 'History', category: 'Humanities' },
   { value: 'philosophy', label: 'Philosophy', category: 'Humanities' },
@@ -90,12 +91,10 @@ export const MAJOR_TAGS = [
   { value: 'religious_studies', label: 'Religious Studies', category: 'Humanities' },
   { value: 'classics', label: 'Classics', category: 'Humanities' },
 
-  // Languages & Area Studies
   { value: 'modern_languages', label: 'Modern Languages', category: 'Languages & Area Studies' },
   { value: 'asian_studies', label: 'Asian Studies', category: 'Languages & Area Studies' },
   { value: 'european_studies', label: 'European Studies', category: 'Languages & Area Studies' },
 
-  // Arts & Design
   { value: 'fine_arts', label: 'Fine Arts', category: 'Arts & Design' },
   { value: 'graphic_design', label: 'Graphic Design', category: 'Arts & Design' },
   { value: 'architecture', label: 'Architecture', category: 'Arts & Design' },
@@ -106,27 +105,133 @@ export const MAJOR_TAGS = [
   { value: 'theatre_performing_arts', label: 'Theatre & Performing Arts', category: 'Arts & Design' },
   { value: 'photography', label: 'Photography', category: 'Arts & Design' },
 
-  // Communications & Media
   { value: 'communications', label: 'Communications', category: 'Communications & Media' },
   { value: 'journalism', label: 'Journalism', category: 'Communications & Media' },
   { value: 'media_studies', label: 'Media Studies', category: 'Communications & Media' },
   { value: 'public_relations', label: 'Public Relations', category: 'Communications & Media' },
   { value: 'advertising', label: 'Advertising', category: 'Communications & Media' },
 
-  // Education
   { value: 'education', label: 'Education (General)', category: 'Education' },
   { value: 'early_childhood_education', label: 'Early Childhood Education', category: 'Education' },
   { value: 'special_education', label: 'Special Education', category: 'Education' },
 
-  // Agriculture & Environment
   { value: 'agriculture', label: 'Agriculture', category: 'Agriculture & Environment' },
   { value: 'environmental_studies', label: 'Environmental Studies', category: 'Agriculture & Environment' },
   { value: 'forestry', label: 'Forestry', category: 'Agriculture & Environment' },
   { value: 'sustainability', label: 'Sustainability Studies', category: 'Agriculture & Environment' },
 
-  // Other
   { value: 'social_work', label: 'Social Work', category: 'Other' },
   { value: 'undecided', label: 'Undecided', category: 'Other' },
 ];
 
-export const MAJOR_TAG_VALUES = MAJOR_TAGS.map((m) => m.value);
+export const MAJOR_CATEGORIES = [...new Set(MAJOR_TAGS.map((m) => m.category))];
+
+export const TEST_TYPES = [
+  {
+    key: 'sat',
+    label: 'SAT',
+    sections: [
+      { key: 'math', label: 'Math', min: 200, max: 800, step: 10 },
+      { key: 'reading_writing', label: 'Evidence-Based Reading & Writing', min: 200, max: 800, step: 10 },
+    ],
+    totalMode: 'sum',
+    totalFrom: ['math', 'reading_writing'],
+    totalLabel: 'Total',
+  },
+  {
+    key: 'act',
+    label: 'ACT',
+    sections: [
+      { key: 'english', label: 'English', min: 1, max: 36, step: 1 },
+      { key: 'math', label: 'Math', min: 1, max: 36, step: 1 },
+      { key: 'reading', label: 'Reading', min: 1, max: 36, step: 1 },
+      { key: 'science', label: 'Science', min: 1, max: 36, step: 1 },
+    ],
+    totalMode: 'manual',
+    totalLabel: 'Composite',
+    totalMin: 1,
+    totalMax: 36,
+    totalStep: 1,
+  },
+  {
+    key: 'gre',
+    label: 'GRE (General Test)',
+    sections: [
+      { key: 'verbal', label: 'Verbal Reasoning', min: 130, max: 170, step: 1 },
+      { key: 'quant', label: 'Quantitative Reasoning', min: 130, max: 170, step: 1 },
+      { key: 'writing', label: 'Analytical Writing', min: 0, max: 6, step: 0.5 },
+    ],
+    totalMode: 'sum',
+    totalFrom: ['verbal', 'quant'],
+    totalLabel: 'Verbal + Quant',
+  },
+  {
+    key: 'gmat',
+    label: 'GMAT Focus Edition',
+    sections: [
+      { key: 'quant', label: 'Quantitative Reasoning', min: 60, max: 90, step: 1 },
+      { key: 'verbal', label: 'Verbal Reasoning', min: 60, max: 90, step: 1 },
+      { key: 'data_insights', label: 'Data Insights', min: 60, max: 90, step: 1 },
+    ],
+    totalMode: 'manual',
+    totalLabel: 'Total Score',
+    totalMin: 205,
+    totalMax: 805,
+    totalStep: 10,
+  },
+  {
+    key: 'toefl',
+    label: 'TOEFL iBT',
+    sections: [
+      { key: 'reading', label: 'Reading', min: 0, max: 30, step: 1 },
+      { key: 'listening', label: 'Listening', min: 0, max: 30, step: 1 },
+      { key: 'speaking', label: 'Speaking', min: 0, max: 30, step: 1 },
+      { key: 'writing', label: 'Writing', min: 0, max: 30, step: 1 },
+    ],
+    totalMode: 'sum',
+    totalFrom: ['reading', 'listening', 'speaking', 'writing'],
+    totalLabel: 'Total',
+  },
+  {
+    key: 'ielts',
+    label: 'IELTS Academic',
+    sections: [
+      { key: 'listening', label: 'Listening', min: 0, max: 9, step: 0.5 },
+      { key: 'reading', label: 'Reading', min: 0, max: 9, step: 0.5 },
+      { key: 'writing', label: 'Writing', min: 0, max: 9, step: 0.5 },
+      { key: 'speaking', label: 'Speaking', min: 0, max: 9, step: 0.5 },
+    ],
+    totalMode: 'manual',
+    totalLabel: 'Overall Band',
+    totalMin: 0,
+    totalMax: 9,
+    totalStep: 0.5,
+  },
+  {
+    key: 'pte',
+    label: 'PTE Academic',
+    sections: [
+      { key: 'listening', label: 'Listening', min: 10, max: 90, step: 1 },
+      { key: 'reading', label: 'Reading', min: 10, max: 90, step: 1 },
+      { key: 'speaking', label: 'Speaking', min: 10, max: 90, step: 1 },
+      { key: 'writing', label: 'Writing', min: 10, max: 90, step: 1 },
+    ],
+    totalMode: 'manual',
+    totalLabel: 'Overall Score',
+    totalMin: 10,
+    totalMax: 90,
+    totalStep: 1,
+  },
+  {
+    key: 'duolingo',
+    label: 'Duolingo English Test',
+    sections: [],
+    totalMode: 'single',
+    totalLabel: 'Overall Score',
+    totalMin: 10,
+    totalMax: 160,
+    totalStep: 5,
+  },
+];
+
+export const TEST_TYPES_BY_KEY = Object.fromEntries(TEST_TYPES.map((t) => [t.key, t]));

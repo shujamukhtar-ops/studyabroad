@@ -5,6 +5,7 @@ import { profileRoutes } from './routes/profileRoutes.js';
 import { documentRoutes } from './routes/documentRoutes.js';
 import { feedbackRoutes } from './routes/feedbackRoutes.js';
 import { matchesRoutes } from './routes/matchesRoutes.js';
+import { scholarshipsRoutes } from './routes/scholarshipsRoutes.js';
 import { visaRoutes } from './routes/visaRoutes.js';
 import { costOfLivingRoutes } from './routes/costOfLivingRoutes.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
@@ -44,6 +45,7 @@ export function createApp() {
   app.use('/api/documents', documentRoutes);
   app.use('/api/feedback', feedbackRoutes);
   app.use('/api/matches', matchesRoutes);
+  app.use('/api/scholarships', scholarshipsRoutes);
   app.use('/api/visa-checklist', visaRoutes);
   app.use('/api/cost-of-living', costOfLivingRoutes);
 

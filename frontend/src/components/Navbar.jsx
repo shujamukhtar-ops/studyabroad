@@ -22,8 +22,10 @@ export function Navbar() {
         {isAuthenticated ? (
           <nav className="site-nav">
             <NavLink to="/profile">Profile</NavLink>
+            <NavLink to="/achievements">Achievements</NavLink>
             <NavLink to="/documents">Essays</NavLink>
             <NavLink to="/matches">Matches</NavLink>
+            <NavLink to="/scholarships">Scholarships</NavLink>
             <NavLink to="/visa">Visa</NavLink>
             <span className={`tier-pill ${tier === 'premium' ? 'premium' : ''}`}>{tier}</span>
             <button type="button" className="link-button" onClick={logout}>Log out</button>

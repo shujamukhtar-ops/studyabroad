@@ -112,10 +112,11 @@ StudyAbroad/
 
 ## 4. Tier gating
 
-Enforced by a single middleware, `middleware/checkTier.js`, applied at the route level:
+Enforced by a single middleware, `middleware/checkTier.js`, applied at the route level for
+features withheld from the free tier entirely:
 
 ```js
-router.get('/api/matches', requireAuth, checkTier('premium'), matchesController.getMatches);
+router.get('/api/cost-of-living', requireAuth, checkTier('premium'), costOfLivingController.get);
 ```
 
 `checkTier(requiredTier)`:
@@ -125,13 +126,25 @@ router.get('/api/matches', requireAuth, checkTier('premium'), matchesController.
 
 Any service function that behaves differently per tier (e.g. `essayService.analyze()`) takes tier as an explicit parameter rather than re-deriving it, so the branching logic stays testable in isolation from HTTP.
 
+`/api/matches` is the one exception to "premium features are withheld, not degraded":
+`services/matchingService.js` reads `user.tier` (passed in as part of the `user` object, not
+re-derived) and branches internally rather than being gated by `checkTier` at the route level,
+because the free tier gets a real — just less intelligent — result instead of a 403. See
+§5 for what differs.
+
 ## 5. AI engine decoupling
 
 `ai-engine/` exposes exactly three functions to the rest of the app:
 
 - `analyzeStructural(text)` — both tiers.
 - `analyzePersonalized(text, profile, structuralResult)` — premium only.
-- `rankCandidates(candidates, profile)` — premium matching; `candidates` is a list already filtered by `services/matchingService.js` from Postgres. The AI engine has no DB access and cannot query for more candidates than it's given.
+- `rankCandidates(candidates, profile, context)` — premium matching only; `candidates` is a list already filtered by `services/matchingService.js` from Postgres, and `context.fitsBySchoolId` carries the deterministic Reach/Target/Safety read from `ai-engine/admissionFitEngine.js` so the model explains rather than contradicts it. The AI engine has no DB access and cannot query for more candidates than it's given.
+
+`ai-engine/admissionFitEngine.js` is deliberately *not* one of these three — it's plain
+deterministic heuristics (GPA/test-score/extracurricular scoring against a school's QS-rank
+selectivity band), not an AI provider call. It's what the free tier's matching runs entirely
+on (no `rankCandidates`/provider call at all for a basic-tier user), and what premium's
+`rankCandidates` call is given as grounding context.
 
 All three call an `AIProvider` interface (`invoke(prompt, options)`), not a concrete SDK. `BedrockProvider` implements it for production (Bedrock/Claude call marked TODO). `MockProvider` implements it for tests/dev, returning fixture JSON. Which provider is instantiated is decided once, in `config/`, from an env var — no route or service ever imports Bedrock's SDK directly.
 

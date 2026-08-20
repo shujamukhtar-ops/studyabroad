@@ -1,0 +1,2293 @@
+{
+  "metadata": {
+    "source": "buddy4study.com",
+    "scraped_date": "2026-02-05 10:22:52",
+    "total_scholarships": 227,
+    "method": "Selenium WebDriver (JavaScript rendered content)",
+    "categories": {
+      "Education Loan": 36,
+      "Fee Waiver": 107,
+      "Fellowship": 38,
+      "Internship": 19,
+      "Study Abroad": 11,
+      "General": 16
+    },
+    "statuses": {
+      "Active": 1,
+      "Closed": 126,
+      "Featured": 100
+    }
+  },
+  "scholarships": [
+    {
+      "title": "Education Loan",
+      "url": "https://www.buddy4study.com/page/buddy4study-education-loan-programme",
+      "deadline": "N/A",
+      "award": "N/A",
+      "eligibility": "N/A",
+      "last_updated": "N/A",
+      "status": "Active",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Featured Deadline31 March 2026Buddy4Study Psychometric Test Award Report, certificate & many more Eligibility Candidates must have passed Class 10 or must be pursuing higher education. Last Updated On 21-01-2026",
+      "url": "https://www.buddy4study.com/page/buddy4study-career-test",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "ClosedBath Global Excellence Scholarship 2026 Award Scholarships worth £10,000 Eligibility Students joining a full-time taught Master’s course Last Updated On 10-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/bath-global-excellence-scholarship",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "ClosedShri Tulsi Tanti Shakti Scholarship Program for Class 09th Girl Students 2025-26 Award INR 6,000 per year Eligibility For Class 9 girl students Last Updated On 15-01-2026",
+      "url": "https://www.buddy4study.com/page/suzlon-scholarship-program",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Last day to goICJ Judicial Fellowship Programme 2026 Award 10 months of Professional experience, along with other benefits Eligibility Recent law graduates nominated by universities Last Updated On 04-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/icj-judicial-fellowship-programme-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "1 day to goFIDH ICC Internship 2026 Award Monthly Stipend and Other Benefits Eligibility Law, Political Science, International Relations, or Related Field Students Last Updated On 26-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/fidh-icc-internship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Internship"
+    },
+    {
+      "title": "2 days to goTSDPL Silver Jubilee Scholarship Program 2025-26 (ITI/Diploma) Award Scholarship of INR 50,000 Eligibility For students pursuing any year of diploma/ITI from Govt.-recognized institutes in fields like fitter, electrical, welding, safety, etc. Last Updated On 27-01-2026",
+      "url": "https://www.buddy4study.com/page/tsdpl-silver-jubilee-scholarship-program",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "3 days to goTeach for India Fellowship 2026 Award A monthly stipend of ₹25,344 and other benefits Eligibility Graduate students Last Updated On 27-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/teach-for-india-fellowship",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "5 days to goANRF J. C. Bose Grant (JBG) 2026 Award A research grant of ₹26,00,000 per year Eligibility Senior scientists and engineers in India Last Updated On 11-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/anrf-j-c-bose-grant-jbg-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "5 days to goMahindra Saarthi Abhiyaan 2025-26 Award INR 10,000 Eligibility Girl students studying in Class 11 and above and must be children/wards of truck drivers only Last Updated On 02-02-2026",
+      "url": "https://www.buddy4study.com/page/mahindra-saarthi-abhiyaan",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "5 days to goSensodyne IDA Shining Star Scholarship Programme 2025-26 Award INR 50,000 per year (4 years) Eligibility For BDS students Last Updated On 02-02-2026",
+      "url": "https://www.buddy4study.com/page/sensodyne-ida-shining-star-scholarship-programme",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "6 days to goCIJ Climate Investigations Training Scholarship 2026 Award An award of up to £2,638 Eligibility Early-mid career journalist Last Updated On 31-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/cij-climate-investigations-training-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "7 days to goBOC Scholarship Odisha 2025-26 Award Financial assistance Eligibility I.T.I, I.T.C, Polytechnic, and Diploma students Last Updated On 14-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/boc-scholarship-odisha-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "8 days to goNLSIU Manager - Litigation Fellowships 2026 Award Commensurate ranging within ₹60,000-₹70,000 Eligibility Law graduates and early-career litigators Last Updated On 03-02-2026",
+      "url": "https://www.buddy4study.com/scholarship/nlsiu-manager-litigation-fellowships-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "8 days to goUniversity of Oregon ICSP Scholarship 2026 Award Partial tuition waiver Eligibility International students at the University Last Updated On 07-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-oregon-icsp-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "8 days to goReuters-Oxford Journalism Fellowship Programme 2026-27 Award Monthly stipend of £2,000 and other benefits Eligibility Mid-career journalists Last Updated On 19-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/reuters-oxford-journalism-fellowship-programme-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "10 days to goTata Capital Pankh Scholarship Program for Specialised Discipline programme (2025–26) Award Scholarship up to INR 1,00,000 Eligibility For students pursuing professional courses Last Updated On 01-02-2026",
+      "url": "https://www.buddy4study.com/page/the-tata-capital-pankh-scholarship-programme",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "10 days to goGovernment of Brunei Darussalam Scholarship 2026-27 Award Full tuition fee, monthly personal allowance, and other benefits Eligibility Students having applied for a UG and PG degree programmes Last Updated On 05-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/government-of-brunei-darussalam-scholarship",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "10 days to goMynVidya: Myntra Cares Scholarship Program For Children of Garment Workers Award Scholarship of INR 20,000 per year Eligibility For children of garment workers Last Updated On 19-01-2026",
+      "url": "https://www.buddy4study.com/page/mynvidhya-myntra-cares-scholarship-program",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "10 days to goNehru Trust's UK Travel Awards 2026-27 Award Up to £1,500 and airfare Eligibility Scholars and professionals in museums, galleries, universities or other specified institutions Last Updated On 28-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/nehru-trusts-uk-travel-awards-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "11 days to goBGM Foundation Pashu-Seva Scholarship Program 2025–26 (For General / Professional Graduation) Award Award of up to INR 75,000 Eligibility For full-time graduate, professional degree & Diploma students Last Updated On 02-02-2026",
+      "url": "https://www.buddy4study.com/page/bgm-pashu-seva-scholarship-program",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "12 days to goIIM Rohtak Doctoral Programme in Management 2026-30 Award Up to ₹50,000 per month with other benefits Eligibility Ph.D. applicants Last Updated On 21-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/iim-rohtak-doctoral-programme-in-management-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "12 days to goWorld Bank Group’s Premier Internship Program 2026 Award Hourly salary for 6 months Eligibility UG and PG students Last Updated On 26-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/world-bank-groups-premier-internship-program-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Internship"
+    },
+    {
+      "title": "15 days to goWFN Junior Travelling Fellowships 2026 Award Fellowship of up to £1,000 Eligibility Young neurologists Last Updated On 09-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/wfn-junior-travelling-fellowships-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "15 days to goTurkiye Scholarships 2026 Award Up to ₺9,000 and other benefits Eligibility Students pursuing associate, UG, PG and Ph.D. Last Updated On 11-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/turkiye-scholarships-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "26 February 2026UCL India Excellence Scholarship 2026-27 Award GBP 5,000 for one year (approximately ₹6,27,846) Eligibility Master's degree applicants Last Updated On 26-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/ucl-india-excellence-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "26 February 2026Newcastle University Vice-Chancellor’s Excellence Undergraduate Scholarship 2026 Award Tuition fee reduction up to 50% Eligibility Undergraduate students Last Updated On 06-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/newcastle-university-vice-chancellors-excellence-undergraduate-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "27 February 2026Goa Interest Free Education Loan (IFEL) Scheme Award Interest Free Loan up to ₹16,00,000 Eligibility Students of Goa pursuing higher/technical courses Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/page/goa-interest-free-education-loan-ifel-scheme",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Education Loan"
+    },
+    {
+      "title": "27 February 2026GIST International Global Intern Program 2026 Award A stipend and other benefits Eligibility International undergraduate and master’s students Last Updated On 03-02-2026",
+      "url": "https://www.buddy4study.com/scholarship/gist-international-global-intern-program-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "27 February 2026F. M. Kirby Foundation Internship Program 2026 Award A compensation of $23 per hour and other benefits Eligibility College sophomores, juniors, and seniors Last Updated On 13-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/f-m-kirby-foundation-internship-program-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Internship"
+    },
+    {
+      "title": "27 February 2026Ashinaga Foundation Spring-Summer Internship 2026 Award Stipend of ¥1,000 per working day Eligibility Graduate students and young professionals Last Updated On 31-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/ashinaga-foundation-spring-summer-internship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Internship"
+    },
+    {
+      "title": "28 February 2026University of Geneva Excellence Master Fellowships 2026 Award CHF 10,000 to CHF 15,000 per annum Eligibility Master's applicants Last Updated On 03-02-2026",
+      "url": "https://www.buddy4study.com/scholarship/university-of-geneva-excellence-master-fellowships-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "28 February 2026KWI International Fellowship Program 2026 Award Monthly allowance of €3,000 Eligibility International researchers Last Updated On 28-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/kwi-international-fellowship-program-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "28 February 2026DMI Patna PGDM Scholarship 2026 Award Up to 100% tuition fee waiver Eligibility Management applicants Last Updated On 15-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/dmi-patna-pgdm-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "28 February 2026MBZUAI Undergraduate Research Internship Program (UGRIP) 2025 Award Fully funded internship Eligibility UG students in AI-related fields Last Updated On 20-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/mbzuai-undergraduate-research-internship-program-ugrip-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Internship"
+    },
+    {
+      "title": "28 February 2026PM YASASVI Post-Matric Scholarship Scheme For OBC, EBC, And DNT Students, Haryana 2025-26 Award Academic allowances and other benefits Eligibility Students in Class 11 to Postdoctoral level Last Updated On 09-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/pm-yasasvi-postmatric-scholarship-scheme-for-obc-ebc-and-dnt-students-haryana-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "28 February 2026Ute and György Széll International PhD Scholarship 2026-27 Award €1,450 monthly stipend and other benefits Eligibility PhD students Last Updated On 09-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/ute-and-gyorgy-szell-international-phd-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "1 March 2026DAWN Rising Fellowships 2026 Award USD 1,200 per month for 10 months Eligibility Women feminists under the age of 40 Last Updated On 02-02-2026",
+      "url": "https://www.buddy4study.com/scholarship/dawn-rising-fellowships-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "1 March 2026Norwegian BI Presidential Scholarship 2026 Award Full tuition-fee and a stipend of NOK 50,000 per semester Eligibility Norwegian and international students residing in Norway Last Updated On 14-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/norwegian-bi-presidential-scholarship",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "1 March 2026Heinrich Böll Foundation Doctoral Scholarship 2026 Award A scholarship of €1650 per month and other benefits Eligibility Doctoral students Last Updated On 20-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/heinrich-boll-foundation-doctoral-scholarship",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "1 March 2026Wells Mountain Foundation Scholarship 2026 Award A scholarship of up to USD 3,000 per annum Eligibility Students pursuing undergraduate degrees Last Updated On 28-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/wells-mountain-foundation-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "1 March 2026University of Glasgow India Excellence Award 2026 Award £12,500 tuition fee waiver for 1 year Eligibility International students from India Last Updated On 26-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/university-of-glasgow-india-excellence-award-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "1 March 2026ACU International Student Accommodation Scholarship 2025-26 Award 20% reduction of ACU student accommodation fees Eligibility International students Last Updated On 14-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/acu-international-student-accommodation-scholarship-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "1 March 2026Taiwan Visiting Program Fellowship 2026 Award An award up to USD 30,000 Eligibility Scholars and researchers Last Updated On 04-10-2025",
+      "url": "https://www.buddy4study.com/scholarship/taiwan-visiting-program-fellowship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "1 March 2026Stanford Next Asia Policy Visiting Fellowship 2026 Award Fellowship of USD 30,000 Eligibility Ph.D. holders or mid-career professionals Last Updated On 19-10-2025",
+      "url": "https://www.buddy4study.com/scholarship/stanford-next-asia-policy-visiting-fellowship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "2 March 2026President's PhD Scholarships, Imperial College London 2026-27 Award Fully funded tuition with other benefits Eligibility Ph.D. applicants Last Updated On 06-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/presidents-phd-scholarships-imperial-college-london-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "5 March 2026Post-Matric Scholarship for ST, SC and MBC Students, Odisha 2025-26 Award Financial assistance for pursuing higher education Eligibility Postmatric students Last Updated On 02-02-2026",
+      "url": "https://www.buddy4study.com/scholarship/postmatric-scholarship-for-st-sc-and-mbc-students-odisha-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "11 March 2026Imperial College London Widening Participation Postgraduate Scholarship 2026-27 Award £4,999 (one-time) Eligibility Postgraduate students Last Updated On 03-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/imperial-college-london-widening-participation-postgraduate-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "11 March 2026The British Academy International Fellowship 2026 Award Fellowship of up to £20,000 Eligibility PhD Applicants Last Updated On 26-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/the-british-academy-international-fellowship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "11 March 2026University of Nottingham, UK International Undergraduate Excellence Scholarships 2026 Award Up to GBP 2,000 Eligibility Undergraduate students Last Updated On 20-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/university-of-nottingham-uk-international-undergraduate-excellence-scholarships-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "13 March 2026LEAP Emerge Fellowship Program 2026-27 Award Stipend of $3,000 Eligibility Final year of UG students Last Updated On 04-02-2026",
+      "url": "https://www.buddy4study.com/scholarship/leap-emerge-fellowship-program-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "15 March 2026Tingshua University Amgen Scholars Program 2026 Award A stipend of CNY 10,000 (₹1,23,537 approx.) and other benefits Eligibility Students enrolled in a Bachelor’s degree programme in Asian universities/colleges Last Updated On 09-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/tingshua-university-amgen-scholars-program-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "15 March 2026Frédéric Bastiat Fellowship 2026-27 Award Fellowship of up to $5,000 for 1 year Eligibility Graduate students Last Updated On 13-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/frederic-bastiat-fellowship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "15 March 2026Taiwan ICDF International Higher Education Scholarship Program 2026 Award Monthly allowance up to TWD 20,000 and other benefits Eligibility Undergraduate, graduate and Ph.D. applicants Last Updated On 07-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/taiwan-icdf-international-higher-education-scholarship-program-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "15 March 2026JN Tata Endowment Loan Scholarship 2026–27 Award Loan scholarship offering up to INR 20 lakhs Eligibility For students across India for higher studies abroad Last Updated On 08-01-2026",
+      "url": "https://www.buddy4study.com/page/jn-tata-endowment-loan-scholarship",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Education Loan"
+    },
+    {
+      "title": "15 March 2026Oskar Morgenstern Fellowship Program 2026 Award Stipend of $2,250 Eligibility Graduate students, scholars, and practitioners Last Updated On 23-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/oskar-morgenstern-fellowship-program-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "15 March 2026NGSF Internship Program 2025-26 Award A monthly stipend of up to ₹6,000 Eligibility Undergraduate/postgraduate students Last Updated On 13-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/ngsf-internship-program-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Internship"
+    },
+    {
+      "title": "16 March 2026Aspire Leaders Program 2026 Award Free access to training modules, live sessions by Havard faculty Eligibility First-generation learners Last Updated On 02-02-2026",
+      "url": "https://www.buddy4study.com/page/aspire-leaders-program",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "16 March 2026NIAS Fellowship 2026 Award Stipend and other benefits Eligibility Researchers in the field of humanities and social sciences Last Updated On 01-02-2026",
+      "url": "https://www.buddy4study.com/scholarship/nias-fellowship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "18 March 2026Narotam Sekhsaria Foundation Post Graduate Scholarship 2026-27 Award Candidate will be awarded repayable interest-free financial assistance to pursue advanced studies at esteemed institutions Eligibility Indian nationals, below 30 years of age as of January 31, 2026 planning to pursue Postgraduate studies at institutions in India and abroad from Fall 2026 Last Updated On 23-01-2026",
+      "url": "https://www.buddy4study.com/page/narotam-sekhsaria-scholarships-program",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "23 March 2026Ashoka University Young India Fellowship 2026-27 Award Partial or fully funded fellowship Eligibility Graduates and final-year undergraduate Last Updated On 29-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/ashoka-university-young-india-fellowship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "25 March 2026Kind Circle Scholarship for Meritorious Students 2025-26 Award Variable awards Eligibility Class 1 to PG students Last Updated On 27-01-2026",
+      "url": "https://www.buddy4study.com/page/kind-circle-scholarship-for-meritorious-students",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "26 March 2026Ireland International Education Scholarship 2026-27 Award Up to €10,000 (approximately ₹10,90,070) Eligibility Graduated students Last Updated On 31-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/ireland-international-education-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "30 March 2026Imperial College London Imperial Excellence Scholarship 2026-27 Award Up to £15,000 towards tuition fees Eligibility M.Sc. applicants Last Updated On 28-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/imperial-college-london-imperial-excellence-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Buddy4Study - Auxilo International Education Loan Programme Award Loan amount ranging from 10 lakh to 2 crore Eligibility Undergraduate and postgraduate students Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/page/buddy4study-auxilo-international-education-loan-programme",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Education Loan"
+    },
+    {
+      "title": "31 March 2026Buddy4Study-Propelld Domestic Education Loan Programme Award Loan amount ranging from INR 50,000 To INR 10 Lakh Eligibility Undergraduate and postgraduate students Last Updated On 23-01-2026",
+      "url": "https://www.buddy4study.com/page/buddy4study-propelld-domestic-education-loan-programme",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Education Loan"
+    },
+    {
+      "title": "31 March 2026Buddy4Study-PNB International Education Loan Programme Award Rate of interest starting from 9.25% Eligibility Students pursuing higher education abroad Last Updated On 16-01-2026",
+      "url": "https://www.buddy4study.com/page/buddy4study-pnb-education-loan-programme",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Education Loan"
+    },
+    {
+      "title": "31 March 2026Buddy4Study-Axis Bank Domestic Education Loan Program Award Starting from INR 50,000 with no upper limit & funding up to 100% of total cost of education. Eligibility Students who are enrolled in courses like Medicine, Engineering, Management etc ., either at the graduate or postgraduate level in India Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/page/buddy4study-axis-bank-education-loan-program",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Education Loan"
+    },
+    {
+      "title": "31 March 2026Post-Matric Scholarship for OBC Students, Delhi 2025-26 Award Up to ₹750 per month with other benefits Eligibility OBC students in Class 11 and above Last Updated On 17-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/postmatric-scholarship-for-obc-students-delhi-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Post-Matric Scholarship Scheme Government of India, Maharashtra 2025-26 Award Vocational education fee reimbursement Eligibility Class 10 passed ST students Last Updated On 25-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/postmatric-scholarship-scheme-government-of-india-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026State Government Open Merit Scholarship, Maharashtra 2025-26 Award ₹100 per month Eligibility Class 12 passed students Last Updated On 25-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/state-government-open-merit-scholarship-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Scholarship to Meritorious Students Possessing Mathematics/Physics, Maharashtra 2025-26 Award ₹100 per month Eligibility Students pursuing Graduation degree in Science Last Updated On 25-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/scholarship-to-meritorious-students-possessing-mathematics-physics-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Government Vidyaniketan Scholarship, Maharashtra 2025-26 Award ₹100 per month Eligibility Class 10 passed students from Government Vidhyaniketan Last Updated On 31-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/government-vidyaniketan-scholarship-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026State Government Daxshina Adhichatra Scholarship, Maharashtra 2025-26 Award ₹250 per month Eligibility Students pursuing postgraduate courses in designated institutions Last Updated On 28-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/state-government-daxshina-adhichatra-scholarship-maharashtra-2025-26",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Government Research Adhichatra, Maharashtra 2025-26 Award A monthly scholarship of up to ₹750, with an additional ₹1,000 annually for other expenses Eligibility Postgraduate degree holders Last Updated On 31-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/government-research-adhichatra-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Post-Matric Scholarship to VJNT Students, Maharashtra 2025-26 Award A monthly maintenance allowance up to ₹425 and other benefits Eligibility VJNT category students studying in Class 11 and above Last Updated On 31-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/post-matric-scholarship-to-vjnt-students-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Tuition Fees and Examination Fees to VJNT Students, Maharashtra 2025-26 Award Up to 100% reimbursement for tuition, exams, and other admissible fees Eligibility VJNT category students studying at post-matric level Last Updated On 31-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/tuition-fees-and-examination-fees-to-vjnt-students-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Rajarshi Chhatrapati Shahu Maharaj Merit Scholarship for VJNT and SBC Category, Maharashtra 2025-26 Award A monthly scholarship of ₹300 for 10 months Eligibility Students enrolled in Class 11 and 12 Last Updated On 31-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/rajarshi-chhatrapati-shahu-maharaj-merit-scholarship-for-vjnt-and-sbc-category-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Post-Matric Scholarship to SBC Students, Maharashtra 2025-26 Award A monthly maintenance allowance up to ₹425 and other benefits Eligibility SBC students studying in Class 11 and above Last Updated On 31-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/postmatric-scholarship-to-sbc-students-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Post-Matric Scholarship to OBC Students, Maharashtra 2025-26 Award A monthly maintenance allowance up to ₹425 and other benefits Eligibility OBC students studying in Class 11 and above Last Updated On 30-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/post-matric-scholarship-to-obc-students-maharashtra-2025-26",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Tuition Fees and Examination Fees to OBC Students, Maharashtra 2025-26 Award Up to 100% reimbursement in tuition, exams, and other admissible fees Eligibility OBC students studying in Class 11 and above Last Updated On 01-08-2025",
+      "url": "https://www.buddy4study.com/scholarship/tuition-fees-and-examination-fees-to-obc-students-maharashtra-2025-26",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Tuition Fees and Examination Fees to SBC Students, Maharashtra 2025-26 Award 100% tuition fees and examination fees reimbursement Eligibility SBC students in Class 11 and above Last Updated On 01-08-2025",
+      "url": "https://www.buddy4study.com/scholarship/tuition-fees-and-examination-fees-to-sbc-students-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Vocational Training Fee Reimbursement for OBC, SEBC, VJNT & SBC Students, Maharashtra 2025-26 Award 80% course fees for SSC students Eligibility Students belonging to OBC, SEBC, VJNT, and SBC categories who are pursuing vocational training courses Last Updated On 01-08-2025",
+      "url": "https://www.buddy4study.com/scholarship/vocational-training-fee-reimbursement-for-obc-sebc-vjnt-sbc-students-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Rajarshri Chhatrapati Shahu Maharaj Fee Reimbursement Scholarship Scheme, Maharashtra 2025-26 Award 50% reimbursement of tuition and development fees Eligibility EBC category students applying for specified UG medical degree courses Last Updated On 01-08-2025",
+      "url": "https://www.buddy4study.com/scholarship/rajarshri-chhatrapati-shahu-maharaj-fee-reimbursement-scholarship-scheme-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Dr. Panjabrao Deshmukh Hostel Maintenance Allowance Scheme, Maharashtra 2025-26 Award Hostel maintenance allowance up to ₹30,000 per annum Eligibility Wards of alpabhudharak shetkari/registered labourers pursuing specified medical degree courses Last Updated On 01-08-2025",
+      "url": "https://www.buddy4study.com/scholarship/dr-panjabrao-deshmukh-hostel-maintenance-allowance-scheme-maharashtra-2025",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Education Fee Reimbursement Scheme for Open Category Students, Maharashtra 2025-26 Award Reimbursement of institute's FRA approved fees Eligibility Open category students pursuing MBBS, BDS and PG Medical (MD/MS) degree courses Last Updated On 02-08-2025",
+      "url": "https://www.buddy4study.com/scholarship/education-fee-reimbursement-scheme-for-open-category-students-maharashtra-2025-26",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026MAFSU Rajarshi Chhatrapati Shahu Maharaj Shikshan Shulkh Shishyavrutti Yojna (EBC) Students, Maharashtra 2025-26 Award Reimbursement of up to 100% tuition and exam fees Eligibility EWC category students admitted to diploma/degree/postgraduate professional courses through Centralised Admission Process (CAP). Last Updated On 05-08-2025",
+      "url": "https://www.buddy4study.com/scholarship/mafsu-rajarshi-chhatrapati-shahu-maharaj-shikshan-shulkh-shishyavrutti-yojna-ebc-students-maharashtra-2025-26",
+      "deadline": "21 May 2026",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenBihar Student Credit Card Loan Scheme Award Up to ₹4 lakh p.a. Eligibility Students who have completed either Class 10 (for polytechnic courses) or Class 12 Last Updated On 04-02-2026",
+      "url": "https://www.buddy4study.com/page/bihar-credit-card-loan-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenPrime Minister's Research Fellowship (PMRF) Award Up to ₹80,000 monthly and other benefits Eligibility B.Tech graduate, final year BTech, integrated M.Tech, integrated M.Sc. students from IISc/ IITs/ NITs/ IISER/ IIITs Last Updated On 28-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/prime-ministers-research-fellowship-pmrf",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenBank of Maharashtra Model Education Loan Scheme Award Up to ₹20 Lakh Eligibility UG and PG students Last Updated On 26-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/bank-of-maharashtra-model-education-loan-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenMonash University International Merit Scholarship Award AUD 15,000 per annum Eligibility Undergraduate applicants Last Updated On 19-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/monash-international-merit-scholarship-2020",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenNMDFC Education Loan Scheme Award Up to ₹30 lakh at nominal interest rates Eligibility Minority community students Last Updated On 18-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/nmdfc-education-loan-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenTMB Super Education Loan Award Up to ₹50 lakh Eligibility Indians pursuing postgraduation Last Updated On 18-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/tmb-super-education-loan",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenTMB Education Loan Award Up to ₹20 lakh Eligibility Indians pursuing higher education Last Updated On 18-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/tmb-education-loan",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenCent Vidyarthi Education Loan Scheme Award Up to ₹2 Crore Education Loan Eligibility Students pursuing higher education in India or abroad Last Updated On 15-01-2026",
+      "url": "https://www.buddy4study.com/page/cent-vidyarthi-education-loan-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenSitaram Jindal Foundation Scholarship Scheme 2025 Award Award covering tuition fees and other benefits Eligibility Students studying from Class 11 to postgraduation Last Updated On 13-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/sitaram-jindal-foundation-scholarship-scheme-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenHumboldt Research Fellowship Award Fellowship of up to EUR 3200 and other benefits Eligibility Research scholars and scientists Last Updated On 13-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/humboldt-research-fellowship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenMANAGE Internship Program Award Stipend of up to ₹35,000 Eligibility PhD or Post-Graduate students Last Updated On 09-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/manage-internship-program",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Internship"
+    },
+    {
+      "title": "Always OpenMANAGE Internship Program 2023 Award Up to INR 35,000 per month Eligibility Ph.D. or Postgraduate Last Updated On 09-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/manage-internship-program-2022",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Internship"
+    },
+    {
+      "title": "Always OpenBuddy4Study-Edufin Domestic/International Education Loan Programme Award Education loan of up to ₹1 crore Eligibility Students enrolled in or applying to UG/PG programs in India Last Updated On 06-01-2026",
+      "url": "https://www.buddy4study.com/page/buddy4study-edufin",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenNational Renewable Energy Internship 2026 Award Monthly Stipend of ₹20,000 Eligibility UG, PG, and Research scholars Last Updated On 05-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/national-renewable-energy-internship-2026",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Internship"
+    },
+    {
+      "title": "Always OpenAICTE Productization Fellowship (APF) 2026 Award A fellowship of up to ₹4.94 lakhs per annum Eligibility Students from AICTE approved institutions Last Updated On 05-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/aicte-productization-fellowship-apf-2026",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenMacquarie University Vice-Chancellor's International Scholarship Award A scholarship of AUD $10,000 (₹579,438 approx.) Eligibility Students pursuing UG or PG courses at Macquarie University Last Updated On 05-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/macquarie-university-vice-chancellor-s-international-scholarship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenDr. Ambedkar National Merit Award Scheme Award Award of up to ₹60,000 Eligibility Meritorious SC students Last Updated On 03-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/dr-ambedkar-national-merit-award-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenImperial College London Outstanding Women in Finance Scholarship Award Up to £25,000 towards tuition fees Eligibility Postgraduate students Last Updated On 03-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/imperial-college-london-outstanding-women-in-finance-scholarship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenImperial College London Dean's Impact Scholarship Award Up to £30,000 towards tuition fees Eligibility MBA and M.Sc. applicants Last Updated On 02-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/imperial-college-london-dean-s-impact-scholarship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenImperial College London Advisory Board Scholarship Award Full tuition fees Eligibility MBA applicants Last Updated On 30-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/imperial-college-london-advisory-board-scholarship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenCSIR Nehru Science Postdoctoral Research Fellowship Scheme Award Monthly fellowship of ₹80,000 with other benefits Eligibility PhD degree holders Last Updated On 24-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/csir-nehru-science-postdoctoral-research-fellowship-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenHigher Education & Skill Development Guarantee Scheme Award A maximum loan up to ₹10,00,000 on a base interest rate charged by the individual banks Eligibility Students of Delhi pursuing recognised degree or diploma level courses or skill development courses Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/page/higher-education-skill-development-guarantee-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenHimachal Pradesh Education Loan Scheme Award Upto INR 20 L Eligibility For students belonging to minority communities (Muslims, Sikhs, Buddhists, Christans, and Parsis) and students with disabilities Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/page/himachal-pradesh-education-loan-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenBuddy4Study-Gyan Dhan Domestic/International Education Loan Programme Award Education loan amount of up to ₹1 crore Eligibility Students enrolled in or applying for UG/PG courses in India in current academic year Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/page/buddy4study-gyan-dhan",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenNewcastle University Vice-Chancellor's International Scholarships (Undergraduate) 2026 Award £7,000 tuition fee awards Eligibility Undergraduate applicants Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/newcastle-university-vice-chancellors-international-scholarships-undergraduate-2026",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenSBW Berlin Scholarship for International Students Award Tuition fees and other benefits Eligibility UG/PG students Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/sbw-berlin-scholarship-for-international-students",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenISTA Scientific Internships Award A minimum monthly salary of EUR 1,523 Eligibility Science UG/PG students Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/ista-scientific-internships",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Internship"
+    },
+    {
+      "title": "Always OpenUniversity of Otago Doctoral Scholarship Award NZ$33,624 stipend per annum and fee waiver Eligibility Doctoral applicants Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-otago-doctoral-scholarship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenAakash Instant Admission Cum Scholarship Test (iACST) Award 90% scholarships on NEET, JEE and foundation courses Eligibility Class 5 to 12 passouts Last Updated On 21-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/aakash-instant-admission-cum-scholarship-test-iacst",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenDoctoral Fellowship In India For ASEAN Award Up to ₹35,000 per month with other benefits Eligibility Scholars from ASEAN countries Last Updated On 21-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/doctoral-fellowship-in-india-for-asean",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenBuddy4Study-Kuhoo Finance Domestic/International Education Loan Programme Award Education loan amount up to ₹25 lakhs Eligibility Students enrolled in or applying for UG/PG courses in India in current academic year. Last Updated On 18-12-2025",
+      "url": "https://www.buddy4study.com/page/buddy4study-kuhoo-finance",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenK. L. Arora Chair In Criminal Law Internship Award Commensurate Honorarium Eligibility Law students with criminal law coursework Last Updated On 10-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/k-l-arora-chair-in-criminal-law-internship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Internship"
+    },
+    {
+      "title": "Always OpenKAUST Visiting Student Research Program (VSRP) Award A monthly stipend of $1,000 and other benefits Eligibility Undergraduate and Master's students Last Updated On 02-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/kaust-visiting-student-research-program-vsrp",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenChief Minister's Scholarship for Acheivers Toward Higher Education (CM-SATH), Tripura Award A monthly stipend of ₹5,000 Eligibility Class 10 and higher secondary passed students Last Updated On 27-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/chief-ministers-scholarship-for-acheivers-toward-higher-education-cm-sath-tripura",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenMonash University Faculty of IT International Merit Scholarship Award 20% tuition fee waiver Eligibility IT degree applicants Last Updated On 23-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/monash-university-faculty-of-it-international-merit-scholarship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenMonash University Women in Information Technology Scholarship Award AUD 6,000 for one year Eligibility Undergraduate applicants Last Updated On 20-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/monash-university-women-in-information-technology-scholarship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenDelhi Education Loan Scheme Award Up to ₹15 lakhs Eligibility Delhi students pursuing higher studies in India and abroad Last Updated On 20-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/delhi-education-loan-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenEDUCAIT Trust Pragnya Scholarship Program Award Financial aid of ₹20,000 Eligibility Karnataka students from class 5 to degree level Last Updated On 20-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/educait-trust-pragnya-scholarship-program",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenUniversity of Oxford Felix Scholarships Award Full course fees and other benefits Eligibility Graduate Students Last Updated On 19-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-oxford-felix-scholarships-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenMacquarie University India Early Acceptance Scholarship Award Up to AUD 10,000 per year Eligibility International students from India Last Updated On 02-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/macquarie-university-india-early-acceptance-scholarship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenOECD Internship Programme 2025 Award Up to EUR 1,000 monthly and other benefits Eligibility Full-time degree students Last Updated On 22-10-2025",
+      "url": "https://www.buddy4study.com/scholarship/oecd-internship-programme-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Internship"
+    },
+    {
+      "title": "Always OpenUniversity of Ottawa International English Academic Excellence Scholarship 2026 Award Up to CAD 10,000 Eligibility International undergraduate applicants Last Updated On 12-10-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-ottawa-international-english-academic-excellence-scholarship-2026",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenUniversity of Ottawa International English Admission Scholarship 2026 Award Up to CAD 7,500 per term Eligibility International undergraduate applicants Last Updated On 12-10-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-ottawa-international-english-admission-scholarship-2026",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenFree Education Scheme For Sportspersons Award Up to ₹15,000 and other benefits Eligibility Medal-winning sportsperson Last Updated On 12-10-2025",
+      "url": "https://www.buddy4study.com/scholarship/free-education-scheme-for-sportspersons",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenBond University International Excellence Scholarships Award 50% tuition fee remission Eligibility Students applying for a bachelor’s degree at the Bond University Last Updated On 05-10-2025",
+      "url": "https://www.buddy4study.com/scholarship/bond-university-international-excellence-scholarships",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenDr APJ Abdul Kalam Shramik Prashikshit Shiksha Sahayata Yojana 2025 Award Up to ₹25,000 per year Eligibility Students pursuing technical education Last Updated On 04-10-2025",
+      "url": "https://www.buddy4study.com/scholarship/dr-apj-abdul-kalam-shramik-prashikshit-shiksha-sahayata-yojana",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenAzim Premji University Need-Based Scholarships 2025 Award Financial assistance and other benefits Eligibility Students pursuing UG and PG level studies Last Updated On 26-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/azim-premji-university-need-based-scholarships-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenThe Glasgow MBA Scholarship 2025 Award A one-time scholarship of up to EUR 18,750 (approx. ₹17,03,381) towards tuition fee Eligibility Students applying for MBA degree at the university Last Updated On 17-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/the-glasgow-mba-scholarship-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenSHDF India Scholarship 2025 Award Financial assistance Eligibility Punjab/northern Indian students Last Updated On 14-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/shdf-india-scholarship-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenChandigarh Sports Scholarship Award Award up to ₹60,000 Eligibility Sports players of Chandigarh Last Updated On 13-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/chandigarh-sports-scholarship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenBihar Student Education Loan Scheme Award Up to ₹30 lakhs Eligibility Indian students Last Updated On 12-09-2025",
+      "url": "https://www.buddy4study.com/page/bihar-student-education-loan-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenPrime Minister Vidyalaxmi Education Loan Scheme Award Up to 100% interest subsidy on loans up to ₹10 lakh Eligibility Students enrolled in top HEIs in India Last Updated On 12-09-2025",
+      "url": "https://www.buddy4study.com/page/pm-vidyalakshmi-education-loan-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenAICTE Post-doctoral Fellowship (PDF) Scheme 2024-25 Award A monthly fellowship of ₹65,000 and other benefits Eligibility Students pursuing post-doctoral studies in AICTE-approved institutions Last Updated On 10-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/aicte-post-doctoral-fellowship-pdf-scheme-2024-25",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenAICTE Doctoral Fellowship (ADF) Scheme 2024-25 Award A monthly fellowship of up to ₹42,000, an annual contingency grant of ₹15,000, and HRA as per govt. norms Eligibility Students pursuing Ph.D. degree in all AICTE-approved fields Last Updated On 10-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/aicte-doctoral-fellowship-adf-scheme-2024-25",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenNational Commission for Women Internship 2024 Award A monthly stipend of up to ₹10,000 Eligibility Students enrolled in LLB/LLM/M.Phil/MA/M.Sc./Ph.D. courses Last Updated On 09-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/national-commission-for-women-internship-2024",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Internship"
+    },
+    {
+      "title": "Always OpenAapki Beti Hamari Beti Scheme, Haryana Award A one-time of ₹21,000 and other benefits Eligibility Families with two or more daughters who are studying in govt. recognised institutions Last Updated On 09-09-2025",
+      "url": "https://www.buddy4study.com/page/aapki-beti-hamari-beti-scheme-haryana",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenWISE SCOPE Fellowship 2024 Award A monthly fellowship of ₹55,000 along with HRA and other benefits Eligibility Female Scientists and Technologists who have completed Ph.D. or equivalent degree Last Updated On 09-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/wise-scope-fellowship-2024",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenGuruji Student Credit Card Loan Scheme, Jharkhand Award Education loan of up to ₹15,00,000 at a simple interest of 4% Eligibility Students pursuing diploma, UG, PG and above level courses Last Updated On 09-09-2025",
+      "url": "https://www.buddy4study.com/page/guruji-student-credit-card-scheme-gsccs-jharkhand",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenMukhyamantri Naunihaal Chhaatravrtti Yojana, Chhattisgarh Award A one-time annual scholarship of up to ₹10,000 Eligibility Wards of construction workers in Chhattisgarh studying in Class 1 till Ph.D. level Last Updated On 09-09-2025",
+      "url": "https://www.buddy4study.com/page/mukhyamantri-naunihaal-chhaatravrtti-yojana-chhattisgarh",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenEWS Quota for School Students Award Scholarship support and other benefits Eligibility EWS catgeory students Last Updated On 09-09-2025",
+      "url": "https://www.buddy4study.com/page/ews-quota-in-schools",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenNational Law University (P39A) Internship Programme 2023 Award Up to ₹10,000 per month Eligibility Students enrolled in UG and PG courses in law, humanities, social sciences, management or media and communications. Last Updated On 09-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/national-law-university-p39a-internship-programme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Internship"
+    },
+    {
+      "title": "Always OpenPrime Minister's Fellowship Scheme for Doctoral Research 2023 Award ₹10,41,000 per annum Eligibility Full-time Ph.D. scholars Last Updated On 09-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/prime-minister-s-fellowship-scheme-for-doctoral-research-2023",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenBeti Hai Anmol Yojna, Himachal Pradesh 2023 Award Annual scholarship Eligibility Girl child of BPL family Last Updated On 08-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/beti-hai-anmol-yojna-himachal-pradesh-2023",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenSERB - POWER Fellowship 2023 Award Up to ₹15,000 per month Eligibility PhD degree holders Last Updated On 08-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/serb-power-fellowship-2023",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenSERB Research Scientists Scheme 2020 Award INR 1,20,000 per month and other benefits Eligibility INSPIRE faculty and Ramanujan fellows Last Updated On 08-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/serb-research-scientists-scheme-2020",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenCSIR Nehru Science Postdoctoral Research Fellowship 2020 Award INR 65,000 per month and other benefits Eligibility PhD degree holders Last Updated On 08-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/csir-nehru-science-postdoctoral-research-fellowship-2020",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenVisiting Advanced Joint Research Faculty Scheme (VAJRA) 2020 Award Up to USD 15,000 per month Eligibility Overseas scientists or faculty Last Updated On 08-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/visiting-advanced-joint-research-faculty-scheme-vajra-2020",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenPhysical Research Laboratory Post-Doctoral Fellowship 2020 Award Up to INR 54,000 per month Eligibility PhD candidates Last Updated On 08-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/physical-research-laboratory-post-doctoral-fellowship-2020",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenIITDM Kancheepuram Postdoctoral Research Fellowships 2020 Award Variable awards Eligibility PhD degree holders Last Updated On 08-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/iitdm-kancheepuram-postdoctoral-research-fellowships-2020",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenSERB International Travel Scheme (ITS) 2020 Award INR 50,000 or Actual registration fee, whichever is less Eligibility PhD students Last Updated On 08-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/serb-international-travel-scheme-its-2020",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenSt Mary's University Postgraduate International Scholarships 2025 Award Award up to EUR 2,000 per year Eligibility International postgraduate students Last Updated On 06-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/st-marys-university-postgraduate-international-scholarships-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenThiel Fellowship Award Fellowship of USD 2,00,000 (approx ₹17,630,061.38) Eligibility Young innovators under the age of 22 Last Updated On 06-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/thiel-fellowship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenJai Bhim Mukhyamantri Pratibha Vikas Yojna, Delhi 2020 Award Up to INR 1,00,000 Eligibility Coaching classes students Last Updated On 06-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/jai-bhim-mukhyamantri-pratibha-vikas-yojna-delhi-2020",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenJC Bose Fellowship - Science and Engineering Research Board Award Fellowship of INR 25,000 per month and Research Grant of INR 15 lakh per annum Eligibility Scientists Last Updated On 06-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/jc-bose-fellowship-science-and-engineering-research-board",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenESSO-NCESS Junior Research Fellowship 2024 Award Up to ₹28,000 per month and other benefits Eligibility CSIR-UGC NET-JRF candidates Last Updated On 06-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/esso-ncess-junior-research-fellowship",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenDelhi Ladli Scheme Award A fixed long term-deposit of ₹11,000 Eligibility Females residing in Delhi Last Updated On 06-09-2025",
+      "url": "https://www.buddy4study.com/page/delhi-ladli-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenMukhyamantri Kanya Utthan Yojana, Bihar 2025-26 Award Up to ₹25,000 (one-time) Eligibility Class 12 passed female students of Bihar Last Updated On 28-08-2025",
+      "url": "https://www.buddy4study.com/scholarship/mukhyamantri-kanya-utthan-yojana-bihar-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenCM Minority Meritorious Girls Incentive Scheme, Uttarakhand Award Grant of up to ₹25,000 Eligibility Female minority students Last Updated On 23-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/cm-minority-meritorious-girls-incentive-scheme-uttarakhand",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenNehru Study Abroad Scholarship 2025 Award Scholarship covering tuition, living, research, and other educational expenses Eligibility Indians pursuing higher studies abroad Last Updated On 22-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/nehru-study-abroad-scholarship-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenICPC Internship Programme 2025 Award Monthly stipend of ₹5000 and a certificate of appreciation Eligibility Final-year or penultimate-year graduation students Last Updated On 12-07-2025",
+      "url": "https://www.buddy4study.com/scholarship/icpc-internship-programme-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Internship"
+    },
+    {
+      "title": "Always OpenBoehringer Ingelheim Fonds (BIF) MD Fellowships Award A monthly stipend and other benefits Eligibility Students pursuing medicine in Germany Last Updated On 29-06-2025",
+      "url": "https://www.buddy4study.com/scholarship/boehringer-ingelheim-fonds-bif-md-fellowships",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenJharkhand NMDFC Education Loan Scheme Award Up to ₹30 lakh at nominal interest rates Eligibility Minority community students of Jharkhand Last Updated On 19-06-2025",
+      "url": "https://www.buddy4study.com/page/jharkhand-nmdfc-education-loan-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenMukhya Mantri Gyandeep Yojna, Himachal Pradesh Award A maximum education loan of ₹10 lakhs with an annual interest subsidy of 4% Eligibility Students enrolled in professional or technical courses Last Updated On 12-06-2025",
+      "url": "https://www.buddy4study.com/page/mukhya-mantri-gyandeep-yojna-mmgy",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenWest Bengal Student Credit Card Loan Scheme Award Loan up to INR 10 Lakh Eligibility Students of West Bengal pursuing secondary, higher secondary, madrasah, undergraduate, and postgraduate studies, including professional degrees Last Updated On 12-06-2025",
+      "url": "https://www.buddy4study.com/page/west-bengal-student-credit-card-loan-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenKalinga Sikhya Sathi Yojana Award Education loan up to ₹10,00,000 Eligibility Students of Odisha Last Updated On 12-06-2025",
+      "url": "https://www.buddy4study.com/page/kalinga-sikhya-sathi-yojana",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenKerala NMDFC Education Loan Scheme Award Up to ₹30 lakh at nominal interest rates Eligibility Minority Students of Kerala Last Updated On 11-06-2025",
+      "url": "https://www.buddy4study.com/page/kerala-nmdfc-education-loan",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenCGFSEL Education Loan Scheme Award Up to ₹7,50,000 Eligibility For Class 12 passed students Last Updated On 11-06-2025",
+      "url": "https://www.buddy4study.com/page/cgfsel-education-loan-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenNSFDC Education Loan Scheme for SC Students Award Up to ₹40 lakh at a maximum interest rate of 7% Eligibility SC category students Last Updated On 11-06-2025",
+      "url": "https://www.buddy4study.com/page/nsfdc-education-loan",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenMaulana Azad Education Loan Scheme, Maharashtra Award Up to ₹5 lakh at a nominal interest rate of 3% Eligibility Minority community students' of Maharashtra Last Updated On 11-06-2025",
+      "url": "https://www.buddy4study.com/page/maulana-azad-education-loan-scheme-maharashtra",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenBookAChange Music Scholarship 2025 Award Up to 100% reimbursement on tuition fees Eligibility Indian musicians Last Updated On 09-04-2025",
+      "url": "https://www.buddy4study.com/scholarship/bookachange-music-scholarship-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenEducation Future International Scholarship 2025 Award Scholarship ranging between ₹2-10 lakh Eligibility Undergraduate and Postgraduate applicants Last Updated On 25-03-2025",
+      "url": "https://www.buddy4study.com/scholarship/education-future-international-scholarship-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenUQ International High Achievers Award - India 2025 Award 20% reduction in tuition fees per semester Eligibility Students pursuing undergraduate and postgraduate coursework Last Updated On 11-03-2025",
+      "url": "https://www.buddy4study.com/scholarship/uq-international-high-achievers-award-india-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenIDRBT Research Associateship 2025 Award A monthly CTC of ₹31,500 and other benefits Eligibility Graduate students Last Updated On 25-02-2025",
+      "url": "https://www.buddy4study.com/scholarship/idrbt-research-associateship-2025",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenSBI Youth for India Fellowship 2025-26 Award A monthly stipend of ₹16,000 and other benefits Eligibility Bachelor’s degree holders Last Updated On 20-02-2025",
+      "url": "https://www.buddy4study.com/scholarship/sbi-youth-for-india-fellowship-2025-26",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fellowship"
+    },
+    {
+      "title": "Always OpenNarayana Admission cum Scholarship Test (N-ACST) Award Up to 90% scholarship towards tuition fee Narayana's programs Eligibility Classes 8 to 12 students passionate about IIT-JEE, NEET and Olympiads Last Updated On 13-01-2025",
+      "url": "https://www.buddy4study.com/scholarship/narayana-admission-cum-scholarship-test-n-acst",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenDr. Baba Saheb Ambedkar Loan for Higher Study in Foreign Countries, Gujarat Award Up to ₹15,00,000 at an interest rate of 4% Eligibility SC students of Gujarat willing to pursue Postgraduate, Ph.D. degree, higher level research and computer courses Last Updated On 07-08-2024",
+      "url": "https://www.buddy4study.com/page/dr-baba-saheb-ambedkar-loan-for-higher-study-in-foreign-countries-1",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenGujarat Government’s Study Abroad Loan Scheme Award Up to ₹10,00,000 Eligibility Students wiiling to pursue higher studies abroad Last Updated On 06-08-2024",
+      "url": "https://www.buddy4study.com/page/gujarat-government-s-study-abroad-loan-scheme",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenDr. Ambedkar Central Sector Scheme of Interest Subsidy on Educational Loans for Overseas Studies for OBCs & EBCs Students Award Interest subsidy on loans Eligibility Other Backward Classes (OBCs) and Economically Backward Classes (EBCs) pusrsuing higher studies abroad Last Updated On 29-07-2024",
+      "url": "https://www.buddy4study.com/page/dr-ambedkar-central-sector-scheme-of-interest-subsidy-on-educational-loans-for-overseas-studies-for-obcs-ebcs-students-1",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Education Loan"
+    },
+    {
+      "title": "Always OpenManchester Humanities International Excellence Scholarship 2024 Award A tuition fee discount of up to £5,000 (approx. ₹4,17,138.75) Eligibility Students admitted to postgraduate courses at the University of Manchester Last Updated On 24-06-2024",
+      "url": "https://www.buddy4study.com/scholarship/manchester-humanities-international-excellence-scholarship-2024",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "Always OpenAICTE Yashasvi (Young Achievers' Scholarship & Holistic Academic Skills Venture Initiative) Scheme 2024 Award An annual scholarship of up to ₹18,000 for every year of study Eligibility First-year Diploma/degree Engineering students Last Updated On 19-06-2024",
+      "url": "https://www.buddy4study.com/scholarship/aicte-yashasvi-young-achievers-scholarship-holistic-academic-skills-venture-initiative-scheme-2024",
+      "deadline": "Always Open",
+      "award": "Tuition fee waiver",
+      "eligibility": "Class 11 and 12",
+      "last_updated": "12-01-2026",
+      "status": "Featured",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "31 March 2026Buddy4Study - Prodigy Finance Education Loan Program Award Flexible international student loans Eligibility For college students who aspire to study abroad Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/page/buddy4study-prodigy-finance-education-loan-program",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Education Loan"
+    },
+    {
+      "title": "31 March 2026Google Silicon Engineering Internship 2026 Award Variable Benefits Eligibility PhD students technical fields Last Updated On 31-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/google-silicon-engineering-internship-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Internship"
+    },
+    {
+      "title": "31 March 2026Buddy4Study - ICICI Bank International Education Loan Programme Award Loan up to INR 2 crore Eligibility For undergraduate, postgraduate and PG diploma students abroad Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/page/buddy4study-icici-bank-education-loan-programme",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Education Loan"
+    },
+    {
+      "title": "31 March 2026Arturo Falaschi PhD Fellowships ICGEB 2026-27 Award A monthly stipend of US$ 1,122 (approx. ₹97,000) and other benefits Eligibility M.Sc. degree holders Last Updated On 04-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/arturo-falaschi-phd-fellowships-icgeb-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "31 March 2026Buddy4Study - Avanse International Education Loan Programme Award Loan amount ranging from 10 lakh to 2 crore Eligibility Undergraduate and postgraduate students Last Updated On 22-12-2025",
+      "url": "https://www.buddy4study.com/page/buddy4study-avanse-international-education-loan-programme",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Education Loan"
+    },
+    {
+      "title": "31 March 2026Arturo Falaschi SMART Fellowships 2026 Award Stipend of ranging $1,500-2,000 Eligibility Life Sciences researchers from ICGEB Member States Last Updated On 20-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/arturo-falaschi-smart-fellowships-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "2 April 2026University of Auckland International Student Excellence Scholarship 2026 Award Up to $10,000 Eligibility UG, PG, and PG Diploma applicants Last Updated On 07-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-auckland-international-student-excellence-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Study Abroad"
+    },
+    {
+      "title": "2 April 2026University of Auckland India High Achievers Scholarship 2026 Award Up to $20,000 Eligibility Indian students pursuing UG, PG, and PG Diploma courses Last Updated On 07-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-auckland-india-high-achievers-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "6 April 2026Imperial College London India Future Leaders Scholarship 2026-27 Award GBP 10,000 towards tuition fees Eligibility Students pursuing specific Master’s courses Last Updated On 28-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/imperial-college-london-india-future-leaders-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "8 April 2026University of Bath School of Management Scholarships (September), 2026 Award Up to EUR 10,000 fee waiver Eligibility Master's applicants Last Updated On 28-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-bath-school-of-management-scholarships-september-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "10 April 2026Smarter India Logical Reasoning & Aptitude Scholarship 2026 Award Up to ₹1,00,000 and other benefits Eligibility Indian citizens aged 13-45 years Last Updated On 08-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/smarter-india-logical-reasoning-aptitude-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "10 April 2026Think Big Undergraduate Scholarship University of Bristol 2026 Award Funding towards tuition fees Eligibility UG and PG applicants Last Updated On 13-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/think-big-undergraduate-scholarship-university-of-bristol-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "15 April 2026University of Nottingham Developing Solutions Masters Scholarship 2026 Award Scholarships covering 50% to 100% tuition fee Eligibility Students pursuing a Master’s programme from September 2026 Last Updated On 15-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-nottingham-developing-solutions-masters-scholarship",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "15 April 2026Nottingham University Developing Solutions Masters Scholarship 2026 Award Up to 100% tuition fees coverage Eligibility Undergraduate international student Last Updated On 26-10-2025",
+      "url": "https://www.buddy4study.com/scholarship/nottingham-university-developing-solutions-masters-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Study Abroad"
+    },
+    {
+      "title": "15 April 2026University of Hamburg Merit Scholarship 2026 Award Monthly scholarship of up to €992 Eligibility Students pursuing a degree at the Universität Hamburg for at least 2 semesters Last Updated On 14-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-hamburg-merit-scholarship",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "15 April 2026OIST Research Internship Program 2025 Award Daily allowance and a fully-funded internship Eligibility UG and PG students or recent graduates Last Updated On 14-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/oist-research-internship-program",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Internship"
+    },
+    {
+      "title": "24 April 2026Imperial College London International Baccalaureate Excellence Scholarships 2026-27 Award £5,000 per annum Eligibility Undergraduate students Last Updated On 03-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/imperial-college-london-international-baccalaureate-excellence-scholarships-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Study Abroad"
+    },
+    {
+      "title": "24 April 2026IASH Postdoctoral Fellowships 2026-27 Award Bursary of up to £20,000 and other benefits Eligibility Students with a PhD degree Last Updated On 15-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/iash-postdoctoral-fellowships",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "30 April 2026Abel Visiting Scholarship 2025 Award A one-time grant of up to $5,000 for a month & other benefits Eligibility Ph.D. degree holders in Mathematics Last Updated On 13-11-2024",
+      "url": "https://www.buddy4study.com/scholarship/abel-visiting-scholarship-2025",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "30 April 2026O'Shaughnessy Fellowships 2026 Award Fellowship of $1,00,000 for 1 year Eligibility Researchers Last Updated On 06-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/o-shaughnessy-fellowships-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Fellowship"
+    },
+    {
+      "title": "30 April 2026The University of Birmingham Future Skills Scholarship 2026 Award An award ranging from £9,125 to £12,500 Eligibility Indian students applying to the University of Birmingham Last Updated On 31-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/the-university-of-birmingham-future-skills-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "30 April 2026Imperial College London Lord Robert May Scholarship 2026-27 Award Full tuition fees and stipend Eligibility Postgraduate students Last Updated On 03-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/imperial-college-london-lord-robert-may-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "30 April 2026Center for International Environmental Law Summer Legal Internship, US 2026 Award Monthly stipend of USD 2,600 Eligibility Postgraduate law students Last Updated On 27-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/ciel-us-legal-internship-summer-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Internship"
+    },
+    {
+      "title": "1 May 2026Breda University of Applied Sciences NL Scholarship 2026 Award A scholarship of € 5,000 Eligibility International (non-EEA) undergraduate applicants Last Updated On 05-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/breda-university-of-applied-sciences-nl-scholarship",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Study Abroad"
+    },
+    {
+      "title": "1 May 2026John Jay College Creativity Assistant Scholarships Award A scholarship of $1,000 Eligibility Undergraduate and graduate students Last Updated On 15-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/john-jay-college-creativity-assistant-scholarships",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "1 May 2026University of Twente Scholarship (UTS) 2026 Award €3,000- €22,000 for study-related costs Eligibility Students holding admission offer to master’s program Last Updated On 13-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/university-of-twente-scholarship-uts-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "1 May 2026JCU International Excellence Scholarship 2025 Award 25% tuition fee reduction Eligibility UG and PG students Last Updated On 23-10-2025",
+      "url": "https://www.buddy4study.com/scholarship/jcu-international-excellence-scholarship-2025",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Study Abroad"
+    },
+    {
+      "title": "1 May 2026Imperial College London Anne Seagrim Accommodation Scholarship 2026-27 Award £13,500 toward accommodation costs Eligibility Ph.D. applicants Last Updated On 28-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/imperial-college-london-anne-seagrim-accommodation-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "7 May 2026UCL Global Master's Scholarship 2026 Award An annual scholarship of GBP 15,000 Eligibility Master's applicants Last Updated On 11-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/ucl-global-masters-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "29 May 2026Joint Japan/World Bank Graduate Scholarship Program (JJ/WBGSP) 2026 Award Tuition fees and other benefits Eligibility Applicants of selected master’s degree programs Last Updated On 11-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/joint-japan-world-bank-graduate-scholarship-program-jj-wbgsp-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "1 June 2026Amsterdam Merit Scholarship (Medicine) 2026-27 Award A scholarship of € 4,000 Eligibility Students admitted to one of the (Master's) programs of the Faculty of Medicine Last Updated On 28-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/amsterdam-merit-scholarship-medicine",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "12 June 2026University of Leeds International Excellence Scholarships 2026 Award Scholarship up to £16,000 (₹18,86,702.40 approx.) Eligibility UG/PG degree applicants Last Updated On 20-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-leeds-international-excellence-scholarships-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Study Abroad"
+    },
+    {
+      "title": "15 June 2026University of Westminster International Undergraduate Excellence Awards 2026 Award £2,500 tuition fee Eligibility International undergraduate students Last Updated On 12-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-westminster-international-undergraduate-excellence-awards-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Study Abroad"
+    },
+    {
+      "title": "24 June 2026Nottingham Trent University International Scholarships (September) 2026 Award Fee waivers ranging from GBP 2,000 to 50% Eligibility UG/PG applicants Last Updated On 01-02-2026",
+      "url": "https://www.buddy4study.com/scholarship/nottingham-trent-university-international-scholarships-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Fee Waiver"
+    },
+    {
+      "title": "25 June 2026University of Bath International Excellence Scholarships 2026 Award Scholarships worth £8,000 per academic year Eligibility Students joining an undergraduate course in September 2026 Last Updated On 12-01-2026",
+      "url": "https://www.buddy4study.com/scholarship/university-of-bath-international-excellence-scholarships",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Study Abroad"
+    },
+    {
+      "title": "31 July 2026University of Leeds International Master’s Regional Scholarships 2026 Award Fee reduction of £6,000 Eligibility Master’s applicants Last Updated On 07-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/university-of-leeds-international-masters-regional-scholarships-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Study Abroad"
+    },
+    {
+      "title": "30 August 2026Education Future International Scholarship 2026 Award Scholarship ranging between ₹2-10 lakh Eligibility UG and PG applicants Last Updated On 23-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/education-future-international-scholarship-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Study Abroad"
+    },
+    {
+      "title": "31 August 2026Falmouth University Pathway Awards 2026 Award £2,000 towards tuition fees Eligibility Undergraduate applicants Last Updated On 28-12-2025",
+      "url": "https://www.buddy4study.com/scholarship/falmouth-university-pathway-awards-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "General"
+    },
+    {
+      "title": "30 November 2026CERN Short Term Internship 2026 Award A monthly allowance of CHF 1,587 Eligibility Full-time students pursuing higher education Last Updated On 23-11-2025",
+      "url": "https://www.buddy4study.com/scholarship/cern-short-term-internship-2026",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Internship"
+    },
+    {
+      "title": "31 December 2026ACU Executive Dean’s International Scholarship (EDIS) 2025 Award Tuition fee reduction of 5% to 20% per year Eligibility International students Last Updated On 14-09-2025",
+      "url": "https://www.buddy4study.com/scholarship/acu-executive-deans-international-scholarship-edis-2025",
+      "deadline": "21 May 2026",
+      "award": "Scholarships worth £10,000",
+      "eligibility": "Students joining a full-time taught Master’s course",
+      "last_updated": "10-12-2025",
+      "status": "Closed",
+      "category": "Study Abroad"
+    }
+  ]
+}

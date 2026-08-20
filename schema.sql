@@ -19,10 +19,20 @@ CREATE TABLE profiles (
     user_id             UUID PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
     target_countries    TEXT[] NOT NULL DEFAULT '{}',
     intended_major      TEXT,
+    degree_level        TEXT CHECK (degree_level IN ('undergraduate', 'graduate', 'phd')),
     target_intake       TEXT,               -- e.g. 'Fall 2027'
     budget_range        TEXT CHECK (budget_range IN ('<15k', '15-30k', '30-50k', '50k+')),
     gpa                 NUMERIC(3,2),
-    test_scores         JSONB NOT NULL DEFAULT '{}',  -- e.g. {"toefl":110,"gre":{"quant":165}}
+    -- Array of per-test entries, e.g. [{"test":"gre","sections":{"verbal":160,"quant":165,"writing":4.5},"total":325},
+    -- {"test":"ielts","sections":{"listening":8,"reading":7.5,"writing":7,"speaking":7.5},"total":7.5}]
+    -- See backend/src/constants/testTypes.js for the full test catalog and each test's valid
+    -- section/total ranges (migration 1700000006000_profile-degree-level.js).
+    test_scores         JSONB NOT NULL DEFAULT '[]',
+    -- Extracurriculars/research/work-experience the Achievements tab collects, e.g.
+    -- {"extracurriculars":[{"category":"academic_competition","tier":"tier1","title":"IMO Silver Medal"}],
+    -- "researchPublications":2,"workExperienceYears":1.5}. See constants/extracurriculars.js
+    -- for the category/tier vocabulary and ai-engine/admissionFitEngine.js for how it's scored.
+    holistic_profile    JSONB NOT NULL DEFAULT '{}',
     updated_at          TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
@@ -74,7 +84,7 @@ CREATE INDEX idx_essay_examples_embedding ON essay_examples USING hnsw (embeddin
 
 CREATE TABLE schools (
     id                  UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    source              TEXT NOT NULL CHECK (source IN ('college_scorecard', 'hesa_discover_uni', 'manual_curated')),
+    source              TEXT NOT NULL CHECK (source IN ('college_scorecard', 'hesa_discover_uni', 'manual_curated', 'qs_rankings')),
     external_id         TEXT,               -- source's own id, e.g. Scorecard's `id` field
     name                TEXT NOT NULL,
     country             TEXT NOT NULL,
@@ -83,6 +93,7 @@ CREATE TABLE schools (
     admission_rate      NUMERIC,
     median_earnings     NUMERIC,
     completion_rate     NUMERIC,
+    world_rank          INTEGER,            -- QS World University Rankings position, when sourced from qs_rankings
     raw_source_data     JSONB,              -- full source payload, for audit/debug
     last_synced_at      TIMESTAMPTZ,
     created_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -90,21 +101,28 @@ CREATE TABLE schools (
     UNIQUE (source, external_id)
 );
 CREATE INDEX idx_schools_country ON schools(country);
+CREATE INDEX idx_schools_world_rank ON schools(world_rank);
 CREATE INDEX idx_schools_major_tags ON schools USING GIN (major_tags);
 
 CREATE TABLE scholarships (
     id                          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    source                      TEXT NOT NULL CHECK (source IN ('manual_curated', 'partner_api')),
+    source                      TEXT NOT NULL CHECK (source IN ('manual_curated', 'partner_api', 'scraped_archive')),
+    external_id                 TEXT,               -- see migration 1700000010000_scholarships-destination-country.js
     name                        TEXT NOT NULL,
-    eligible_nationalities      TEXT[] NOT NULL DEFAULT '{}',   -- empty = open to all
+    eligible_nationalities      TEXT[] NOT NULL DEFAULT '{}',   -- empty = open to all (which country the applicant is FROM)
+    destination_countries       TEXT[] NOT NULL DEFAULT '{}',   -- empty = open to all (which country the award funds study IN)
     major_tags                  TEXT[] NOT NULL DEFAULT '{}',
-    amount                      NUMERIC,
+    amount                      NUMERIC,            -- best-effort numeric parse, for sorting
+    amount_text                 TEXT,               -- original readable award text, e.g. "Up to $10,000"
+    eligibility_note            TEXT,               -- original readable eligibility text
     deadline                    DATE,
     source_url                  TEXT,
     verified_at                 TIMESTAMPTZ,
     verified_by                 TEXT,
     created_at                  TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+CREATE UNIQUE INDEX idx_scholarships_source_external_id ON scholarships(source, external_id) WHERE external_id IS NOT NULL;
+CREATE INDEX idx_scholarships_destination_countries ON scholarships USING GIN (destination_countries);
 CREATE INDEX idx_scholarships_nationalities ON scholarships USING GIN (eligible_nationalities);
 CREATE INDEX idx_scholarships_major_tags ON scholarships USING GIN (major_tags);
 
@@ -130,6 +148,9 @@ CREATE TABLE match_results (
     score           NUMERIC NOT NULL,
     reasoning_text  TEXT,
     model_version   TEXT,
+    -- Reach/Target/Safety, from ai-engine/admissionFitEngine.js — see migration
+    -- 1700000009000_match-results-fit-category.js.
+    fit_category    TEXT CHECK (fit_category IN ('Reach', 'Target', 'Safety')),
     created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
     UNIQUE (user_id, school_id)
 );

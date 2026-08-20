@@ -1,8 +1,10 @@
 import { Router } from 'express';
 import * as matchesController from '../controllers/matchesController.js';
 import { requireAuth } from '../middleware/auth.js';
-import { checkTier } from '../middleware/checkTier.js';
 
 export const matchesRoutes = Router();
 
-matchesRoutes.get('/', requireAuth, checkTier('premium'), matchesController.getMatches);
+// No checkTier('premium') gate here anymore — matchingService.computeMatches() itself branches
+// on user.tier to decide how intelligent the matching gets (holistic scoring, AI-personalized
+// reasoning) rather than the whole endpoint being premium-only. See matchingService.js.
+matchesRoutes.get('/', requireAuth, matchesController.getMatches);

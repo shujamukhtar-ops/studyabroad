@@ -23,34 +23,63 @@ function extractField(prompt, label) {
   return match ? match[1].trim() : null;
 }
 
+function keywordHits(text, keywords) {
+  const lower = text.toLowerCase();
+  return keywords.filter((kw) => lower.includes(kw));
+}
+
 function computeFitScore(text, major) {
   const keywords = MAJOR_KEYWORDS[major];
   if (!keywords) return null;
-  const lower = text.toLowerCase();
-  const hits = keywords.filter((kw) => lower.includes(kw)).length;
+  const hits = keywordHits(text, keywords).length;
   // 2 base + up to 8 for keyword coverage — a loose lexical signal, not a real
   // understanding of whether the essay's substance fits the field (see analyzePersonalized.js).
   return Math.min(10, 2 + hits * 1.5);
 }
 
-// The structural heuristic pass doesn't track exact essay spans per issue (see
-// analyzeSopText.js), so there's no real quote to put in `original` here — unlike a real
-// LLM provider, which can and should quote the actual essay text per the shape
-// analyzePersonalized.js's prompt asks for. `original` is left null rather than filled with
-// a fabricated or metadata-stuffed placeholder; FeedbackCard.jsx renders `dimension` and
-// `severity` as a proper label instead.
-function rewriteSuggestionsFromStructural(structuralAnalysis) {
-  const comments = Array.isArray(structuralAnalysis?.comments) ? structuralAnalysis.comments : [];
-  return comments
-    .filter((c) => c.severity === 'high' || c.severity === 'medium')
-    .slice(0, 3)
-    .map((c) => ({
-      dimension: c.dimension ?? null,
-      severity: c.severity,
+// Deliberately independent of structuralAnalysis.comments — those cover grammar, structure,
+// clichés, and mechanics, and reusing them here (an earlier version of this function did) made
+// the personalized stage feel like a duplicate of the structural "To improve" list instead of
+// adding anything new. This instead looks only at whether the essay's vocabulary actually
+// engages the student's stated major, which the structural pass never checks, and points out
+// the specific field-relevant terms missing from the essay so the suggestion is concrete
+// rather than generic ("be more specific"). `original` is left null (unlike a real LLM
+// provider, which quotes actual essay text per analyzePersonalized.js's prompt) because this
+// heuristic isn't tied to a specific span of the essay.
+function fitSuggestionsFromKeywords(text, major, fitScore) {
+  const keywords = MAJOR_KEYWORDS[major];
+  if (!keywords || fitScore === null) return [];
+
+  const majorLabel = major.replace(/_/g, ' ');
+  if (fitScore >= 7) {
+    return [
+      {
+        dimension: 'field-specific evidence',
+        severity: 'low',
+        original: null,
+        suggestion: `Keep grounding your interest in ${majorLabel} with the same level of concrete, field-specific detail throughout the rest of the essay.`,
+        rationale: `The essay already uses vocabulary and examples an admissions reader in ${majorLabel} would recognize as genuine engagement with the field.`,
+      },
+    ];
+  }
+
+  const missing = keywords.filter((kw) => !keywordHits(text, keywords).includes(kw)).slice(0, 3);
+  return [
+    {
+      dimension: 'field-specific evidence',
+      severity: 'medium',
       original: null,
-      suggestion: c.issue,
-      rationale: 'Based on the structural review of this essay.',
-    }));
+      suggestion: `Name a specific course, project, tool, or experience tied to ${majorLabel} rather than describing your interest in general terms — for example, something involving ${missing.slice(0, 2).join(' or ')}.`,
+      rationale: `Right now the essay reads as though it could apply to several different majors; concrete, field-specific detail is what tells an admissions reader in ${majorLabel} that this interest is real.`,
+    },
+    {
+      dimension: 'goal-major alignment',
+      severity: 'medium',
+      original: null,
+      suggestion: `Connect your stated goals directly to an outcome in ${majorLabel} — a problem you want to work on or a skill you want to build in that field.`,
+      rationale: `Admissions readers weigh how clearly your goals require this specific major, not just any major.`,
+    },
+  ];
 }
 
 export const MockProvider = {
@@ -64,11 +93,9 @@ export const MockProvider = {
     if (prompt.includes('STAGE=personalized')) {
       const essay = extractEssayText(prompt);
       const major = extractField(prompt, 'Intended major');
-      const structuralMatch = prompt.match(/Structural feedback already given:\n(\{[\s\S]*?\})\n\nEssay:/);
-      const structuralAnalysis = structuralMatch ? JSON.parse(structuralMatch[1]) : {};
 
       const fitScore = major && major !== 'unspecified' ? computeFitScore(essay, major) : null;
-      const suggestions = rewriteSuggestionsFromStructural(structuralAnalysis);
+      const suggestions = major && major !== 'unspecified' ? fitSuggestionsFromKeywords(essay, major, fitScore) : [];
 
       return JSON.stringify({
         fit_score: fitScore,

@@ -75,6 +75,7 @@ export const api = {
   getFeedback: (documentId) => request(`/feedback/${documentId}`),
 
   getMatches: () => request('/matches'),
+  getScholarships: () => request('/scholarships'),
 
   getVisaChecklist: (destination) => request(`/visa-checklist?destination=${encodeURIComponent(destination)}`),
 

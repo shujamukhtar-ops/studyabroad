@@ -34,8 +34,8 @@ Tier-gated routes that reject a basic-tier user use this shape specifically (see
 
 | Method | Path | Auth | Tier | Description |
 |---|---|---|---|---|
-| POST | `/api/profile` | required | any | Create/update the caller's profile. Body matches `profiles` columns minus `user_id`. |
-| GET | `/api/profile` | required | any | Return the caller's profile. `404` with `PROFILE_NOT_FOUND` if none yet. |
+| POST | `/api/profile` | required | any | Create/update the caller's profile. Body matches `profiles` columns minus `user_id`. `targetCountries` must be values from `backend/src/constants/countries.js` `COUNTRY_VALUES`; `intendedMajor` from `constants/majors.js` `MAJOR_TAG_VALUES`; `degreeLevel` one of `undergraduate`/`graduate`/`phd`. `testScores` is an array of `{test, sections, total, testDate?}` entries — `test` is a key from `constants/testTypes.js` `TEST_TYPE_VALUES` (`sat`, `act`, `gre`, `gmat`, `toefl`, `ielts`, `pte`, `duolingo`); `sections` values are validated against that test's own scale. `holisticProfile` (the Achievements tab) is `{extracurriculars: [{category, tier, title, description?}], researchPublications?, workExperienceYears?}` — `category`/`tier` are keys from `constants/extracurriculars.js`. Any tier may fill this in; only premium matching actually uses it (see Matching below). Response includes `recommendedTests` (see below) alongside `profile`. |
+| GET | `/api/profile` | required | any | Return the caller's profile. `404` with `PROFILE_NOT_FOUND` if none yet. Response: `{profile, recommendedTests}` — `recommendedTests` (`{academic, english, notes}`) is computed from the profile's `target_countries`/`degree_level` against `constants/testRecommendations.js`, listing which standardized tests are typically expected and why, per target country. |
 
 ## Documents & feedback
 
@@ -49,7 +49,8 @@ Tier-gated routes that reject a basic-tier user use this shape specifically (see
 
 | Method | Path | Auth | Tier | Description |
 |---|---|---|---|---|
-| GET | `/api/matches` | required | **premium** | School + scholarship matches for caller's profile. `checkTier('premium')` returns the `TIER_UPGRADE_REQUIRED` envelope above (403) for basic callers — never a bare 403, never a silently empty list. |
+| GET | `/api/matches` | required | any (both tiers get real matches) | School matches for caller's profile, each tagged with a `fit_category` (`Reach`/`Target`/`Safety`) from `ai-engine/admissionFitEngine.js`. Basic: judged on academic profile only (GPA + test scores), a 15-school shortlist, deterministic templated reasoning, no AI provider call. Premium: additionally blends in the Achievements-tab holistic score, the full candidate pool (up to 50), and AI-generated per-school reasoning. Response is `{schools, tier, upgradeNote?}` — `upgradeNote` is present (a short, non-blocking upsell string) only for basic-tier callers. Scholarships are a separate endpoint (below), not part of this response. |
+| GET | `/api/scholarships` | required | any | Candidate scholarships for the caller's profile, filtered by `destination_countries` (which country the award funds study *in* — matched against the profile's `target_countries`), `eligible_nationalities` (which country the applicant is *from* — matched against the account's `home_country`), and major. Not tiered — this is filtered data, not AI ranking. Response: `{scholarships}`, each with `amount`/`amount_text` (best-effort number + the original readable award text), `deadline` (`'YYYY-MM-DD'` or `null` for rolling/no fixed deadline — never returns an ISO datetime), and `eligibility_note`. |
 
 ## Visa checklist
 

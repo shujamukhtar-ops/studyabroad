@@ -47,12 +47,42 @@ Every fact-bearing field in the product (tuition, admission stats, scholarship e
 - **Coverage gap**: only 4 destinations are seeded. Any other destination — including other countries in the recognized `target_countries` list (Netherlands, Switzerland, Germany) — currently has no curated row and will surface as unavailable for premium users until it's added and verified the same way.
 - A country-specific caveat that genuinely does vary by nationality (e.g. "TB test results if required for your country of residence") is still fine to keep in a destination's checklist as a conditional item — the row itself just isn't keyed by home country anymore.
 
+## Scholarship archive import (`source = 'scraped_archive'`)
+
+`data-ingestion/sources/scholarships-worldwide.js` imports a subset of a static, user-supplied
+scholarship dataset (`data-ingestion/data/university-scholarships-worldwide.json`, ~880 raw
+rows) rather than this app operating a live scraper against any site — that distinction is
+what keeps this compatible with the "deliberately not used" note below, which is about this
+app crawling third-party sites itself, not about ever using data someone else already
+collected. The raw dataset's own `location` field turned out not to reliably mean
+"destination country" (some entries are tagged under all 8 of the dataset's region buckets at
+once, which only makes sense as an audience/nationality grouping), so the import only keeps a
+country tag when:
+- the title was scraped under **exactly one** location across the whole dataset (a strong
+  signal it's genuinely destination-specific, spot-checked against real institution names —
+  Brock University, CalArts, Strathclyde Business School, etc.), and
+- the title text itself doesn't name a *different* country than the assigned one, and
+- the deadline isn't already in the past (most of the raw dataset is stale 2022/2023 entries).
+
+That leaves ~292 of ~880 raw rows, each with a verifiably correct `destination_countries`
+value — the rest are dropped rather than imported with a guessed or unreliable country tag.
+`major_tags` and `eligible_nationalities` are left empty for every imported row (not guessed
+from freeform eligibility text) for the same provenance reason (see ARCHITECTURE.md §7); the
+original eligibility text is kept as `eligibility_note` instead, for the student to read
+themselves.
+
 ## Deliberately not used (MVP)
 
-- **Scraped scholarship aggregators** (Scholarships.com, IEFA, Fastweb, College Board search): most prohibit automated scraping in their ToS, and scraped structure breaks silently when the site changes, with no freshness/accuracy guarantee. Not used at any point, not just MVP.
+- **This app operating its own live scraper against scholarship aggregator sites**
+  (Scholarships.com, IEFA, Fastweb, College Board search): most prohibit automated scraping in
+  their ToS, and scraped structure breaks silently when the site changes, with no freshness/
+  accuracy guarantee. Not used at any point, not just MVP — see above for how the one-time
+  archive import differs from this.
 - **LLM-generated visa or scholarship content**: never used as a source. `visa_requirements` rows are hand-entered and require `reviewed_by` + `last_reviewed_at`; getting this wrong has real consequences for a user's application, so it does not go through any automated pipeline.
 - **"College Scorecard scraper" third-party wrappers**: unnecessary — we call the free government API directly.
 
 ## Not yet automated (manual curation for MVP)
 
-Canada, Australia, and EU school data, plus all scholarships, have no single equivalent to College Scorecard. For MVP these are hand-entered rows with `source = 'manual_curated'`, `source_url` populated per row so each can be spot-checked later. Automating these (e.g. Australia's QILT data, Canada's CBIE data) is a post-MVP candidate, tracked but not committed to in this phase — see RISK_NOTES.md.
+Canada, Australia, and EU school data have no single equivalent to College Scorecard. For MVP these are hand-entered rows with `source = 'manual_curated'`, `source_url` populated per row so each can be spot-checked later. Automating these (e.g. Australia's QILT data, Canada's CBIE data) is a post-MVP candidate, tracked but not committed to in this phase — see RISK_NOTES.md.
+
+A handful of flagship scholarships (Fulbright, Chevening, DAAD, Vanier, ...) are similarly hand-entered `manual_curated` rows; the bulk of scholarship rows are the vetted `scraped_archive` import described above, which has no `source_url` for most rows (the raw archive's `url` field was almost always `N/A`) — a real gap worth closing before treating this data as fully spot-checkable the way the manually curated rows are.

@@ -43,14 +43,17 @@ export async function analyzePersonalized(text, profile, structuralAnalysis, ret
 
   const prompt = `STAGE=personalized
 ${essayTypeContext}
-Given this student's profile and their essay's structural feedback, give specific rewrite
-suggestions tailored to what admissions committees in their intended field actually look
-for, and assess how well the essay currently engages with that field. Return ONLY valid
-JSON matching this shape:
+The structural feedback below already covers grammar, structure, clarity, clichés, and
+mechanics — do NOT repeat or rephrase any of those same issues here. This stage's only job is
+to judge how convincingly the essay's substance connects to the student's stated intended
+major and goals, something the structural pass never looks at, and to give rewrite guidance
+that only someone who knew the student's field could give. If a rewrite suggestion would make
+just as much sense for a student in a completely different major, it belongs in the structural
+pass, not this one — leave it out. Return ONLY valid JSON matching this shape:
 
 {
   "fit_score": 0-10, one decimal place (how clearly the essay's content engages with the student's stated intended major and goals — not a judgment of the major itself),
-  "rewrite_suggestions": [ { "dimension": "the rubric dimension this suggestion is about", "original": "exact quote from the essay this suggestion refers to", "suggestion": "specific rewrite guidance", "rationale": "why this matters to an admissions reader in this field" } ],
+  "rewrite_suggestions": [ { "dimension": "the aspect of major/field fit this suggestion addresses, e.g. 'field-specific evidence' or 'goal-major alignment'", "original": "exact quote from the essay this suggestion refers to", "suggestion": "specific rewrite guidance grounded in what this field's admissions readers look for", "rationale": "why this matters to an admissions reader in this specific field" } ],
   "target_school_alignment_notes": "1-3 sentences"
 }
 

@@ -6,8 +6,10 @@ import { HomePage } from './pages/HomePage.jsx';
 import { LoginPage } from './pages/LoginPage.jsx';
 import { RegisterPage } from './pages/RegisterPage.jsx';
 import { ProfilePage } from './pages/ProfilePage.jsx';
+import { AchievementsPage } from './pages/AchievementsPage.jsx';
 import { DocumentsPage } from './pages/DocumentsPage.jsx';
 import { MatchesPage } from './pages/MatchesPage.jsx';
+import { ScholarshipsPage } from './pages/ScholarshipsPage.jsx';
 import { VisaPage } from './pages/VisaPage.jsx';
 
 export function App() {
@@ -22,8 +24,10 @@ export function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+              <Route path="/achievements" element={<ProtectedRoute><AchievementsPage /></ProtectedRoute>} />
               <Route path="/documents" element={<ProtectedRoute><DocumentsPage /></ProtectedRoute>} />
               <Route path="/matches" element={<ProtectedRoute><MatchesPage /></ProtectedRoute>} />
+              <Route path="/scholarships" element={<ProtectedRoute><ScholarshipsPage /></ProtectedRoute>} />
               <Route path="/visa" element={<ProtectedRoute><VisaPage /></ProtectedRoute>} />
             </Routes>
           </main>
