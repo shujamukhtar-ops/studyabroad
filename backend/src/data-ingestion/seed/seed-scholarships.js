@@ -11,7 +11,7 @@ const SCHOLARSHIPS = [
   { externalId: 'fulbright-us', name: 'Fulbright Foreign Student Program', eligibleNationalities: [], destinationCountries: ['US'], majorTags: [], amount: 40000, deadline: '2027-05-01', sourceUrl: 'https://foreign.fulbrightonline.org' },
   { externalId: 'chevening-uk', name: 'Chevening Scholarship (UK)', eligibleNationalities: [], destinationCountries: ['UK'], majorTags: [], amount: 35000, deadline: '2026-11-02', sourceUrl: 'https://www.chevening.org' },
   { externalId: 'vanier-canada', name: 'Vanier Canada Graduate Scholarship', eligibleNationalities: [], destinationCountries: ['Canada'], majorTags: [], amount: 50000, deadline: '2026-11-03', sourceUrl: 'https://vanier.gc.ca' },
-  { externalId: 'australia-awards', name: 'Australia Awards Scholarship', eligibleNationalities: [], destinationCountries: ['Australia'], majorTags: [], amount: 30000, deadline: '2027-04-30', sourceUrl: 'https://www.australiaawards.gov.au' },
+  { externalId: 'australia-awards', name: 'Australia Awards Scholarship', eligibleNationalities: [], destinationCountries: ['Australia'], majorTags: [], amount: 30000, deadline: '2027-04-30', sourceUrl: 'https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships' },
   { externalId: 'daad-germany', name: 'DAAD Study Scholarship (Germany)', eligibleNationalities: [], destinationCountries: ['Germany'], majorTags: [], amount: 15000, deadline: '2026-10-15', sourceUrl: 'https://www.daad.de' },
   // The CSC's Commonwealth Scholarship funds Commonwealth-nationality students to study in
   // the UK specifically — the eligibility axis (nationality) and the destination axis
