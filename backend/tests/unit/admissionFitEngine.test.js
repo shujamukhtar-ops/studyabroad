@@ -171,6 +171,17 @@ describe('computeFit', () => {
     expect(fit.category).toBe('Reach');
   });
 
+  it('gives a smaller profileDistance the closer a student is to a school’s own reported averages', () => {
+    // A student whose academic index sits right at the school's own threshold is the closest
+    // possible match; one whose index is far below (Reach) or far above (Safety) is equally
+    // "far" in the other direction — profileDistance is symmetric, unlike fitScore.
+    const rightAtThreshold = computeFit({ academicIndex: 90, holisticIndex: null }, { sat_avg: 1520 });
+    const wellBelow = computeFit({ academicIndex: 60, holisticIndex: null }, { sat_avg: 1520 });
+    const wellAbove = computeFit({ academicIndex: 99, holisticIndex: null }, { sat_avg: 1520 });
+    expect(rightAtThreshold.profileDistance).toBeLessThan(wellBelow.profileDistance);
+    expect(rightAtThreshold.profileDistance).toBeLessThan(wellAbove.profileDistance);
+  });
+
   it('blends in the holistic index only when it is provided', () => {
     const academicOnly = computeFit({ academicIndex: 70, holisticIndex: null }, { world_rank: 30 });
     const withHolistic = computeFit({ academicIndex: 70, holisticIndex: 100 }, { world_rank: 30 });

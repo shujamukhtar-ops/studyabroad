@@ -153,6 +153,9 @@ CREATE TABLE match_results (
     -- Reach/Target/Safety, from ai-engine/admissionFitEngine.js — see migration
     -- 1700000009000_match-results-fit-category.js.
     fit_category    TEXT CHECK (fit_category IN ('Reach', 'Target', 'Safety')),
+    -- The order matchingService.js actually decided on (closest-profile-match first, then
+    -- tier-specific reordering) — see migration 1700000012000_match-results-rank-position.js.
+    rank_position   INTEGER,
     created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
     UNIQUE (user_id, school_id)
 );

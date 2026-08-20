@@ -43,8 +43,11 @@ describe('computeMatches', () => {
     await computeMatches(USER, { rank });
 
     expect(rank).toHaveBeenCalledTimes(1);
+    // The ranker is now given a re-sorted copy (closest-profile-match first — see
+    // matchingService.js), not the literal array findCandidateSchools returned, so this checks
+    // the same *set* of candidates made it through rather than array identity.
     const candidatesPassedToRanker = rank.mock.calls[0][0];
-    expect(candidatesPassedToRanker).toBe(FILTERED_CANDIDATES);
+    expect(candidatesPassedToRanker).toEqual(expect.arrayContaining(FILTERED_CANDIDATES));
     expect(candidatesPassedToRanker).not.toEqual(expect.arrayContaining(UNFILTERED_POOL));
     expect(candidatesPassedToRanker.length).toBe(2);
   });
@@ -68,8 +71,8 @@ describe('computeMatches', () => {
     // fitCategory is null here because the fixture profile/candidates carry no
     // GPA/test-score/selectivity data for computeFit() to work with (see the dedicated
     // admissionFitEngine tests for the scoring itself) — the point of this test is that
-    // whatever the ranker returns still flows through to persistence, plus the attached field.
-    expect(saveMatchResults).toHaveBeenCalledWith(USER.id, [{ ...ranked[0], fitCategory: null }]);
+    // whatever the ranker returns still flows through to persistence, plus the attached fields.
+    expect(saveMatchResults).toHaveBeenCalledWith(USER.id, [{ ...ranked[0], fitCategory: null, rankPosition: 1 }]);
   });
 
   it('does not include an upgradeNote for a premium user', async () => {

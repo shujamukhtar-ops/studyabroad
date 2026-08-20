@@ -36,22 +36,23 @@ export async function findCandidateSchools({ targetCountries, intendedMajor, bud
             last_synced_at, created_at
      FROM deduped
      ORDER BY
-       -- world_rank (QS World University Rankings, when the row came from that source) goes
-       -- first, ahead of major-tag match. QS doesn't tag schools by major at all (see
-       -- qs-rankings.js), so putting major-tag-match first would rank every QS-only elite
-       -- school (MIT, Princeton, ...) as "unmatched" and, since well over 50 US schools carry
-       -- most common major tags via college-scorecard.js's 2%-of-degrees rule, push them past
-       -- the LIMIT entirely — a student searching by major would never see a top school at
-       -- all. world_rank ASC NULLS LAST already sends the untagged majority of schools (no
-       -- world_rank) to the back on its own, so this doesn't need major-tag-match as a
-       -- primary key to keep those from outranking a confirmed-major school.
+       -- sat_avg (US News's own reported incoming-class average — see
+       -- data-ingestion/sources/usnews-rankings.js) leads: it's a specific school's real
+       -- profile, not an estimate, so it's the primary signal for picking which candidates
+       -- matchingService.js gets to compute a genuine profile-distance "closest match" against
+       -- (see admissionFitEngine.js's computeFit/profileDistance). world_rank (QS, the only
+       -- selectivity signal at all for non-US countries, which US News doesn't cover) is next,
+       -- not first — this used to be the primary key, which is what the old QS-rank-band
+       -- fallback logic needed; now it's a secondary signal.
+       sat_avg IS NOT NULL DESC,
        world_rank ASC NULLS LAST,
-       -- Among schools tied on world_rank (almost always both null), a school confirmed to
-       -- offer the requested major still outranks one with no major data at all.
+       -- Among schools tied on both of the above (almost always both null — a small local
+       -- college with no reported averages and no QS rank), a school confirmed to offer the
+       -- requested major still outranks one with no major data at all.
        CASE WHEN $2::text IS NOT NULL AND $2::text = ANY(major_tags) THEN 0 ELSE 1 END,
-       -- admission_rate remains the next tiebreaker for schools QS doesn't rank.
+       -- admission_rate remains the final tiebreaker for schools with none of the above.
        admission_rate DESC NULLS LAST
-     LIMIT 50`,
+     LIMIT 200`,
     [targetCountries ?? [], intendedMajor ?? null, ceiling]
   );
   return rows;

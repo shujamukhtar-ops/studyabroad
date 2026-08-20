@@ -17,6 +17,13 @@ import {
 const FREE_TIER_MATCH_LIMIT = 15;
 const HEURISTIC_MODEL_VERSION = 'heuristic-free-v1';
 
+// findCandidateSchools now returns up to 200 candidates (widened specifically so this sort has
+// a real pool of US-News-profiled schools to work with, not just whatever QS's world_rank
+// ordering happened to put first — see schoolRepository.js). Passing all 200 into an AI
+// prompt would be wasteful, so premium ranking only ever sees the closest-by-profile 50 —
+// the same size the old candidate pool always was.
+const PREMIUM_AI_CANDIDATE_LIMIT = 50;
+
 /**
  * This is the load-bearing boundary described in ARCHITECTURE.md §7: the AI engine
  * (rankCandidates) only ever sees candidates that have already been filtered from Postgres by
@@ -34,9 +41,10 @@ const HEURISTIC_MODEL_VERSION = 'heuristic-free-v1';
  *    and deterministic templated reasoning (admissionFitEngine.js explainFit) — no AI
  *    provider call is made at all, so this costs nothing per request.
  *  - Premium: the fit additionally blends in the Achievements-tab holistic score
- *    (extracurriculars/research/work experience — computeHolisticIndex), the full candidate
- *    pool, and AI-generated reasoning per school (rankCandidates) that's told the same
- *    heuristic fit read so it explains rather than contradicts it.
+ *    (extracurriculars/research/work experience — computeHolisticIndex), a wider closest-match
+ *    candidate pool (PREMIUM_AI_CANDIDATE_LIMIT), and AI-generated reasoning per school
+ *    (rankCandidates) that's told the same heuristic fit read so it explains rather than
+ *    contradicts it.
  */
 export async function computeMatches(user, { rank = rankCandidates } = {}) {
   const profile = await getProfile(user.id);
@@ -58,15 +66,28 @@ export async function computeMatches(user, { rank = rankCandidates } = {}) {
     candidateSchools.map((school) => [school.id, computeFit({ academicIndex, holisticIndex }, school)])
   );
 
+  // Closest-profile-match first (see admissionFitEngine.js's computeFit — profileDistance is
+  // how far this student's academic/holistic index sits from this specific school's own
+  // reported profile, not just "how comfortably above the bar"). Schools with no fit at all
+  // (missing GPA/test scores) sort last rather than being dropped, same as before. Both tiers
+  // build their final list from this order, so "closest matches" is the shared foundation
+  // Reach/Target/Safety balancing (free tier) and AI ranking (premium) both start from.
+  const sortedCandidates = [...candidateSchools].sort((a, b) => {
+    const distA = fitsBySchoolId[a.id]?.profileDistance ?? Infinity;
+    const distB = fitsBySchoolId[b.id]?.profileDistance ?? Infinity;
+    return distA - distB;
+  });
+
   let ranked;
   if (isPremium) {
     // The AI ranking stage owns score/reasoning; fitCategory is always the deterministic
     // heuristic read (attached here, not left to the model) so it's consistent whether or
     // not this student ever sees the free tier's version of the same number.
-    const aiRanked = await rank(candidateSchools, profile, { fitsBySchoolId, holisticProfile: profile.holistic_profile });
+    const aiCandidatePool = sortedCandidates.slice(0, PREMIUM_AI_CANDIDATE_LIMIT);
+    const aiRanked = await rank(aiCandidatePool, profile, { fitsBySchoolId, holisticProfile: profile.holistic_profile });
     ranked = aiRanked.map((r) => ({ ...r, fitCategory: fitsBySchoolId[r.schoolId]?.category ?? null }));
   } else {
-    const shortlist = selectBalancedShortlist(candidateSchools, fitsBySchoolId, FREE_TIER_MATCH_LIMIT);
+    const shortlist = selectBalancedShortlist(sortedCandidates, fitsBySchoolId, FREE_TIER_MATCH_LIMIT);
     ranked = shortlist.map((school) => {
       const fit = fitsBySchoolId[school.id];
       return {
@@ -78,6 +99,12 @@ export async function computeMatches(user, { rank = rankCandidates } = {}) {
       };
     });
   }
+
+  // rankPosition is the order this tier actually decided on (balanced-shortlist order for
+  // free, the AI's own returned order for premium) — persisted so listMatchResultsByUser can
+  // display it back verbatim instead of re-deriving an order from world_rank/score, neither of
+  // which reconstructs "closest match" correctly (see matchResultRepository.js).
+  ranked = ranked.map((r, index) => ({ ...r, rankPosition: index + 1 }));
 
   await saveMatchResults(user.id, ranked);
 

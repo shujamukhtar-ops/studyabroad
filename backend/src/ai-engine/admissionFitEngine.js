@@ -173,7 +173,15 @@ export function computeFit({ academicIndex, holisticIndex }, school) {
   else if (diff >= -8) category = 'Target';
   else category = 'Reach';
 
-  return { category, fitScore, blendedIndex: Math.round(blended), threshold, usedHolistic };
+  // How closely this student's profile actually matches this specific school's typical
+  // admitted profile — 0 means "right at the school's own average," growing in either
+  // direction (over- or under-qualified). Distinct from fitScore, which only measures "how
+  // comfortably above the bar" and so favors Safety schools by construction (see
+  // selectBalancedShortlist below) — this is what matchingService.js sorts candidates by to
+  // surface literal closest matches to a student's real profile, per school.
+  const profileDistance = Math.abs(diff);
+
+  return { category, fitScore, blendedIndex: Math.round(blended), threshold, usedHolistic, profileDistance };
 }
 
 // A raw fit-score sort systematically buries Reach and even Target schools under every

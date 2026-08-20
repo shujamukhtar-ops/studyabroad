@@ -17,16 +17,17 @@ export async function saveMatchResults(userId, matches) {
   const saved = [];
   for (const match of matches) {
     const { rows } = await query(
-      `INSERT INTO match_results (user_id, school_id, score, reasoning_text, model_version, fit_category)
-       VALUES ($1, $2, $3, $4, $5, $6)
+      `INSERT INTO match_results (user_id, school_id, score, reasoning_text, model_version, fit_category, rank_position)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)
        ON CONFLICT (user_id, school_id) DO UPDATE SET
          score = EXCLUDED.score,
          reasoning_text = EXCLUDED.reasoning_text,
          model_version = EXCLUDED.model_version,
          fit_category = EXCLUDED.fit_category,
+         rank_position = EXCLUDED.rank_position,
          created_at = now()
        RETURNING *`,
-      [userId, match.schoolId, match.score, match.reasoningText, match.modelVersion, match.fitCategory ?? null]
+      [userId, match.schoolId, match.score, match.reasoningText, match.modelVersion, match.fitCategory ?? null, match.rankPosition ?? null]
     );
     saved.push(rows[0]);
   }
@@ -34,16 +35,18 @@ export async function saveMatchResults(userId, matches) {
 }
 
 export async function listMatchResultsByUser(userId) {
-  // world_rank first, not score first: a raw fit-score sort would put every "Safety" match
-  // ahead of every "Reach"/"Target" one (see admissionFitEngine.js's selectBalancedShortlist
-  // comment for why), undoing the balanced mix the free tier deliberately selects. Sorting by
-  // prestige with score as the tiebreaker gives a browsing order that matches how a student
-  // actually wants to scan a list — most recognizable schools first — while fit_category and
-  // score (shown per-card) still carry the "how realistic is this for me" signal.
+  // rank_position is the order matchingService.js actually decided on for this student —
+  // closest-profile-match first (admissionFitEngine.js's profileDistance, computed from US
+  // News per-school SAT/GPA averages when available), then tier-specific reordering on top
+  // (balanced Reach/Target/Safety quotas for free, the AI's own ranking for premium). Neither
+  // world_rank (a QS global-prestige signal most US schools don't have) nor score (biased
+  // toward Safety schools by construction) can reconstruct that order after the fact, so it's
+  // persisted and replayed verbatim; score DESC only remains as a tiebreaker for any legacy
+  // row saved before rank_position existed.
   const { rows } = await query(
     `SELECT m.*, s.name AS school_name, s.country AS school_country, s.world_rank AS school_world_rank
      FROM match_results m JOIN schools s ON s.id = m.school_id
-     WHERE m.user_id = $1 ORDER BY s.world_rank ASC NULLS LAST, m.score DESC`,
+     WHERE m.user_id = $1 ORDER BY m.rank_position ASC NULLS LAST, m.score DESC`,
     [userId]
   );
   return rows;

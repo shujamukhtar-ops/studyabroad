@@ -147,7 +147,18 @@ selectivity), not an AI provider call. It's what the free tier's matching runs e
 `rankCandidates` call is given as grounding context. A school's selectivity threshold prefers
 its own reported incoming-class sat_avg/hs_gpa_avg (US News — see DATA_SOURCES.md) when
 available, since that's a direct comparison rather than an estimate; it falls back to a
-QS-rank-derived band, then an admission_rate-derived band, in that order.
+QS-rank-derived band, then an admission_rate-derived band, in that order (QS only covers a few
+hundred elite schools globally, US News only covers ~1,665 US ones, so most non-US schools and
+the long tail of US schools still rely on one of the band fallbacks).
+
+`computeFit`'s `profileDistance` (`|blendedIndex - threshold|`) is the actual "closest match"
+signal: `services/matchingService.js` sorts every candidate by it, closest first, before either
+tier does its own further selection (free tier's `selectBalancedShortlist`, premium's
+`rankCandidates`) — this is deliberately a different question from `fitScore`/`category`
+("how comfortably above the bar"), which favors Safety schools by construction. The resulting
+order is persisted as `match_results.rank_position` and replayed verbatim on read
+(`matchResultRepository.listMatchResultsByUser`), rather than re-derived from `world_rank`
+(a QS-only signal most US schools don't have) or `score`.
 
 All three call an `AIProvider` interface (`invoke(prompt, options)`), not a concrete SDK. `BedrockProvider` implements it for production (Bedrock/Claude call marked TODO). `MockProvider` implements it for tests/dev, returning fixture JSON. Which provider is instantiated is decided once, in `config/`, from an env var — no route or service ever imports Bedrock's SDK directly.
 
