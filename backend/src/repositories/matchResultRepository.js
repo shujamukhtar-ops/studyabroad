@@ -44,7 +44,10 @@ export async function listMatchResultsByUser(userId) {
   // persisted and replayed verbatim; score DESC only remains as a tiebreaker for any legacy
   // row saved before rank_position existed.
   const { rows } = await query(
-    `SELECT m.*, s.name AS school_name, s.country AS school_country, s.world_rank AS school_world_rank
+    `SELECT m.*, s.name AS school_name, s.country AS school_country, s.world_rank AS school_world_rank,
+            s.avg_tuition AS school_avg_tuition, s.net_price_after_aid AS school_net_price_after_aid,
+            s.pct_receiving_aid AS school_pct_receiving_aid, s.website_url AS school_website_url,
+            s.net_price_calculator_url AS school_net_price_calculator_url
      FROM match_results m JOIN schools s ON s.id = m.school_id
      WHERE m.user_id = $1 ORDER BY m.rank_position ASC NULLS LAST, m.score DESC`,
     [userId]

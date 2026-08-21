@@ -28,6 +28,22 @@ describe('mapRecordToSchool (College Scorecard field mapping)', () => {
     expect(mapped.admissionRate).toBeNull();
   });
 
+  it('normalizes a bare-domain school_url (no protocol) by prefixing https://', () => {
+    const mapped = mapRecordToSchool(fixture.results[0]);
+    expect(mapped.websiteUrl).toBe('https://www.aamu.edu/');
+    expect(mapped.netPriceCalculatorUrl).toBe('https://aamu.edu/cost-calculator/');
+  });
+
+  it('leaves an already-protocoled school_url unchanged', () => {
+    const mapped = mapRecordToSchool(fixture.results[1]);
+    expect(mapped.websiteUrl).toBe('https://www.uab.edu/');
+  });
+
+  it('maps a missing price_calculator_url to null', () => {
+    const mapped = mapRecordToSchool(fixture.results[1]);
+    expect(mapped.netPriceCalculatorUrl).toBeNull();
+  });
+
   it('derives major_tags from program_percentage fields above the threshold, in the same vocabulary manual_curated schools use', () => {
     const mapped = mapRecordToSchool(fixture.results[0]);
     // computer .0557, engineering .1164, business_marketing .1689 all clear the 2% threshold; legal is 0.

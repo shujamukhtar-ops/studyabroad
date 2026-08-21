@@ -32,6 +32,10 @@ export async function seedManualSchools() {
       admissionRate: school.admissionRate,
       medianEarnings: null,
       completionRate: null,
+      // `note` has always been each school's real official site (spot-checked when this row
+      // was curated) — now also promoted to websiteUrl so match cards can link straight to it,
+      // the same as college_scorecard's school.school_url does for US schools.
+      websiteUrl: school.note,
       rawSourceData: { note: school.note },
     });
   }

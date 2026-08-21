@@ -1,5 +1,5 @@
 import { fetchAllSchools } from '../sources/college-scorecard.js';
-import { upsertSchoolFromSource } from '../../repositories/schoolRepository.js';
+import { upsertSchoolFromSource, propagateSchoolLinks } from '../../repositories/schoolRepository.js';
 import { query } from '../../repositories/db.js';
 import { logger } from '../../logging/logger.js';
 
@@ -19,6 +19,12 @@ export async function syncSchools({ maxPages } = {}) {
     for await (const record of fetchAllSchools({ maxPages })) {
       try {
         await upsertSchoolFromSource(record);
+        // Propagates website_url/net_price_calculator_url onto any sibling row for this same
+        // institution from a different source (most commonly qs_rankings — see
+        // propagateSchoolLinks in schoolRepository.js), so a school never loses its apply/
+        // cost-calculator links just because findCandidateSchools' dedup picks that sibling
+        // row over this one.
+        await propagateSchoolLinks({ country: record.country, name: record.name, websiteUrl: record.websiteUrl, netPriceCalculatorUrl: record.netPriceCalculatorUrl, avgTuition: record.avgTuition });
         processed += 1;
       } catch (err) {
         failed += 1;

@@ -49,6 +49,12 @@ export function parseUsNewsRankings(csvText) {
       worldRank: null,
       satAvg: parseNumber(row.sat_avg),
       hsGpaAvg: parseNumber(row.hs_gpa_avg),
+      // The school's own reported average net price actually paid after aid, and the % of
+      // students who receive aid for context — promoted to top-level fields (like satAvg/
+      // hsGpaAvg above) since they feed real columns (schools.net_price_after_aid/
+      // pct_receiving_aid) rather than staying buried in the audit-only raw payload.
+      netPriceAfterAid: parseNumber(row.cost_after_aid),
+      pctReceivingAid: parseNumber(row.pct_receiving_aid),
       rawSourceData: {
         usNewsRankDisplay: row.rank_display || null,
         usNewsRankNumeric: parseNumber(row.rank_numeric),
@@ -59,8 +65,6 @@ export function parseUsNewsRankings(csvText) {
         city: row.city || null,
         actAvg: parseNumber(row.act_avg),
         enrollment: parseNumber(row.enrollment),
-        costAfterAid: parseNumber(row.cost_after_aid),
-        pctReceivingAid: parseNumber(row.pct_receiving_aid),
         engineeringRepScore: parseNumber(row.engineering_rep_score),
         businessRepScore: parseNumber(row.business_rep_score),
         profileUrl: row.profile_url || null,

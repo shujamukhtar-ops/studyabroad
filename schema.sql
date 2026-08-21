@@ -100,6 +100,10 @@ CREATE TABLE schools (
     world_rank          INTEGER,            -- QS World University Rankings position, when sourced from qs_rankings
     sat_avg             NUMERIC,            -- incoming-class average SAT (US News), used for a precise per-school selectivity threshold
     hs_gpa_avg          NUMERIC,            -- incoming-class average HS GPA (US News), same purpose as sat_avg
+    website_url              TEXT,          -- official school website (College Scorecard's school.school_url)
+    net_price_calculator_url TEXT,          -- official federal Net Price Calculator (College Scorecard's school.price_calculator_url)
+    net_price_after_aid      NUMERIC,       -- US News's reported average net price actually paid after aid
+    pct_receiving_aid        NUMERIC,       -- US News's % of students who receive aid, for context on net_price_after_aid
     raw_source_data     JSONB,              -- full source payload, for audit/debug
     last_synced_at      TIMESTAMPTZ,
     created_at          TIMESTAMPTZ NOT NULL DEFAULT now(),

@@ -24,12 +24,25 @@ const FIELDS = [
   'id',
   'school.name',
   'school.state',
+  'school.school_url',
+  'school.price_calculator_url',
   'latest.cost.tuition.out_of_state',
   'latest.admissions.admission_rate.overall',
   'latest.earnings.10_yrs_after_entry.median',
   'latest.completion.completion_rate_4yr_150nt',
   ...PROGRAM_PERCENTAGE_FIELDS,
 ].join(',');
+
+// Scorecard returns bare domains with no protocol for many schools (e.g. "www.princeton.edu/")
+// and a full https:// URL for others — normalizing here means every consumer of websiteUrl/
+// netPriceCalculatorUrl gets a link that actually opens, never a browser treating "www.x.edu"
+// as a relative path on this app's own domain.
+function normalizeUrl(raw) {
+  if (!raw) return null;
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+}
 
 const PAGE_SIZE = 100;
 
@@ -63,6 +76,8 @@ export function mapRecordToSchool(record) {
     admissionRate: record['latest.admissions.admission_rate.overall'] ?? null,
     medianEarnings: record['latest.earnings.10_yrs_after_entry.median'] ?? null,
     completionRate: record['latest.completion.completion_rate_4yr_150nt'] ?? null,
+    websiteUrl: normalizeUrl(record['school.school_url']),
+    netPriceCalculatorUrl: normalizeUrl(record['school.price_calculator_url']),
     rawSourceData: record,
   };
 }

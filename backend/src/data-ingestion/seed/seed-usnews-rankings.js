@@ -23,6 +23,8 @@ export async function seedUsNewsRankings() {
       name: school.name,
       satAvg: school.satAvg,
       hsGpaAvg: school.hsGpaAvg,
+      netPriceAfterAid: school.netPriceAfterAid,
+      pctReceivingAid: school.pctReceivingAid,
     });
     if (updatedRows > 0) {
       enriched += 1;
