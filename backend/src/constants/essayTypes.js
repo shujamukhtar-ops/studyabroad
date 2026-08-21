@@ -1,14 +1,18 @@
 // Canonical essay/rubric-type vocabulary — a document's essay_type must be one of these.
 // 'general' is this app's original single rubric (see ai-engine/sopRubric.js SOP_DIMENSIONS)
-// and stays the default for backward compatibility; the other six mirror rubrics published
+// and stays the default for backward compatibility; the other seven mirror rubrics published
 // at https://gradpilot.com/rubrics for that specific application type (fetched August 2026;
-// see sopRubric.js for the exact source URL and dimension text cited per type).
+// see sopRubric.js for the exact source URL and dimension text cited per type). Each of these
+// is tied to a specific country's actual application system, not interchangeable — see
+// constants/essayCountryGuidance.js, which the frontend uses to nudge a student toward the
+// right one for their target country instead of defaulting everyone to the Common App essay.
 export const ESSAY_TYPES = [
   { value: 'general', label: 'General statement of purpose / essay' },
-  { value: 'undergraduate', label: 'Undergraduate (Common App narrative essay)' },
+  { value: 'undergraduate', label: 'US undergraduate (Common App narrative essay)' },
   { value: 'graduate', label: "Graduate / Master's statement of purpose" },
   { value: 'phd', label: 'PhD statement of purpose' },
   { value: 'uk_undergraduate', label: 'UK undergraduate (UCAS personal statement)' },
+  { value: 'motivation_letter', label: 'Motivation letter (Netherlands, Germany, Switzerland, EU programs)' },
   { value: 'scholarship', label: 'Scholarship application essay' },
   { value: 'fellowship', label: 'Fellowship application essay' },
 ];

@@ -62,14 +62,15 @@ export const api = {
   getProfile: () => request('/profile'),
   saveProfile: (payload) => request('/profile', { method: 'POST', body: payload }),
 
-  uploadDocument: ({ rawText, file, essayType }) => {
+  uploadDocument: ({ rawText, file, essayType, commonAppPromptId }) => {
     if (file) {
       const formData = new FormData();
       formData.append('file', file);
       if (essayType) formData.append('essayType', essayType);
+      if (commonAppPromptId) formData.append('commonAppPromptId', commonAppPromptId);
       return request('/documents', { method: 'POST', body: formData, isFormData: true });
     }
-    return request('/documents', { method: 'POST', body: { rawText, essayType } });
+    return request('/documents', { method: 'POST', body: { rawText, essayType, commonAppPromptId } });
   },
   listDocuments: () => request('/documents'),
   getFeedback: (documentId) => request(`/feedback/${documentId}`),

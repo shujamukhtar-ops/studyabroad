@@ -18,6 +18,11 @@ function extractEssayType(prompt) {
   return match ? match[1] : undefined;
 }
 
+function extractCommonAppPromptId(prompt) {
+  const match = prompt.match(/COMMON_APP_PROMPT_ID=(\d+)/);
+  return match ? Number(match[1]) : null;
+}
+
 function extractField(prompt, label) {
   const match = prompt.match(new RegExp(`${label}: (.+)`));
   return match ? match[1].trim() : null;
@@ -87,7 +92,8 @@ export const MockProvider = {
     if (prompt.includes('STAGE=structural')) {
       const essay = extractEssayText(prompt);
       const essayType = extractEssayType(prompt);
-      return JSON.stringify(analyzeSopText(essay, essayType));
+      const commonAppPromptId = extractCommonAppPromptId(prompt);
+      return JSON.stringify(analyzeSopText(essay, essayType, commonAppPromptId));
     }
 
     if (prompt.includes('STAGE=personalized')) {

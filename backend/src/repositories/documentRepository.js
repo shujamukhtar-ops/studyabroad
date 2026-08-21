@@ -8,12 +8,12 @@ export async function countUserDocumentsByType(userId, type) {
   return rows[0].count;
 }
 
-export async function createDocument({ userId, type, essayType, rawText, tierAtAnalysis, originalFilename }) {
+export async function createDocument({ userId, type, essayType, commonAppPromptId, rawText, tierAtAnalysis, originalFilename }) {
   const { rows } = await query(
-    `INSERT INTO documents (user_id, type, essay_type, raw_text, tier_at_analysis, original_filename)
-     VALUES ($1, $2, $3, $4, $5, $6)
+    `INSERT INTO documents (user_id, type, essay_type, common_app_prompt_id, raw_text, tier_at_analysis, original_filename)
+     VALUES ($1, $2, $3, $4, $5, $6, $7)
      RETURNING *`,
-    [userId, type, essayType, rawText, tierAtAnalysis, originalFilename ?? null]
+    [userId, type, essayType, commonAppPromptId ?? null, rawText, tierAtAnalysis, originalFilename ?? null]
   );
   return rows[0];
 }

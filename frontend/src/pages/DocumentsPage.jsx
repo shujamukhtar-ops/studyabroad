@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { api, ApiError } from '../api/client.js';
 import { FeedbackCard } from '../components/FeedbackCard.jsx';
 import { UpgradePrompt } from '../components/UpgradePrompt.jsx';
 import { useAuth } from '../containers/AuthContext.jsx';
+import { COMMON_APP_PROMPTS } from '../constants/commonAppPrompts.js';
+import { COUNTRY_ESSAY_GUIDANCE } from '../constants/essayCountryGuidance.js';
 
 const ACCEPTED_EXTENSIONS = ['.txt', '.md', '.pdf', '.docx'];
 const MAX_UPLOAD_MB = 5;
@@ -14,10 +16,11 @@ const MAX_UPLOAD_MB = 5;
 // application type has its own named rubric, offering a vague catch-all alongside them
 // isn't a useful choice for a student to make.
 const ESSAY_TYPE_OPTIONS = [
-  { value: 'undergraduate', label: 'Undergraduate (Common App narrative essay)' },
+  { value: 'undergraduate', label: 'US undergraduate (Common App narrative essay)' },
   { value: 'graduate', label: "Graduate / Master's statement of purpose" },
   { value: 'phd', label: 'PhD statement of purpose' },
   { value: 'uk_undergraduate', label: 'UK undergraduate (UCAS personal statement)' },
+  { value: 'motivation_letter', label: 'Motivation letter (Netherlands, Germany, Switzerland, EU programs)' },
   { value: 'scholarship', label: 'Scholarship application essay' },
   { value: 'fellowship', label: 'Fellowship application essay' },
 ];
@@ -26,12 +29,29 @@ export function DocumentsPage() {
   const { tier } = useAuth();
   const [mode, setMode] = useState('paste'); // 'paste' | 'file'
   const [essayType, setEssayType] = useState('graduate');
+  const [commonAppPromptId, setCommonAppPromptId] = useState('');
   const [rawText, setRawText] = useState('');
   const [file, setFile] = useState(null);
   const [feedback, setFeedback] = useState(null);
   const [error, setError] = useState(null);
   const [limitError, setLimitError] = useState(null);
   const [submitting, setSubmitting] = useState(false);
+  const [targetCountries, setTargetCountries] = useState([]);
+
+  useEffect(() => {
+    // Best-effort — a student may not have filled in their profile yet, and this hint is a
+    // convenience, not a requirement for the upload flow below to work.
+    api.getProfile().then((data) => setTargetCountries(data.profile?.target_countries ?? [])).catch(() => {});
+  }, []);
+
+  // The Common App essay is a US-specific system, not a universal default — this only ever
+  // nudges (see the hint rendered below), it never blocks a submission, since a student may
+  // legitimately be drafting for a country other than what's currently saved on their profile.
+  const countryGuidance = useMemo(() => {
+    const matches = targetCountries.map((c) => COUNTRY_ESSAY_GUIDANCE[c]).filter(Boolean);
+    if (matches.length === 0) return null;
+    return matches.find((g) => g.essayType !== essayType) ?? null;
+  }, [targetCountries, essayType]);
 
   function handleFileChange(e) {
     const selected = e.target.files?.[0] ?? null;
@@ -44,7 +64,10 @@ export function DocumentsPage() {
     setLimitError(null);
     setSubmitting(true);
     try {
-      const payload = mode === 'file' ? { file, essayType } : { rawText, essayType };
+      const promptId = essayType === 'undergraduate' && commonAppPromptId ? Number(commonAppPromptId) : undefined;
+      const payload = mode === 'file'
+        ? { file, essayType, commonAppPromptId: promptId }
+        : { rawText, essayType, commonAppPromptId: promptId };
       const { feedback: newFeedback } = await api.uploadDocument(payload);
       setFeedback(newFeedback);
     } catch (err) {
@@ -70,12 +93,30 @@ export function DocumentsPage() {
       <form onSubmit={handleSubmit} className="panel" style={{ maxWidth: '100%' }}>
         <label>
           <span>Application type</span>
-          <select value={essayType} onChange={(e) => setEssayType(e.target.value)}>
+          <select value={essayType} onChange={(e) => { setEssayType(e.target.value); setCommonAppPromptId(''); }}>
             {ESSAY_TYPE_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>{opt.label}</option>
             ))}
           </select>
         </label>
+
+        {countryGuidance && (
+          <p className="hint">
+            Based on your profile's target countries: {countryGuidance.note}
+          </p>
+        )}
+
+        {essayType === 'undergraduate' && (
+          <label>
+            <span>Which Common App prompt are you responding to? (optional)</span>
+            <select value={commonAppPromptId} onChange={(e) => setCommonAppPromptId(e.target.value)}>
+              <option value="">Not sure / don't specify</option>
+              {COMMON_APP_PROMPTS.map((p) => (
+                <option key={p.id} value={p.id}>{`Prompt ${p.id}: ${p.text.slice(0, 80)}${p.text.length > 80 ? '…' : ''}`}</option>
+              ))}
+            </select>
+          </label>
+        )}
 
         <div className="tab-row" role="tablist" aria-label="How to provide your text">
           <button type="button" role="tab" aria-selected={mode === 'paste'} className={`tab ${mode === 'paste' ? 'active' : ''}`} onClick={() => setMode('paste')}>

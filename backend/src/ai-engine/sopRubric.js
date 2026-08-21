@@ -244,15 +244,25 @@ export const IDEAL_WORD_RANGE = { min: 500, max: 1000, hardFloor: 400, hardCeili
 // SOP rubric — dimension names, what each looks for, and even whether a forward-looking
 // closing is a strength (graduate/PhD/scholarship/fellowship) or a weakness (a Common App
 // narrative essay explicitly flags "ending with a college-focused pitch" as a mistake) differ
-// by type. The six below were fetched from GradPilot's site in August 2026 — one representative
-// rubric per category the user asked for, since each category itself lists many prompt-specific
-// variants (e.g. Common App alone has 12): the Narrative Craft rubric for undergraduate (its
-// dimensions apply to any Common App personal essay regardless of which of the 7 prompts is
-// used), the generic MS SOP for graduate, the generic PhD SOP, the UCAS Personal Statement for
-// UK undergraduate, the Chevening rubric for scholarship, and the NSF GRFP Personal Statement
-// rubric for fellowship. GradPilot's pages don't publish per-dimension point weights or score
-// bands, so each dimension below is weighted equally within its rubric, and SOP_SCORE_BANDS
-// (above) is reused as the overall 0-100 band scale for every type.
+// by type. Each also corresponds to one real country's actual undergraduate/graduate
+// application system, not an interchangeable label — see constants/essayCountryGuidance.js,
+// which documents which destination country each type applies to (and, for Canada/Australia,
+// why there isn't a single named rubric for them: neither has one standardized national essay
+// format the way the US and UK do). The seven below were fetched from GradPilot's site in
+// August 2026 — one representative rubric per category the user asked for, since each category
+// itself lists many prompt-specific variants (e.g. Common App alone has 12): the Narrative
+// Craft rubric for undergraduate (its dimensions apply to any Common App personal essay
+// regardless of which of the 7 prompts is used — see commonAppPrompts.js for the actual prompt
+// text, injected separately per-request rather than baked into this static rubric), the generic
+// MS SOP for graduate, the generic PhD SOP, the UCAS Personal Statement for UK undergraduate
+// (cross-checked against CollegeEssayGuy's UCAS guide — see the uk_undergraduate entry below for
+// what that added), the Master's Motivation Letter (UK/EU) rubric for motivation_letter (the
+// genre selective Dutch/German/Swiss programs use instead — see its own entry below for why a
+// Master's-labeled rubric is used for undergraduate motivation letters too), the Chevening
+// rubric for scholarship, and the NSF GRFP Personal Statement rubric for fellowship. GradPilot's
+// pages don't publish per-dimension point weights or score bands, so each dimension below is
+// weighted equally within its rubric, and SOP_SCORE_BANDS (above) is reused as the overall
+// 0-100 band scale for every type.
 //
 // Each dimension also carries a `signal` — which of this file's five original SOP_DIMENSIONS
 // keys (specificity / structure / originality / goal_clarity / grammar) its score is computed
@@ -267,7 +277,7 @@ export const IDEAL_WORD_RANGE = { min: 500, max: 1000, hardFloor: 400, hardCeili
 // dimension independently rather than through this signal-sharing shortcut.
 //
 // A 'mechanics' dimension is appended to every type below even though it isn't one of
-// GradPilot's own named dimensions for any of these six rubrics (they're all content/craft
+// GradPilot's own named dimensions for any of these seven rubrics (they're all content/craft
 // rubrics, not proofreading checklists) — proofreading quality is still worth surfacing for
 // any essay type, and this app already had a solid heuristic for it.
 export const ESSAY_RUBRICS = {
@@ -354,12 +364,24 @@ export const ESSAY_RUBRICS = {
   uk_undergraduate: {
     label: 'UK Undergraduate (UCAS Personal Statement)',
     sourceUrl: 'https://gradpilot.com/rubrics/ucas/ucas-personal-statement',
+    // Cross-checked against CollegeEssayGuy's UCAS guide
+    // (collegeessayguy.com/blog/ucas-personal-statement-examples, fetched August 2026), which
+    // corroborates GradPilot on the core shape (single-subject, mostly-academic, no per-
+    // university tailoring) and adds two concrete points folded in below: UCAS readers expect
+    // roughly 80-90% of the statement to be academic in nature (course-relevant coursework,
+    // reading, projects), not personality/extracurriculars — see the new commonMistakes entry
+    // and the preparation_learning_action/what_evidence_shows descriptions — and the "ABC"
+    // shape for evidence paragraphs (Activity: what you did; Benefit: what it built; Connection:
+    // how that connects to your course), now named explicitly in what_evidence_shows.
+    // (See https://www.collegeessayguy.com/blog/ucas-personal-statement-examples.)
     // UCAS's own mistake list explicitly warns against tailoring to one university (a single
     // statement goes to every UCAS choice at once) — it's not about post-course career goals.
     rewardForwardLookingClose: false,
     // GradPilot states this as a character limit (4,000 total across three answers, 350
     // minimum per answer), not a word count — this app grades one continuous text, so the
     // range below is an approximate words-equivalent conversion, not a GradPilot-stated number.
+    // CollegeEssayGuy independently cites the same 4,000-character/47-line ceiling as roughly
+    // 500 words, which is within this range.
     wordRange: { min: 550, max: 750, hardFloor: 350, hardCeiling: 800 },
     commonMistakes: [
       'Tailoring the statement to one specific university (UCAS statements go to every choice at once)',
@@ -367,13 +389,49 @@ export const ESSAY_RUBRICS = {
       'Creating lists of activities instead of demonstrating preparation',
       'Citing broad skills without supporting evidence',
       'Repeating the same examples across multiple answers',
+      'Spending too much of the statement on personality or extracurriculars unrelated to the course — UCAS readers expect roughly 80-90% academic content',
     ],
     dimensions: [
       { key: 'course_direction_subject_interest', label: 'Course Direction and Subject Interest', description: 'What question, idea, problem, text, method, observation, or future use draws the student to their chosen course.', signal: 'specificity' },
-      { key: 'preparation_learning_action', label: 'Preparation Through Learning and Action', description: 'How formal study and activity outside education serve as preparation for the selected course.', signal: 'specificity' },
-      { key: 'what_evidence_shows', label: 'What the Evidence Shows', description: 'Whether the student interprets study and experience rather than attaching skill labels to a list.', signal: 'specificity' },
+      { key: 'preparation_learning_action', label: 'Preparation Through Learning and Action', description: 'How formal study and activity outside education serve as preparation for the selected course — and whether the balance stays mostly academic (roughly 80-90%), the way UCAS readers expect, rather than centered on unrelated extracurriculars.', signal: 'specificity' },
+      { key: 'what_evidence_shows', label: 'What the Evidence Shows (Activity, Benefit, Connection)', description: "Whether each piece of evidence follows through on what it did (Activity), what it built or demonstrated (Benefit), and how that connects to the chosen course (Connection) — rather than attaching skill labels to a list.", signal: 'specificity' },
       { key: 'each_answer_does_its_job', label: 'Each Answer Does Its Job', description: 'Whether every submitted answer performs the jobs in its question without using another answer or unseen application field.', signal: 'structure' },
       { key: 'one_statement_without_repetition', label: 'One Statement Without Repetition', description: 'Contradiction, repeated evidence, and the relationship among the submitted UCAS answers.', signal: 'originality' },
+      { key: 'mechanics', label: 'Mechanics', description: 'Free of run-on sentences, repeated words, and other surface errors that read as an unproofread draft. (App-added.)', signal: 'grammar' },
+    ],
+  },
+
+  motivation_letter: {
+    label: 'Motivation Letter (Netherlands, Germany, Switzerland, EU programs)',
+    sourceUrl: 'https://gradpilot.com/rubrics/graduate/ms-sop-motivation-statement',
+    // GradPilot's own dedicated rubric page for this genre is labeled for Master's
+    // applications ("Master's Motivation Letter Rubric (UK/EU)"), but the motivation letter is
+    // the same genre — and admissions committees have the same expectations of it — at
+    // selective ("numerus fixus") Dutch bachelor's programs and selective German bachelor's
+    // programs, not just graduate ones (cross-checked against
+    // gradpilot.com/news/how-to-write-motivation-letter-dutch-universities and
+    // studying-in-germany.org's motivation-letter guide, both fetched August 2026, neither of
+    // which distinguishes bachelor's from master's on structure or what's expected). What
+    // GradPilot's own dimension names call out repeatedly — answering "the genre's own
+    // diagnostic, not a US-SOP substitute" — is exactly the point of routing Netherlands/
+    // Germany/Switzerland applicants here instead of the Common App narrative-essay rubric;
+    // see constants/essayCountryGuidance.js.
+    rewardForwardLookingClose: true,
+    wordRange: { min: 600, max: 900, hardFloor: 400, hardCeiling: 1000 },
+    commonMistakes: [
+      'Starting with extended personal origin stories rather than stating purpose early',
+      'Using generic motivation language without specificity to program or timing',
+      'Making unsupported preparation claims lacking examples and reflection',
+      'Naming programs without explaining fit beyond reputation or rankings',
+      'Repeating CV content or adding filler instead of substantive motivation and evidence',
+    ],
+    dimensions: [
+      { key: 'motivation_and_purpose_alignment', label: 'Motivation and Purpose Alignment', description: "Whether the letter answers the genre's own diagnostic — why this program, why now — rather than reading like a US-style personal narrative essay grafted on.", signal: 'goal_clarity' },
+      { key: 'academic_preparation_and_readiness', label: 'Academic Preparation and Readiness', description: 'Whether prior study or work demonstrates preparedness to complete the program, with any biographical content kept in proportion to a motivation letter (not a personal-narrative essay).', signal: 'specificity' },
+      { key: 'program_understanding_and_fit', label: 'Program Understanding and Fit', description: 'How well the applicant demonstrates knowledge of the target program (specific courses, structure, teaching style) and explains why it fits their goals — generic praise ("internationally recognised") is not evidence of fit.', signal: 'specificity' },
+      { key: 'evidence_specificity_and_credibility', label: 'Evidence, Specificity, and Credibility', description: 'Whether claims are supported by concrete evidence (projects, coursework, work experience) rather than vague inflation.', signal: 'specificity' },
+      { key: 'concision_structure_and_readability', label: 'Concision, Structure, and Readability', description: 'Whether the letter is efficiently structured (clear introduction, body, conclusion) and easy to evaluate within a concise word range.', signal: 'structure' },
+      { key: 'future_direction_and_contribution', label: 'Future Direction and Contribution', description: 'Whether the applicant presents a plausible post-degree direction and specific contribution potential.', signal: 'goal_clarity' },
       { key: 'mechanics', label: 'Mechanics', description: 'Free of run-on sentences, repeated words, and other surface errors that read as an unproofread draft. (App-added.)', signal: 'grammar' },
     ],
   },

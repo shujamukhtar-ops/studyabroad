@@ -54,3 +54,34 @@ describe('analyzeSopText', () => {
     expect(result.comments.some((c) => /word floor/.test(c.issue))).toBe(true);
   });
 });
+
+describe('analyzeSopText Common App prompt alignment (essayType=undergraduate only)', () => {
+  const CHALLENGE_ESSAY = `The engine stalled twice during the qualifying run, and I had thirty minutes to find the problem before the team's slot closed. I traced it to a corroded sensor lead I had installed myself the week before, a mistake I had to own in front of six teammates who had trusted me with that subsystem. That failure taught me to double-check my own work as carefully as I check everyone else's, a habit that has stayed with me since.`;
+
+  const OFF_TOPIC_ESSAY = `I have always loved painting landscapes on quiet Sunday mornings, mixing colors until the light on the canvas matches the light outside my window. Each piece takes me somewhere different, and I keep every finished canvas stacked against my studio wall.`;
+
+  it('does not flag prompt alignment when no commonAppPromptId is given', () => {
+    const { comments } = analyzeSopText(OFF_TOPIC_ESSAY, 'undergraduate');
+    expect(comments.some((c) => /Common App Prompt/.test(c.issue))).toBe(false);
+  });
+
+  it('does not flag an essay that contains language matching the selected prompt', () => {
+    const { comments } = analyzeSopText(CHALLENGE_ESSAY, 'undergraduate', 2); // Prompt 2: challenge/setback/failure
+    expect(comments.some((c) => /Common App Prompt/.test(c.issue))).toBe(false);
+  });
+
+  it('flags an essay with no language matching the selected prompt', () => {
+    const { comments } = analyzeSopText(OFF_TOPIC_ESSAY, 'undergraduate', 2);
+    expect(comments.some((c) => /Common App Prompt 2/.test(c.issue))).toBe(true);
+  });
+
+  it('never checks prompt alignment for a non-undergraduate essayType, even if a promptId is passed', () => {
+    const { comments } = analyzeSopText(OFF_TOPIC_ESSAY, 'graduate', 2);
+    expect(comments.some((c) => /Common App Prompt/.test(c.issue))).toBe(false);
+  });
+
+  it('does not flag prompt 7 (any topic) since it has no fixed theme to check against', () => {
+    const { comments } = analyzeSopText(OFF_TOPIC_ESSAY, 'undergraduate', 7);
+    expect(comments.some((c) => /Common App Prompt/.test(c.issue))).toBe(false);
+  });
+});

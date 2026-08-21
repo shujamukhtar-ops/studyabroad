@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { MAJOR_TAG_VALUES } from '../constants/majors.js';
 import { ESSAY_TYPE_VALUES } from '../constants/essayTypes.js';
+import { COMMON_APP_PROMPT_IDS } from '../constants/commonAppPrompts.js';
 import { COUNTRY_VALUES, DEGREE_LEVEL_VALUES } from '../constants/countries.js';
 import { TEST_TYPES_BY_KEY, TEST_TYPE_VALUES } from '../constants/testTypes.js';
 import { EXTRACURRICULAR_CATEGORY_VALUES, EXTRACURRICULAR_TIER_VALUES } from '../constants/extracurriculars.js';
@@ -94,7 +95,13 @@ export const profileSchema = z.object({
 // essayType picks which rubric (see constants/essayTypes.js / ai-engine/sopRubric.js
 // ESSAY_RUBRICS) the essay is graded against; optional and defaults to 'general' in
 // documentService so existing callers that don't send it keep the original behavior.
+// commonAppPromptId only means anything when essayType='undergraduate' (the Common App, a
+// US-specific system — see constants/commonAppPrompts.js); silently unused otherwise, same as
+// how essayType itself is ignored past validation for a caller that doesn't need it.
+// z.coerce.number() (not z.number()) because a multipart file-upload request sends this as a
+// string form field, same reason essayType above is validated as a string enum either way.
 export const documentUploadSchema = z.object({
   rawText: z.string().min(1).optional(),
   essayType: z.enum(ESSAY_TYPE_VALUES).optional(),
+  commonAppPromptId: z.coerce.number().int().refine((n) => COMMON_APP_PROMPT_IDS.includes(n)).optional(),
 });

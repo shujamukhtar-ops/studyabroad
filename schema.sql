@@ -46,10 +46,14 @@ CREATE TABLE documents (
     type                TEXT NOT NULL DEFAULT 'essay' CHECK (type = 'essay'),
     -- Which rubric this document's feedback was graded against (see ai-engine/sopRubric.js
     -- ESSAY_RUBRICS) — 'general' is the app's original single rubric and the default; the
-    -- other six mirror rubrics published at https://gradpilot.com/rubrics. See migration
-    -- 1700000005000_documents-essay-type.js.
+    -- other seven mirror rubrics published at https://gradpilot.com/rubrics. See migrations
+    -- 1700000005000_documents-essay-type.js and 1700000013000_documents-common-app-prompt.js.
     essay_type          TEXT NOT NULL DEFAULT 'general'
-                            CHECK (essay_type IN ('general', 'undergraduate', 'graduate', 'phd', 'uk_undergraduate', 'scholarship', 'fellowship')),
+                            CHECK (essay_type IN ('general', 'undergraduate', 'graduate', 'phd', 'uk_undergraduate', 'motivation_letter', 'scholarship', 'fellowship')),
+    -- Which of the 7 official Common App essay prompts (constants/commonAppPrompts.js) the
+    -- student was responding to — only meaningful when essay_type = 'undergraduate', the
+    -- Common App's own US-specific narrative essay. Null for every other essay_type.
+    common_app_prompt_id SMALLINT,
     raw_text            TEXT NOT NULL,  -- extracted text, whether pasted directly or parsed from an uploaded file
     original_filename   TEXT,           -- null unless uploaded as a file (.pdf, .docx, .txt, .md)
     uploaded_at         TIMESTAMPTZ NOT NULL DEFAULT now(),

@@ -1,5 +1,6 @@
 import { getProvider } from './provider.js';
 import { ESSAY_RUBRICS, DEFAULT_ESSAY_TYPE, SOP_SCORE_BANDS } from './sopRubric.js';
+import { commonAppPromptById } from '../constants/commonAppPrompts.js';
 
 const MODEL_VERSION = 'structural-rubric-v3';
 
@@ -22,22 +23,35 @@ function buildMistakesText(rubric) {
 // injected in tests without touching env vars.
 //
 // The rubric injected below is not arbitrary — for essayType='general' it's the one encoded
-// in sopRubric.js's SOP_DIMENSIONS; for the six application-type-specific values it's the
+// in sopRubric.js's SOP_DIMENSIONS; for the seven application-type-specific values it's the
 // matching GradPilot rubric (see ESSAY_RUBRICS in sopRubric.js for sources and the mapping to
 // heuristics/analyzeSopText.js's coarser signal-based approximation used for the mock/dev
 // provider). Keeping one real LLM provider and the deterministic mock provider aligned to the
 // same criteria means switching AI_PROVIDER changes depth and nuance, not which things get
 // graded — though a real LLM given the full rubric text here can score each named dimension
 // independently, which the mock path's signal-sharing approximation cannot.
-export async function analyzeStructural(text, essayType = DEFAULT_ESSAY_TYPE, provider = getProvider()) {
+// commonAppPromptId only applies when resolvedEssayType === 'undergraduate' (the Common App is
+// a US-specific system with 7 fixed prompts — see constants/commonAppPrompts.js and
+// constants/essayCountryGuidance.js) and is silently ignored otherwise, same as a UK/graduate/
+// PhD applicant simply never being asked which prompt they used. Injecting the actual prompt
+// text (rather than just its number) lets the model judge whether the essay genuinely responds
+// to *this* prompt specifically, not just narrative craft in the abstract — the Narrative Craft
+// rubric's dimensions (one_main_moment, what_causes_the_turn, ...) already ask the right
+// questions, this just gives the model the concrete prompt to check them against.
+export async function analyzeStructural(text, essayType = DEFAULT_ESSAY_TYPE, provider = getProvider(), commonAppPromptId = null) {
   const rubric = ESSAY_RUBRICS[essayType] ?? ESSAY_RUBRICS[DEFAULT_ESSAY_TYPE];
   const resolvedEssayType = ESSAY_RUBRICS[essayType] ? essayType : DEFAULT_ESSAY_TYPE;
   const scoreShapeText = rubric.dimensions.map((d) => `"${d.key}": 0-10`).join(', ');
 
-  const prompt = `STAGE=structural
-ESSAY_TYPE=${resolvedEssayType}
-You are grading a student's ${rubric.label}${rubric.sourceUrl ? ` against the rubric published at ${rubric.sourceUrl}` : ''}. Grade structure and mechanics — not whether the underlying achievements themselves are impressive.
+  const selectedPrompt = resolvedEssayType === 'undergraduate' ? commonAppPromptById(commonAppPromptId) : null;
+  const promptContextText = selectedPrompt
+    ? `\nThe student selected Common App Prompt ${selectedPrompt.id}: "${selectedPrompt.text}". As part of grading the dimensions above, judge whether the essay genuinely responds to this specific prompt — not just narrative craft in general.\n`
+    : '';
 
+  const prompt = `STAGE=structural
+ESSAY_TYPE=${resolvedEssayType}${selectedPrompt ? `\nCOMMON_APP_PROMPT_ID=${selectedPrompt.id}` : ''}
+You are grading a student's ${rubric.label}${rubric.sourceUrl ? ` against the rubric published at ${rubric.sourceUrl}` : ''}. Grade structure and mechanics — not whether the underlying achievements themselves are impressive.
+${promptContextText}
 Rubric dimensions (score each 0-10):
 ${buildRubricText(rubric)}
 ${buildMistakesText(rubric)}

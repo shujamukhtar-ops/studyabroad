@@ -25,7 +25,12 @@ const DOCUMENT_TYPE = 'essay';
 // exactly one of `rawText` / `file` is expected to carry real content. `essayType` picks
 // which rubric to grade against (see constants/essayTypes.js) and defaults to 'general' when
 // the caller doesn't send one, preserving the app's original single-rubric behavior.
-export async function uploadDocument(user, { rawText, essayType = DEFAULT_ESSAY_TYPE }, file) {
+// `commonAppPromptId` only matters when essayType === 'undergraduate' (see
+// constants/commonAppPrompts.js) — persisted either way so a student's past feedback can
+// still show which prompt they were responding to, and passed into analyzeStructural so the
+// real LLM provider (and the mock/dev heuristic path) can judge whether the essay actually
+// answers that specific prompt.
+export async function uploadDocument(user, { rawText, essayType = DEFAULT_ESSAY_TYPE, commonAppPromptId = null }, file) {
   if (file && file.size > MAX_UPLOAD_BYTES) {
     throw new AppError(413, 'FILE_TOO_LARGE', `File exceeds the ${MAX_UPLOAD_BYTES / (1024 * 1024)}MB upload limit.`);
   }
@@ -55,12 +60,18 @@ export async function uploadDocument(user, { rawText, essayType = DEFAULT_ESSAY_
     userId: user.id,
     type: DOCUMENT_TYPE,
     essayType,
+    commonAppPromptId,
     rawText: resolvedText,
     tierAtAnalysis: user.tier,
     originalFilename: file?.originalname ?? null,
   });
 
-  const { analysis: structuralAnalysis, modelVersion: structuralModelVersion } = await analyzeStructural(resolvedText, essayType);
+  const { analysis: structuralAnalysis, modelVersion: structuralModelVersion } = await analyzeStructural(
+    resolvedText,
+    essayType,
+    undefined,
+    commonAppPromptId
+  );
   const structuralFeedback = await createFeedback({
     documentId: document.id,
     stage: 'structural',

@@ -24,6 +24,7 @@ import {
   GENERIC_SELF_ADJECTIVES,
   FORWARD_LOOKING_PHRASES,
 } from '../sopRubric.js';
+import { commonAppPromptById, COMMON_APP_PROMPT_KEYWORDS } from '../../constants/commonAppPrompts.js';
 
 function splitSentences(text) {
   return text
@@ -229,6 +230,32 @@ function scoreGrammar(text, sentences, comments, strengths) {
   return clamp(score);
 }
 
+// Coarse "does this essay engage with the specific Common App prompt the student picked"
+// check — a keyword-overlap heuristic, not language understanding (see the file-level caveat
+// above and commonAppPrompts.js's COMMON_APP_PROMPT_KEYWORDS comment for why this is
+// deliberately approximate). Only ever called for essayType='undergraduate'; prompt 7 ("any
+// topic of your choice") has no fixed theme, so there's nothing to check it against. Pushes at
+// most a low/medium-severity comment — absence of a keyword hit is a soft "make sure this
+// engages the prompt" nudge, not proof the essay is off-topic.
+function scorePromptAlignment(text, commonAppPromptId, comments) {
+  if (!commonAppPromptId) return;
+  const prompt = commonAppPromptById(commonAppPromptId);
+  const keywords = COMMON_APP_PROMPT_KEYWORDS[commonAppPromptId];
+  if (!prompt || !keywords) return;
+
+  const lower = text.toLowerCase();
+  const hasHit = keywords.some((kw) => lower.includes(kw));
+  if (!hasHit) {
+    comments.push({
+      dimension: 'structure',
+      severity: 'medium',
+      issue: `This essay is graded against Common App Prompt ${commonAppPromptId} ("${prompt.text}") but doesn't contain ` +
+        'language typically associated with that prompt — double-check that the story you\'re telling actually ' +
+        'answers what this specific prompt asks, not just that it\'s a well-told story in general.',
+    });
+  }
+}
+
 function joinNaturally(items) {
   if (items.length === 0) return '';
   if (items.length === 1) return items[0];
@@ -236,7 +263,7 @@ function joinNaturally(items) {
   return `${items.slice(0, -1).join(', ')}, and ${items[items.length - 1]}`;
 }
 
-export function analyzeSopText(text, essayType = DEFAULT_ESSAY_TYPE) {
+export function analyzeSopText(text, essayType = DEFAULT_ESSAY_TYPE, commonAppPromptId = null) {
   const rubric = ESSAY_RUBRICS[essayType] ?? ESSAY_RUBRICS[DEFAULT_ESSAY_TYPE];
   const resolvedEssayType = ESSAY_RUBRICS[essayType] ? essayType : DEFAULT_ESSAY_TYPE;
   const wordRange = rubric.wordRange;
@@ -258,6 +285,10 @@ export function analyzeSopText(text, essayType = DEFAULT_ESSAY_TYPE) {
     goal_clarity: scoreGoalClarity(trimmed, comments, strengths, rubric.rewardForwardLookingClose),
     grammar: scoreGrammar(trimmed, sentences, comments, strengths),
   };
+
+  if (resolvedEssayType === 'undergraduate') {
+    scorePromptAlignment(trimmed, commonAppPromptId, comments);
+  }
 
   if (words < wordRange.hardFloor) {
     comments.push({
