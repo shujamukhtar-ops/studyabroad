@@ -293,6 +293,26 @@ export const ESSAY_RUBRICS = {
   undergraduate: {
     label: 'Undergraduate (Common App — Narrative Craft)',
     sourceUrl: 'https://gradpilot.com/rubrics/common-app/common-app-personal-essay-narrative-craft',
+    // Cross-checked against College Essay Guy (fetched August 2026):
+    //   - collegeessayguy.com/blog/how-to-write-a-college-essay — names two equally valid
+    //     structures: a single-arc "narrative structure" (status quo -> inciting incident ->
+    //     rising action -> moment of truth -> new status quo) and a "montage structure" (a
+    //     "thread and beads" shape: several distinct moments connected by one unifying theme
+    //     rather than one continuous scene). GradPilot's "One Main Moment" dimension names only
+    //     the narrative-structure version — broadened below so a well-executed montage essay
+    //     isn't penalized for not having a single bounded event. Also states the field's core
+    //     distinguishing principle, folded into "Details That Change the Story" below: "write
+    //     about ordinary things with extraordinary specificity, rather than extraordinary events
+    //     with ordinary reflection." And names four qualities of a strong essay — values,
+    //     vulnerability, insight, and craft — vulnerability and insight folded into "Meaning
+    //     Before the Moral" below, since GradPilot's own description of that dimension already
+    //     covers reflection quality.
+    //   - collegeessayguy.com/blog/common-app-essay-prompts — worked examples with critiques per
+    //     prompt; the recurring pattern across critiques ("a boring personal statement chooses a
+    //     common topic, makes common connections, and uses common language") is folded into
+    //     commonMistakes below, since it's a distinct failure mode from GradPilot's list (a
+    //     well-structured essay can still read as generic if its topic and connections are the
+    //     obvious ones).
     // GradPilot explicitly flags "ending with a college-focused pitch or a generic, sweeping
     // moral" as a mistake for this type — the opposite of graduate/PhD/scholarship/fellowship
     // SOPs, where stating forward-looking goals is rewarded. See scoreStructure/scoreGoalClarity
@@ -300,18 +320,20 @@ export const ESSAY_RUBRICS = {
     rewardForwardLookingClose: false,
     wordRange: { min: 250, max: 650, hardFloor: 200, hardCeiling: 750 },
     commonMistakes: [
-      'Attempting to cover your entire life instead of one bounded moment',
+      'Attempting to cover your entire life instead of one bounded moment or one clear thematic thread',
       'Skipping crucial story development by summarizing instead of showing',
       'Including irrelevant descriptive details',
       'Stating a lesson without demonstrating how it was earned',
       'Ending with a college-focused pitch or a generic, sweeping moral',
+      'Picking a topic because it sounds impressive rather than because you can describe it with real specificity — an extraordinary event with ordinary reflection reads weaker than an ordinary moment explored with extraordinary specificity',
+      'Choosing a common topic and settling for the obvious, common connections in common language, instead of finding the uncommon angle even a familiar topic can have',
     ],
     dimensions: [
-      { key: 'one_main_moment', label: 'One Main Moment', description: 'Whether the essay chooses a bounded event that can carry the whole piece.', signal: 'structure' },
+      { key: 'one_main_moment', label: 'One Main Moment (or One Thematic Thread)', description: 'Whether the essay chooses either a single bounded event that can carry the whole piece (narrative structure), or several distinct moments connected by one clear unifying theme (montage structure) — both are equally valid; the failure mode is neither, i.e. trying to cover too much ground with no throughline.', signal: 'structure' },
       { key: 'staying_inside_scene', label: 'Staying Inside the Scene', description: 'Whether the crucial part of the event unfolds through actions, choices, and observations rather than being skipped in summary.', signal: 'specificity' },
-      { key: 'details_that_change_story', label: 'Details That Change the Story', description: 'Whether concrete details do narrative work: establishing pressure, revealing a relationship, triggering a choice, or changing the meaning of a later line.', signal: 'specificity' },
+      { key: 'details_that_change_story', label: 'Details That Change the Story', description: 'Whether concrete details do narrative work: establishing pressure, revealing a relationship, triggering a choice, or changing the meaning of a later line — ordinary subject matter treated with extraordinary specificity does more work here than an impressive-sounding topic treated generically.', signal: 'specificity' },
       { key: 'what_causes_the_turn', label: 'What Causes the Turn', description: "Whether the story's change follows from what happens on the page.", signal: 'structure' },
-      { key: 'meaning_before_moral', label: 'Meaning Before the Moral', description: 'Whether meaning grows from the narrated moment before the essay names it.', signal: 'originality' },
+      { key: 'meaning_before_moral', label: 'Meaning Before the Moral', description: 'Whether meaning grows from the narrated moment before the essay names it — genuine insight usually requires some vulnerability (real doubt, limitation, or struggle acknowledged on the page), not just a triumphant lesson stated after the fact.', signal: 'originality' },
       { key: 'ending_that_belongs_here', label: 'An Ending That Belongs Here', description: 'Whether the ending grows from the main moment, completes its emotional or intellectual movement, and stops before turning into a college pitch or universal moral.', signal: 'structure' },
       { key: 'mechanics', label: 'Mechanics', description: 'Free of run-on sentences, repeated words, and other surface errors that read as an unproofread draft. (App-added — not one of GradPilot\'s named craft dimensions.)', signal: 'grammar' },
     ],
