@@ -58,3 +58,23 @@ export const COMMON_APP_PROMPT_KEYWORDS = {
   5: ['grew', 'growth', 'realized', 'realization', 'accomplishment', 'understanding', 'matured', 'changed'],
   6: ['engaging', 'curious', 'curiosity', 'fascinated', 'lose track of time', 'obsessed', 'hobby', 'passion project'],
 };
+
+// Prompt-specific craft advice, quoted from College Essay Guy's worked-example critiques
+// (collegeessayguy.com/blog/common-app-essay-prompts, fetched August 2026) rather than
+// invented — each prompt's response tends to reward a slightly different emphasis even though
+// every response is graded against the same Narrative Craft dimensions in sopRubric.js
+// (e.g. a Prompt 2 essay especially needs a strong hook and real vulnerability; a Prompt 6
+// essay can take more creative/structural risks). Injected into the real-LLM prompt in
+// analyzeStructural.js alongside the selected prompt's text, as extra grading context — not a
+// separate scored dimension, and not used by the mock/dev heuristic path (which has no way to
+// judge "does this show real craft" from pattern-matching alone). Prompt 7 (any topic) has no
+// fixed theme, so its tips are about topic choice and voice rather than content.
+export const COMMON_APP_PROMPT_TIPS = {
+  1: ['Find a thematic thread rather than listing facts about the background/identity/talent.', 'Show — don\'t just state — the values that background reveals.'],
+  2: ['Start with a strong hook that drops the reader into the moment, not a summary of it.', 'Be genuinely vulnerable about the setback rather than narrating it from a safe emotional distance.'],
+  3: ['Demonstrate craft in how the story of changing one\'s mind is told, not just that it happened.', 'Show real insight and growth — the reader should see the thinking change, not just be told it did.'],
+  4: ['Dig into specific sensory/concrete details of the moment of gratitude rather than describing it in general terms.', 'Use questions or reflection to explore why the gratitude affected you, rather than just asserting that it did.'],
+  5: ['Use structure deliberately to make the accomplishment/realization easy to follow.', 'Keep bringing the focus back to the applicant, even when describing an event, team, or other people.'],
+  6: ['This prompt tolerates more creative risk in structure or voice than the others — an unconventional format can work if the topic itself is genuinely engaging.', 'Specific, even "geeky," field-specific language reads as more authentic engagement than generic enthusiasm.'],
+  7: ['Choose a topic you\'re genuinely, personally interested in — this prompt has no built-in theme, so authenticity of interest has to carry it.', 'Humor can work well here if it\'s natural to the writer\'s voice, but forced humor reads worse than no humor at all.'],
+};

@@ -1,6 +1,6 @@
 import { getProvider } from './provider.js';
 import { ESSAY_RUBRICS, DEFAULT_ESSAY_TYPE, SOP_SCORE_BANDS } from './sopRubric.js';
-import { commonAppPromptById } from '../constants/commonAppPrompts.js';
+import { commonAppPromptById, COMMON_APP_PROMPT_TIPS } from '../constants/commonAppPrompts.js';
 
 const MODEL_VERSION = 'structural-rubric-v3';
 
@@ -38,14 +38,22 @@ function buildMistakesText(rubric) {
 // to *this* prompt specifically, not just narrative craft in the abstract — the Narrative Craft
 // rubric's dimensions (one_main_moment, what_causes_the_turn, ...) already ask the right
 // questions, this just gives the model the concrete prompt to check them against.
+// COMMON_APP_PROMPT_TIPS (also from commonAppPrompts.js, sourced from College Essay Guy's
+// per-prompt example critiques) is appended alongside the prompt text — not a scored dimension
+// of its own, just extra grading context (e.g. Prompt 2 specifically rewards a strong hook and
+// real vulnerability; Prompt 6 tolerates more structural risk than the others).
 export async function analyzeStructural(text, essayType = DEFAULT_ESSAY_TYPE, provider = getProvider(), commonAppPromptId = null) {
   const rubric = ESSAY_RUBRICS[essayType] ?? ESSAY_RUBRICS[DEFAULT_ESSAY_TYPE];
   const resolvedEssayType = ESSAY_RUBRICS[essayType] ? essayType : DEFAULT_ESSAY_TYPE;
   const scoreShapeText = rubric.dimensions.map((d) => `"${d.key}": 0-10`).join(', ');
 
   const selectedPrompt = resolvedEssayType === 'undergraduate' ? commonAppPromptById(commonAppPromptId) : null;
+  const promptTips = selectedPrompt ? COMMON_APP_PROMPT_TIPS[selectedPrompt.id] ?? [] : [];
+  const promptTipsText = promptTips.length
+    ? ` This prompt tends to reward, in particular: ${promptTips.join(' ')}`
+    : '';
   const promptContextText = selectedPrompt
-    ? `\nThe student selected Common App Prompt ${selectedPrompt.id}: "${selectedPrompt.text}". As part of grading the dimensions above, judge whether the essay genuinely responds to this specific prompt — not just narrative craft in general.\n`
+    ? `\nThe student selected Common App Prompt ${selectedPrompt.id}: "${selectedPrompt.text}". As part of grading the dimensions above, judge whether the essay genuinely responds to this specific prompt — not just narrative craft in general.${promptTipsText}\n`
     : '';
 
   const prompt = `STAGE=structural

@@ -29,10 +29,10 @@
 // human judgment or a real writing-center review — see the caveat in analyzeSopText.js.
 //
 // SOP_DIMENSIONS/SOP_SCORE_BANDS below back the 'general' entry in ESSAY_RUBRICS further
-// down this file, which also holds six application-type-specific rubrics (undergraduate,
-// graduate, PhD, UK undergraduate, scholarship, fellowship) sourced from GradPilot — see the
-// comment above ESSAY_RUBRICS for how those are structured and where they diverge from this
-// generic one.
+// down this file, which also holds seven application-type-specific rubrics (undergraduate,
+// graduate, PhD, UK undergraduate, motivation letter, scholarship, fellowship) sourced from
+// GradPilot — see the comment above ESSAY_RUBRICS for how those are structured and where they
+// diverge from this generic one.
 
 export const SOP_DIMENSIONS = [
   {
@@ -304,15 +304,35 @@ export const ESSAY_RUBRICS = {
     //     distinguishing principle, folded into "Details That Change the Story" below: "write
     //     about ordinary things with extraordinary specificity, rather than extraordinary events
     //     with ordinary reflection." And names four qualities of a strong essay — values,
-    //     vulnerability, insight, and craft — vulnerability and insight folded into "Meaning
-    //     Before the Moral" below, since GradPilot's own description of that dimension already
-    //     covers reflection quality.
+    //     vulnerability, insight, and craft.
     //   - collegeessayguy.com/blog/common-app-essay-prompts — worked examples with critiques per
     //     prompt; the recurring pattern across critiques ("a boring personal statement chooses a
     //     common topic, makes common connections, and uses common language") is folded into
     //     commonMistakes below, since it's a distinct failure mode from GradPilot's list (a
     //     well-structured essay can still read as generic if its topic and connections are the
-    //     obvious ones).
+    //     obvious ones). Per-prompt critique language is also injected as COMMON_APP_PROMPT_TIPS
+    //     (see constants/commonAppPrompts.js) when a specific prompt is selected, rather than
+    //     baked into this shared rubric.
+    //   - collegeessayguy.com/blog/how-to-start-college-essay ("9 Effective Techniques") — named,
+    //     concrete opening techniques (e.g. an image-based cold open with no explanation, a
+    //     philosophical question the essay won't fully answer, a confession of something the
+    //     writer might be judged for) folded into a new "An Opening That Earns the Rest"
+    //     dimension below — GradPilot's own six dimensions don't separately grade the opening,
+    //     but a strong first line/paragraph is exactly what CLICHE_OPENERS already checks for on
+    //     the heuristic path (see analyzeSopText.js), so this reuses that existing 'originality'
+    //     signal rather than requiring new detection logic.
+    //   - collegeessayguy.com/blog/vulnerability-personal-statement — distinguishes genuine
+    //     vulnerability from oversharing: a vulnerable essay still "reveal[s] core values,
+    //     include[s] 'so what' moments of insight, and [is] well-crafted," and names concrete
+    //     techniques (naming something you fear judgment for, sitting with an unresolved
+    //     contradiction — "drama exists when you love two things that are in opposition" —
+    //     rather than tidying it up). Folded into "Meaning Before the Moral" below, and its
+    //     specific anti-pattern (forcing a tidy "and that's how I learned..." resolution onto a
+    //     genuinely unresolved feeling) added to commonMistakes.
+    //   - collegeessayguy.com/blog/end-personal-statement ("10 Tactics & Strategies") — named
+    //     ending techniques (e.g. the bookend/callback to something established earlier, or
+    //     "the road forward" naming what comes next without turning into a college pitch) folded
+    //     into "An Ending That Belongs Here" below as illustrative (not exhaustive) options.
     // GradPilot explicitly flags "ending with a college-focused pitch or a generic, sweeping
     // moral" as a mistake for this type — the opposite of graduate/PhD/scholarship/fellowship
     // SOPs, where stating forward-looking goals is rewarded. See scoreStructure/scoreGoalClarity
@@ -327,14 +347,16 @@ export const ESSAY_RUBRICS = {
       'Ending with a college-focused pitch or a generic, sweeping moral',
       'Picking a topic because it sounds impressive rather than because you can describe it with real specificity — an extraordinary event with ordinary reflection reads weaker than an ordinary moment explored with extraordinary specificity',
       'Choosing a common topic and settling for the obvious, common connections in common language, instead of finding the uncommon angle even a familiar topic can have',
+      'Wrapping a genuinely unresolved struggle or contradiction in a tidy "and that\'s how I learned..." resolution instead of letting the real tension stand on the page',
     ],
     dimensions: [
+      { key: 'engaging_opening', label: 'An Opening That Earns the Rest', description: 'Whether the first lines use a specific, concrete technique to pull the reader in — e.g. an image-based cold open, a question the essay won\'t fully resolve, an admission of something the writer might be judged for — rather than a generic or clichéd opener.', signal: 'originality' },
       { key: 'one_main_moment', label: 'One Main Moment (or One Thematic Thread)', description: 'Whether the essay chooses either a single bounded event that can carry the whole piece (narrative structure), or several distinct moments connected by one clear unifying theme (montage structure) — both are equally valid; the failure mode is neither, i.e. trying to cover too much ground with no throughline.', signal: 'structure' },
       { key: 'staying_inside_scene', label: 'Staying Inside the Scene', description: 'Whether the crucial part of the event unfolds through actions, choices, and observations rather than being skipped in summary.', signal: 'specificity' },
       { key: 'details_that_change_story', label: 'Details That Change the Story', description: 'Whether concrete details do narrative work: establishing pressure, revealing a relationship, triggering a choice, or changing the meaning of a later line — ordinary subject matter treated with extraordinary specificity does more work here than an impressive-sounding topic treated generically.', signal: 'specificity' },
       { key: 'what_causes_the_turn', label: 'What Causes the Turn', description: "Whether the story's change follows from what happens on the page.", signal: 'structure' },
-      { key: 'meaning_before_moral', label: 'Meaning Before the Moral', description: 'Whether meaning grows from the narrated moment before the essay names it — genuine insight usually requires some vulnerability (real doubt, limitation, or struggle acknowledged on the page), not just a triumphant lesson stated after the fact.', signal: 'originality' },
-      { key: 'ending_that_belongs_here', label: 'An Ending That Belongs Here', description: 'Whether the ending grows from the main moment, completes its emotional or intellectual movement, and stops before turning into a college pitch or universal moral.', signal: 'structure' },
+      { key: 'meaning_before_moral', label: 'Meaning Before the Moral', description: 'Whether meaning grows from the narrated moment before the essay names it — genuine insight usually requires some real vulnerability (naming something the writer might be judged for, or sitting with a genuine unresolved contradiction) rather than a triumphant lesson stated after the fact, and vulnerability alone isn\'t enough either: the moment still needs to reveal a value and a "so what" of actual insight, not just raw emotion.', signal: 'originality' },
+      { key: 'ending_that_belongs_here', label: 'An Ending That Belongs Here', description: 'Whether the ending grows from the main moment and completes its emotional or intellectual movement — e.g. by calling back to a detail from earlier (a "bookend"), or naming what comes next without it becoming a college pitch — and stops before turning into a generic, sweeping moral.', signal: 'structure' },
       { key: 'mechanics', label: 'Mechanics', description: 'Free of run-on sentences, repeated words, and other surface errors that read as an unproofread draft. (App-added — not one of GradPilot\'s named craft dimensions.)', signal: 'grammar' },
     ],
   },
