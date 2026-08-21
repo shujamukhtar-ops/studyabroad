@@ -68,6 +68,29 @@ function extractAmount(awardText) {
   return Number.isFinite(value) ? value : null;
 }
 
+// This archive's `eligibility` field is a comma-separated list drawn from a fixed small
+// vocabulary ("Phd", "Bachelor", "Master", "Course", plus a handful of rows where a funding
+// *status* — "Not Funded", "Fully Funded" — leaked into this field instead of an actual
+// eligibility value). Only Bachelor/Master/Phd map onto this app's degreeLevels vocabulary
+// (profiles.degree_level: undergraduate/graduate/phd); "Course" (a non-degree short course,
+// not one of this app's three modeled degree levels) and anything else unrecognized are
+// deliberately not extracted into a tag, same as this file's existing majorTags: [] choice —
+// resulting in degreeLevels: [] (this app's "open to all" convention) rather than a guessed
+// restriction. That does mean a Course-only row still surfaces for every degree level rather
+// than none, which is the same "don't guess an exclusion the data doesn't state" tradeoff the
+// eligibleNationalities/majorTags columns already make for this archive.
+const ELIGIBILITY_TO_DEGREE_LEVEL = [
+  [/\bbachelor\b/i, 'undergraduate'],
+  [/\bmaster\b/i, 'graduate'],
+  [/\bphd\b/i, 'phd'],
+];
+
+function extractDegreeLevels(eligibilityText) {
+  const text = String(eligibilityText ?? '');
+  const levels = ELIGIBILITY_TO_DEGREE_LEVEL.filter(([pattern]) => pattern.test(text)).map(([, level]) => level);
+  return [...new Set(levels)];
+}
+
 export function parseScholarshipsWorldwide(raw) {
   const { scholarships } = JSON.parse(raw);
 
@@ -105,6 +128,7 @@ export function parseScholarshipsWorldwide(raw) {
       name: row.title,
       destinationCountries: [country],
       eligibleNationalities: [], // not reliably derivable from this archive — see module comment
+      degreeLevels: extractDegreeLevels(row.eligibility),
       majorTags: [], // ditto; eligibilityNote carries the freeform detail instead of a guessed tag
       amount: extractAmount(row.award),
       amountText: row.award === 'N/A' ? null : row.award,

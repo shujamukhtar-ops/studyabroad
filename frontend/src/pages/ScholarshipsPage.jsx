@@ -4,6 +4,10 @@ import { COUNTRIES } from '../constants/profileOptions.js';
 
 const COUNTRY_LABEL_BY_VALUE = Object.fromEntries(COUNTRIES.map((c) => [c.value, c.label]));
 
+// Mirrors profiles.degree_level's own vocabulary (see backend/src/constants — degreeLevel is
+// validated against exactly these three values), not a separate list of its own.
+const DEGREE_LEVEL_LABEL = { undergraduate: "Bachelor's", graduate: "Master's", phd: 'PhD' };
+
 // scholarships.deadline comes back as a plain 'YYYY-MM-DD' string (see backend/src/
 // repositories/db.js's DATE type-parser fix). Parsing it through the local-time Date(y, m, d)
 // constructor rather than `new Date(dateString)` avoids the classic off-by-one-day bug: an
@@ -32,6 +36,9 @@ function ScholarshipCard({ scholarship }) {
         <h4>{scholarship.name}</h4>
         {scholarship.destination_countries?.length > 0 && (
           <span className="tag">{scholarship.destination_countries.map((c) => COUNTRY_LABEL_BY_VALUE[c] ?? c).join(', ')}</span>
+        )}
+        {scholarship.degree_levels?.length > 0 && (
+          <span className="tag">{scholarship.degree_levels.map((d) => DEGREE_LEVEL_LABEL[d] ?? d).join(', ')}</span>
         )}
       </div>
       <div className="stat-row">

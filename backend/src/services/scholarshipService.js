@@ -12,6 +12,7 @@ export async function getScholarshipMatches(user) {
     nationality: fullUser.home_country,
     intendedMajor: profile.intended_major,
     targetCountries: profile.target_countries,
+    degreeLevel: profile.degree_level,
   });
 
   return { scholarships };

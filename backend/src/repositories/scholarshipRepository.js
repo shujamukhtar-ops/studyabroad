@@ -1,19 +1,20 @@
 import { query } from './db.js';
 
-export async function findCandidateScholarships({ nationality, intendedMajor, targetCountries }) {
+export async function findCandidateScholarships({ nationality, intendedMajor, targetCountries, degreeLevel }) {
   const { rows } = await query(
     `SELECT * FROM scholarships
      WHERE (cardinality(eligible_nationalities) = 0 OR $1::text = ANY(eligible_nationalities))
        AND ($2::text IS NULL OR cardinality(major_tags) = 0 OR $2::text = ANY(major_tags))
        AND ($3::text[] IS NULL OR cardinality($3::text[]) = 0 OR cardinality(destination_countries) = 0
             OR destination_countries && $3::text[])
+       AND ($4::text IS NULL OR cardinality(degree_levels) = 0 OR $4::text = ANY(degree_levels))
        AND (deadline IS NULL OR deadline >= CURRENT_DATE)
      ORDER BY
        CASE WHEN $3::text[] IS NOT NULL AND cardinality($3::text[]) > 0
               AND destination_countries && $3::text[] THEN 0 ELSE 1 END,
        amount DESC NULLS LAST
      LIMIT 100`,
-    [nationality ?? null, intendedMajor ?? null, targetCountries ?? []]
+    [nationality ?? null, intendedMajor ?? null, targetCountries ?? [], degreeLevel ?? null]
   );
   return rows;
 }
@@ -33,6 +34,7 @@ export async function upsertScholarship(record) {
     name,
     eligibleNationalities,
     destinationCountries,
+    degreeLevels,
     majorTags,
     amount,
     amountText,
@@ -45,15 +47,16 @@ export async function upsertScholarship(record) {
   if (!externalId) {
     const { rows } = await query(
       `INSERT INTO scholarships
-         (source, name, eligible_nationalities, destination_countries, major_tags, amount, amount_text,
-          eligibility_note, deadline, source_url, verified_at, verified_by)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, CASE WHEN $11::text IS NOT NULL THEN now() ELSE NULL END, $11)
+         (source, name, eligible_nationalities, destination_countries, degree_levels, major_tags, amount,
+          amount_text, eligibility_note, deadline, source_url, verified_at, verified_by)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, CASE WHEN $12::text IS NOT NULL THEN now() ELSE NULL END, $12)
        RETURNING *`,
       [
         source,
         name,
         eligibleNationalities ?? [],
         destinationCountries ?? [],
+        degreeLevels ?? [],
         majorTags ?? [],
         amount,
         amountText ?? null,
@@ -68,13 +71,14 @@ export async function upsertScholarship(record) {
 
   const { rows } = await query(
     `INSERT INTO scholarships
-       (source, external_id, name, eligible_nationalities, destination_countries, major_tags, amount,
-        amount_text, eligibility_note, deadline, source_url, verified_at, verified_by)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, CASE WHEN $12::text IS NOT NULL THEN now() ELSE NULL END, $12)
+       (source, external_id, name, eligible_nationalities, destination_countries, degree_levels, major_tags,
+        amount, amount_text, eligibility_note, deadline, source_url, verified_at, verified_by)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, CASE WHEN $13::text IS NOT NULL THEN now() ELSE NULL END, $13)
      ON CONFLICT (source, external_id) WHERE external_id IS NOT NULL DO UPDATE SET
        name = EXCLUDED.name,
        eligible_nationalities = EXCLUDED.eligible_nationalities,
        destination_countries = EXCLUDED.destination_countries,
+       degree_levels = EXCLUDED.degree_levels,
        major_tags = EXCLUDED.major_tags,
        amount = EXCLUDED.amount,
        amount_text = EXCLUDED.amount_text,
@@ -88,6 +92,7 @@ export async function upsertScholarship(record) {
       name,
       eligibleNationalities ?? [],
       destinationCountries ?? [],
+      degreeLevels ?? [],
       majorTags ?? [],
       amount,
       amountText ?? null,

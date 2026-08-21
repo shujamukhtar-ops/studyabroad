@@ -117,6 +117,7 @@ CREATE TABLE scholarships (
     name                        TEXT NOT NULL,
     eligible_nationalities      TEXT[] NOT NULL DEFAULT '{}',   -- empty = open to all (which country the applicant is FROM)
     destination_countries       TEXT[] NOT NULL DEFAULT '{}',   -- empty = open to all (which country the award funds study IN)
+    degree_levels               TEXT[] NOT NULL DEFAULT '{}' CHECK (degree_levels <@ ARRAY['undergraduate', 'graduate', 'phd']::TEXT[]),  -- empty = open to all degree levels
     major_tags                  TEXT[] NOT NULL DEFAULT '{}',
     amount                      NUMERIC,            -- best-effort numeric parse, for sorting
     amount_text                 TEXT,               -- original readable award text, e.g. "Up to $10,000"
@@ -131,6 +132,7 @@ CREATE UNIQUE INDEX idx_scholarships_source_external_id ON scholarships(source, 
 CREATE INDEX idx_scholarships_destination_countries ON scholarships USING GIN (destination_countries);
 CREATE INDEX idx_scholarships_nationalities ON scholarships USING GIN (eligible_nationalities);
 CREATE INDEX idx_scholarships_major_tags ON scholarships USING GIN (major_tags);
+CREATE INDEX idx_scholarships_degree_levels ON scholarships USING GIN (degree_levels);
 
 -- Deliberately NOT scraped or LLM-generated. Manually curated/reviewed only.
 -- One general checklist per destination, sourced from that destination's own official

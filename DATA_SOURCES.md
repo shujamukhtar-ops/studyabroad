@@ -80,6 +80,16 @@ from freeform eligibility text) for the same provenance reason (see ARCHITECTURE
 original eligibility text is kept as `eligibility_note` instead, for the student to read
 themselves.
 
+`degree_levels` is the one exception to that "leave it empty, don't parse freeform text"
+policy: the raw dataset's `eligibility` field is a comma-separated list from a small, fixed
+vocabulary (`Bachelor`, `Master`, `Phd`, `Course`, plus a handful of rows where a funding
+*status* like `Not Funded` leaked into this field instead) rather than open-ended prose, so a
+literal substring match is a direct read of the source data, not a guess. Only `Bachelor`/
+`Master`/`Phd` map onto this app's `undergraduate`/`graduate`/`phd` vocabulary; `Course` (a
+non-degree short course — not one of the three degree levels this app models) and anything
+unrecognized are left unmapped, same as any scholarship with no stated degree-level
+restriction (see `data-ingestion/sources/scholarships-worldwide.js`).
+
 ## Deliberately not used (MVP)
 
 - **This app operating its own live scraper against scholarship aggregator sites**
