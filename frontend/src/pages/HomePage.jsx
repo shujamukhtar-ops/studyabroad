@@ -23,10 +23,10 @@ export function HomePage() {
         </div>
         <div className="hero-figure">
           <span className="label">What's behind the matches</span>
-          <div className="figure-row"><span>US schools (College Scorecard)</span><span>100+</span></div>
-          <div className="figure-row"><span>Curated schools (UK / CA / AU / EU)</span><span>12</span></div>
-          <div className="figure-row"><span>Scholarships tracked</span><span>10</span></div>
-          <div className="figure-row"><span>AI role</span><span>Ranks, never invents</span></div>
+          <div className="figure-row"><span>Schools compared, across 7 countries</span><span>3,100+</span></div>
+          <div className="figure-row"><span>With verified apply & net-price-calculator links</span><span>2,300+</span></div>
+          <div className="figure-row"><span>Scholarships, filtered to your nationality & degree level</span><span>300+</span></div>
+          <div className="figure-row"><span>AI role</span><span>Ranks and explains, never invents</span></div>
         </div>
       </section>
 
